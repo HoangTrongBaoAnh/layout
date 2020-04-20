@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+<!-- fontawesome -->
+<script src="https://kit.fontawesome.com/e9a3bfa470.js" crossorigin="anonymous"></script>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    /* ----------Menu-main----------- */
+
+    @import url(https://fonts.google.com/specimen/Gotu);
+
+
+.navbar{
+    background-color: rgba(236, 84, 13, 0.801) !important;
+    
+}
+
+.navbar li a{
+    color: #fff !important;
+}
+.navbar li a:hover{
+    
+    color: black !important;
+}
+html, body{
+    height: 100%;
+    width: 100%;
+    font-size: 16px;
+    font-family: Gotu;
+
+}
+.search-box{
+    background: #2f3640;    
+    height: 60px;
+    border-radius: 60px;
+    padding: 10px;
+
+}
+ .search-btn{
+     display: flex;
+    color: #e84118;
+    float: right;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center; 
+     background-color: #2f3640;    
+     text-decoration: none !important;
+
+    
+}
+.search-box:hover > .search-btn{
+        background: white;
+}
+.search-box:hover > .search-txt{
+    width: 240px;
+}
+.search-txt{
+    border: none;
+    outline: none;
+    background:none;
+    float: left;
+    color: white;
+    padding: 0;
+    font-size: 16px;
+    line-height: 40px;
+    width: 0px;
+    transition: .5s all;
+
+}
+
+
+
+/* ----------------------------- */
+
+
+
+
+    /* ------list-card-------------- */
+    
+    .item-frames{
+        text-align: center;
+       
+        width: 222px;
+        height: 300px;
+    }
+    .check_img_errs{
+        object-fit: cover;
+
+        width: 100%;
+    }
+   .item-game-wrapper{
+    height: 277px;
+    box-shadow: 0.5px 0.5px 0.2px rgb(0,0,0,0.12);
+    transition: 0.3s;
+   }
+   .item-game-wrapper:hover{
+    box-shadow:0 1px 2px rgba(0, 0, 0, 0.24);
+   }
+   .item-info{
+       padding: 15px;
+       line-height: 30px;
+   }
+   .btn-buy{
+       margin: 15px;
+   }
+
+/* --------------menu bar------------------- */
+    .nav-menu li{
+    list-style: none;
+    }
+    a{
+    text-decoration: none;
+            
+     }
+    .menu-btn{
+    background-color: #4267B2;
+    display: block;
+    color: white;
+    text-align: center;
+    width: 226px;   
+    border-radius: 5px;
+    }
+</style>
+</head>
+<body>
+    <!----------------------- MAIN MENU--------------------->
+    <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-branch" href="#">
+                <img height="50" src="../image/tải xuống.png">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Product</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"> 
+                        Search
+                    </button> -->
+                    <div class="search-box">
+                        <input class="search-txt" type="text" name="" placeholder="Type to search">
+                        <a href="#" class="search-btn"><i class="fas fa-search"></i></a>
+                    </div>
+                    <button class="btn btn-outline-success my-2 my-sm-0 " type="submit">
+                        <a class="textcl" href="/layout-login/xxx.html">
+                            Login
+                        </a> 
+                     </button>
+                </form>
+                
+            </div>
+           
+        </div>
+    </nav>
+<!-- ------------------------------- -->
+
+
+    <div>
+        <div class="row">
+            <!-- menu bar -->
+            
+                <div class="header-menu col-md-2">
+                    <div class="menu-btn">
+                        <span>Danh mục sản phẩm</span>
+                    </div>
+                    <div class="nav-menu">
+                        <ul>
+                            <a href="#"><li>Đua xe</li></a>
+                            <a href=""><li>Chiến thuật</li></a>
+                            <a href="#"><li>Thể thao</li></a>
+                            <a href="#"><li>Adult</li></a>
+                            <a href="#"><li>Đối kháng</li></a>
+                            <a href="#"><li>Kinh dị</li></a>
+                            <a href="#"> <li>Nhập vai</li></a>
+                           <a href="#"><li>Mô phỏng</li></a>
+                            
+                        </ul>
+                    </div>
+                </div>
+            
+        <!------------------------- -->
+        
+        <!--list card ------------------->
+            <div class="container col-md-9">
+                <div class="row" >
+                    <div class="col-md-6 col-lg-3 col-sm-6 col-xs-6 item-frames ">
+                        <div class="item-game-wrapper">
+                            <a href="#">
+                                <div class="img">
+                                    <img src="https://steamcdn-a.akamaihd.net/steam/apps/271590/header.jpg" alt="" class="check_img_errs">
+                                </div>
+                            </a>
+                            <div class="item-info">
+                                <a href="#">
+                                   <div class="item-title">Grand Theft Auto V - GTA V</div>
+                                </a>
+                                <div class="item-price">
+                                    <span class="cu-p">457,000đ</span>
+                                </div>
+                                <div class="btn btn-outline-primary btn-buy">Mua hàng</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 col-sm-6 col-xs-6 item-frames ">
+                        <div class="item-game-wrapper">
+                            <a href="#">
+                                <div class="img">
+                                    <img src="https://steamcdn-a.akamaihd.net/steam/apps/271590/header.jpg" alt="" class="check_img_errs">
+                                </div>
+                            </a>
+                            <div class="item-info">
+                                <a href="#">
+                                   <div class="item-title">Grand Theft Auto V - GTA V</div>
+                                </a>
+                                <div class="item-price">
+                                    <span class="cu-p">457,000đ</span>
+                                </div>
+                                <div class="btn btn-outline-primary btn-buy">Mua hàng</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 col-sm-6 col-xs-6 item-frames ">
+                        <div class="item-game-wrapper">
+                            <a href="#">
+                                <div class="img">
+                                    <img src="https://steamcdn-a.akamaihd.net/steam/apps/271590/header.jpg" alt="" class="check_img_errs">
+                                </div>
+                            </a>
+                            <div class="item-info">
+                                <a href="#">
+                                   <div class="item-title">Grand Theft Auto V - GTA V</div>
+                                </a>
+                                <div class="item-price">
+                                    <span class="cu-p">457,000đ</span>
+                                </div>
+                                <div class="btn btn-outline-primary btn-buy">Mua hàng</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 col-sm-6 col-xs-6 item-frames ">
+                        <div class="item-game-wrapper">
+                            <a href="#">
+                                <div class="img">
+                                    <img src="https://steamcdn-a.akamaihd.net/steam/apps/271590/header.jpg" alt="" class="check_img_errs">
+                                </div>
+                            </a>
+                            <div class="item-info">
+                                <a href="#">
+                                   <div class="item-title">Grand Theft Auto V - GTA V</div>
+                                </a>
+                                <div class="item-price">
+                                    <span class="cu-p">457,000đ</span>
+                                </div>
+                                <div class="btn btn-outline-primary btn-buy">Mua hàng</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 col-sm-6 col-xs-6 item-frames ">
+                        <div class="item-game-wrapper">
+                            <a href="#">
+                                <div class="img">
+                                    <img src="https://steamcdn-a.akamaihd.net/steam/apps/271590/header.jpg" alt="" class="check_img_errs">
+                                </div>
+                            </a>
+                            <div class="item-info">
+                                <a href="#">
+                                   <div class="item-title">Grand Theft Auto V - GTA V</div>
+                                </a>
+                                <div class="item-price">
+                                    <span class="cu-p">457,000đ</span>
+                                </div>
+                                <div class="btn btn-outline-primary btn-buy">Mua hàng</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 col-sm-6 col-xs-6 item-frames ">
+                        <div class="item-game-wrapper">
+                            <a href="#">
+                                <div class="img">
+                                    <img src="https://steamcdn-a.akamaihd.net/steam/apps/271590/header.jpg" alt="" class="check_img_errs">
+                                </div>
+                            </a>
+                            <div class="item-info">
+                                <a href="#">
+                                   <div class="item-title">Grand Theft Auto V - GTA V</div>
+                                </a>
+                                <div class="item-price">
+                                    <span class="cu-p">457,000đ</span>
+                                </div>
+                                <div class="btn btn-outline-primary btn-buy">Mua hàng</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 col-sm-6 col-xs-6 item-frames ">
+                        <div class="item-game-wrapper">
+                            <a href="#">
+                                <div class="img">
+                                    <img src="https://steamcdn-a.akamaihd.net/steam/apps/271590/header.jpg" alt="" class="check_img_errs">
+                                </div>
+                            </a>
+                            <div class="item-info">
+                                <a href="#">
+                                   <div class="item-title">Grand Theft Auto V - GTA V</div>
+                                </a>
+                                <div class="item-price">
+                                    <span class="cu-p">457,000đ</span>
+                                </div>
+                                <div class="btn btn-outline-primary btn-buy">Mua hàng</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 col-sm-6 col-xs-6 item-frames ">
+                        <div class="item-game-wrapper">
+                            <a href="#">
+                                <div class="img">
+                                    <img src="https://steamcdn-a.akamaihd.net/steam/apps/271590/header.jpg" alt="" class="check_img_errs">
+                                </div>
+                            </a>
+                            <div class="item-info">
+                                <a href="#">
+                                   <div class="item-title">Grand Theft Auto V - GTA V</div>
+                                </a>
+                                <div class="item-price">
+                                    <span class="cu-p">457,000đ</span>
+                                </div>
+                                <div class="btn btn-outline-primary btn-buy">Mua hàng</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 col-sm-6 col-xs-6 item-frames ">
+                        <div class="item-game-wrapper">
+                            <a href="#">
+                                <div class="img">
+                                    <img src="https://steamcdn-a.akamaihd.net/steam/apps/271590/header.jpg" alt="" class="check_img_errs">
+                                </div>
+                            </a>
+                            <div class="item-info">
+                                <a href="#">
+                                   <div class="item-title">Grand Theft Auto V - GTA V</div>
+                                </a>
+                                <div class="item-price">
+                                    <span class="cu-p">457,000đ</span>
+                                </div>
+                                <div class="btn btn-outline-primary btn-buy">Mua hàng</div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+                
+            </div>
+        </div>
+    </div>
+  
+<script>
+    $(document).ready(function(){
+        $('.menu-btn').click(function(){
+            $('.nav-menu').slideToggle(500);
+        })
+    })
+       
+</script>
+</body>
+</html>
