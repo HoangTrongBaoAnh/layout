@@ -4,7 +4,7 @@ body{
     font-family: sans-serif;
 }
 .box{
-    width: 400px;
+    width: 375px;
     padding: 40px;
     position: absolute;
     top: 50%;
@@ -19,7 +19,7 @@ body{
     text-transform: uppercase;
     font-weight: 500;
 }
-.box input[type="text"],.box input[type="password"]{
+.box input[type="text"],.box input[type="password"],.box input[type="tell"]{
     border: 0;
     background: none;
     display: block;
@@ -34,7 +34,7 @@ body{
     transition: 0.25s;
 }
 
-.box input[type="text"]:focus,.box input[type="password"]:focus{
+.box input[type="text"]:focus,.box input[type="password"]:focus,.box input[type="tell"]:focus{
     width: 280px;
     border-radius: 24px;
     border-color: violet;
