@@ -19,24 +19,24 @@ Vinh
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
         <script src="https://kit.fontawesome.com/e9a3bfa470.js" crossorigin="anonymous"></script>
-
+        <script src="jquery/Text-Scrolling-Plugin-for-jQuery-Marquee/jquery.marquee.js"></script>
         <link href="./style.css" rel="stylesheet">
         <style>
            
             
         </style>
-        <!-- <script>
-            (function($){
+        <script>
+            $(function(){
                 $('.news-ticker').marquee({
-                duration: 10000,
-                //gap in pixels between the tickers
-                //gap: 200,
-                delayBeforeStart: 0,
-                direction: 'left',
-                duplicated: true
-                });
-            })(jQuery);
-        </script> -->
+                    duration: 10000,
+                    //gap in pixels between the tickers
+                    //gap: 200,
+                    delayBeforeStart: 0,
+                    direction: 'left',
+                    duplicated: true
+                });   
+            });
+        </script> 
     </head>
     <body>
         <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
@@ -82,16 +82,16 @@ Vinh
                
             </div>
         </nav>
-        <!-- <div class="latest-news-section">
+        <div class="latest-news-section">
             <div class="ln-title">Latest News</div>
             <div class="news-ticker">
                 <div class="news-ticker-contant">
-                    <div class="nt-item"><span class="new">new</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </div>
-                    <div class="nt-item"><span class="strategy">strategy</span>Isum dolor sit amet, consectetur adipiscing elit. </div>
-                    <div class="nt-item"><span class="racing">racing</span>Isum dolor sit amet, consectetur adipiscing elit. </div>
+                    <div class="nt-item"><span class="new">new</span>Xấu quá </div>
+                    <div class="nt-item"><span class="strategy">strategy</span>sửa giùm đi </div>
+                    <div class="nt-item"><span class="racing">racing</span>hay bỏ ta</div>
                 </div>
             </div>
-        </div> -->
+        </div>
         <div  id="slides" class="container carousel slide" data-ride="carousel">
             <ul class="carousel-indicators">
                 <li data-target="#slides" data-slide-to="0" class="active"></li>
@@ -101,7 +101,7 @@ Vinh
             </ul>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="/image/slider-1.jpg">
+                    <img src="../image/slider-1.jpg">
                    
                     <div class="slide-text">
                         <h3>OVERWATCH</h3>
