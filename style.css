@@ -188,3 +188,60 @@ html, body{
     transition: .5s all;
 
 }
+
+/* Lasted new */
+.latest-news-section {
+	overflow: hidden;
+	display: block;
+	clear: both;
+	background: #131313;
+	padding: 24px 0;
+	position: relative;
+}
+
+.ln-title {
+	position: absolute;
+	height: 100%;
+	width: 29%;
+	left: 0;
+	top: 0;
+	text-align: right;
+	padding-top: 24px;
+	padding-right: 66px;
+	font-size: 18px;
+	font-weight: 500;
+	color: #fff;
+	background: #ffb320;
+	z-index: 1;
+}
+.news-ticker {
+	width: 71%;
+	float: right;
+	overflow: hidden;
+	display: inline-block;
+}
+.news-ticker-contant .nt-item {
+	margin-right: 35px;
+	color: #fff;
+	display: inline-block;
+}
+.news-ticker-contant .nt-item span {
+	margin-right: 35px;
+	display: inline-block;
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: 500;
+	color: #fff;
+	padding: 4px 20px;
+}
+.news-ticker-contant .nt-item span.new {
+	background: #ff205f;
+}
+
+.news-ticker-contant .nt-item span.strategy {
+	background: #4eae60;
+}
+
+.news-ticker-contant .nt-item span.racing {
+	background: #694eae;
+}
