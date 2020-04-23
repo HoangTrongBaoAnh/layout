@@ -4,10 +4,15 @@
     padding: 0;
     margin: 0;
 }
-
+body{
+    font-family: sans-serif;
+}
 .navbar{
-    background-color: rgba(236, 84, 13, 0.801) !important;
+    background-color: #8c7ae6!important;
     
+}
+body{
+    background-color: white;  
 }
 .btn{
     
@@ -244,4 +249,12 @@ html, body{
 
 .news-ticker-contant .nt-item span.racing {
 	background: #694eae;
+}
+
+
+
+/* ---------------POST---------------------------------- */
+.post1{
+    display: block;
+    
 }
