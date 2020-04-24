@@ -5,7 +5,7 @@ Vinh
 -đưa đống css trong style qua style.css và ở dòng 89 trong này thêm .slide-text, điều chỉnh top trong carousel-inner img thành 500px -->
 
 
-
+<!-- TÔI XIN MỌI NGƯỜI NẾU CÓ THỂ LÀM ƠN CHÚ THÍCH RIÊNG RA TỪNG PHẦN -->
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,10 +21,9 @@ Vinh
         <script src="https://kit.fontawesome.com/e9a3bfa470.js" crossorigin="anonymous"></script>
         <script src="jquery/Text-Scrolling-Plugin-for-jQuery-Marquee/jquery.marquee.js"></script>
         <link href="./style.css" rel="stylesheet">
-        <style>
-           
-            
-        </style>
+        
+
+        
         <script>
             $(function(){
                 $('.news-ticker').marquee({
@@ -39,6 +38,8 @@ Vinh
         </script> 
     </head>
     <body>
+        <header>
+            <!--------------------------- NAVIGATIONBAR ------------------------------->
         <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
             <div class="container-fluid">
                 <a class="navbar-branch" href="#">
@@ -62,6 +63,8 @@ Vinh
                             <a class="nav-link" href="#">About</a>
                         </li>
                     </ul>
+                    <!-- --------------------------------------------------------------- -->
+                    <!------------------------ SEARCH BOX----------------------------- -->
                     <form class="form-inline my-2 my-lg-0">
                         <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit"> 
@@ -77,11 +80,14 @@ Vinh
                             </a> 
                          </button>
                     </form>
-                    
+                    <!--------------------------------------------------------------------------- -->
                 </div>
                
             </div>
         </nav>
+        <!--------------------------------------------------- -->
+
+        <!-----------------latest-news-section-------------------------------- -->
         <div class="latest-news-section">
             <div class="ln-title">Latest News</div>
             <div class="news-ticker">
@@ -92,6 +98,10 @@ Vinh
                 </div>
             </div>
         </div>
+        <!----------------------------------------------------------- -->
+        </header>
+        
+        <!------------ CAROUSEL INDICATORS----------------------------- -->
         <div  id="slides" class="container carousel slide" data-ride="carousel">
             <ul class="carousel-indicators">
                 <li data-target="#slides" data-slide-to="0" class="active"></li>
@@ -141,6 +151,7 @@ Vinh
                 </div>
             </div>
         </div>
+        <!-------------------------- -->
         <div class="container-fluid">
             <div class="jumbotrom">
                 <div>

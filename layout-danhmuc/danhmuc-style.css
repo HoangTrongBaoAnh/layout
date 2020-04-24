@@ -1,0 +1,180 @@
+
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    /* ----------Menu-main----------- */
+
+    @import url(https://fonts.google.com/specimen/Gotu);
+
+
+.navbar{
+    background-color: #8c7ae6 !important;
+    
+}
+
+.navbar li a{
+    color: #fff !important;
+}
+.navbar li a:hover{
+    
+    color: black !important;
+}
+html, body{
+    height: 100%;
+    width: 100%;
+    font-size: 16px;
+    font-family: Gotu;
+
+}
+.search-box{
+    background: #2f3640;    
+    height: 60px;
+    border-radius: 60px;
+    padding: 10px;
+
+}
+ .search-btn{
+     display: flex;
+    color: #8c7ae6;
+    float: right;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center; 
+     background-color: #2f3640;    
+     text-decoration: none !important;
+
+    
+}
+.search-box:hover > .search-btn{
+        background: white;
+}
+.search-box:hover > .search-txt{
+    width: 240px;
+}
+.search-txt{
+    border: none;
+    outline: none;
+    background:none;
+    float: left;
+    color: white;
+    padding: 0;
+    font-size: 16px;
+    line-height: 40px;
+    width: 0px;
+    transition: .5s all;
+
+}
+
+
+
+/* ----------------------------- */
+
+
+
+
+    /* ------list-card-------------- */
+    
+    .item-frames{
+        text-align: center;
+       
+        width: 222px;
+        height: 300px;
+    }
+    .check_img_errs{
+        object-fit: cover;
+
+        width: 100%;
+    }
+   .item-game-wrapper{
+    height: 277px;
+    box-shadow: 0.5px 0.5px 0.2px rgb(0,0,0,0.12);
+    transition: 0.3s;
+   }
+   .item-game-wrapper:hover{
+    box-shadow:0 1px 2px rgba(0, 0, 0, 0.24);
+   }
+   .item-info{
+       padding: 15px;
+       line-height: 30px;
+   }
+   .btn-buy{
+       margin: 15px;
+   }
+
+/* --------------menu bar------------------- */
+    .nav-menu li{
+    list-style: none;
+    }
+    a{
+    text-decoration: none;
+            
+     }
+    .menu-btn{
+    background-color: #4267B2;
+    display: block;
+    color: white;
+    text-align: center;
+    width: 226px;   
+    border-radius: 5px;
+    }
+
+    /* --------------------Lasted new---------- */
+.latest-news-section {
+	overflow: hidden;
+	display: block;
+	clear: both;
+	background: #131313;
+	padding: 24px 0;
+	position: relative;
+}
+
+.ln-title {
+	position: absolute;
+	height: 100%;
+	width: 29%;
+	left: 0;
+	top: 0;
+	text-align: right;
+	padding-top: 24px;
+	padding-right: 66px;
+	font-size: 18px;
+	font-weight: 500;
+	color: #fff;
+	background: #ffb320;
+	z-index: 1;
+}
+.news-ticker {
+	width: 71%;
+	float: right;
+	overflow: hidden;
+	display: inline-block;
+}
+.news-ticker-contant .nt-item {
+	margin-right: 35px;
+	color: #fff;
+	display: inline-block;
+}
+.news-ticker-contant .nt-item span {
+	margin-right: 35px;
+	display: inline-block;
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: 500;
+	color: #fff;
+	padding: 4px 20px;
+}
+.news-ticker-contant .nt-item span.new {
+	background: #ff205f;
+}
+
+.news-ticker-contant .nt-item span.strategy {
+	background: #4eae60;
+}
+
+.news-ticker-contant .nt-item span.racing {
+	background: #694eae;
+}
+

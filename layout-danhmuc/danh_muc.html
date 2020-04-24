@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <title>Document</title>
+
+    
     <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
@@ -19,130 +21,25 @@
 
 <!-- fontawesome -->
 <script src="https://kit.fontawesome.com/e9a3bfa470.js" crossorigin="anonymous"></script>
-<style>
-    *{
-        margin: 0;
-        padding: 0;
-    }
-    /* ----------Menu-main----------- */
+<!-- jqery.marquee.jss---->
+<script src="/jquery/Text-Scrolling-Plugin-for-jQuery-Marquee/jquery.marquee.js"></script>
 
-    @import url(https://fonts.google.com/specimen/Gotu);
-
-
-.navbar{
-    background-color: rgba(236, 84, 13, 0.801) !important;
-    
-}
-
-.navbar li a{
-    color: #fff !important;
-}
-.navbar li a:hover{
-    
-    color: black !important;
-}
-html, body{
-    height: 100%;
-    width: 100%;
-    font-size: 16px;
-    font-family: Gotu;
-
-}
-.search-box{
-    background: #2f3640;    
-    height: 60px;
-    border-radius: 60px;
-    padding: 10px;
-
-}
- .search-btn{
-     display: flex;
-    color: #e84118;
-    float: right;
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-    align-items: center;
-    justify-content: center; 
-     background-color: #2f3640;    
-     text-decoration: none !important;
-
-    
-}
-.search-box:hover > .search-btn{
-        background: white;
-}
-.search-box:hover > .search-txt{
-    width: 240px;
-}
-.search-txt{
-    border: none;
-    outline: none;
-    background:none;
-    float: left;
-    color: white;
-    padding: 0;
-    font-size: 16px;
-    line-height: 40px;
-    width: 0px;
-    transition: .5s all;
-
-}
-
-
-
-/* ----------------------------- */
-
-
-
-
-    /* ------list-card-------------- */
-    
-    .item-frames{
-        text-align: center;
-       
-        width: 222px;
-        height: 300px;
-    }
-    .check_img_errs{
-        object-fit: cover;
-
-        width: 100%;
-    }
-   .item-game-wrapper{
-    height: 277px;
-    box-shadow: 0.5px 0.5px 0.2px rgb(0,0,0,0.12);
-    transition: 0.3s;
-   }
-   .item-game-wrapper:hover{
-    box-shadow:0 1px 2px rgba(0, 0, 0, 0.24);
-   }
-   .item-info{
-       padding: 15px;
-       line-height: 30px;
-   }
-   .btn-buy{
-       margin: 15px;
-   }
-
-/* --------------menu bar------------------- */
-    .nav-menu li{
-    list-style: none;
-    }
-    a{
-    text-decoration: none;
-            
-     }
-    .menu-btn{
-    background-color: #4267B2;
-    display: block;
-    color: white;
-    text-align: center;
-    width: 226px;   
-    border-radius: 5px;
-    }
-</style>
+<link rel="stylesheet" href="./danhmuc-style.css">
+<link rel="stylesheet" href="./danhmuc-javascripts.js">
 </head>
+<script>
+    $(document).ready(function(){
+        $('.news-ticker').marquee({
+            duration: 10000,
+            //gap in pixels between the tickers
+            //gap: 200,
+            delayBeforeStart: 0,
+            direction: 'left',
+            duplicated: true
+        });   
+    
+})
+</script>
 <body>
     <!----------------------- MAIN MENU--------------------->
     <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
@@ -188,8 +85,26 @@ html, body{
            
         </div>
     </nav>
+     <!-----------------latest-news-section-------------------------------- -->
+     <div class="latest-news-section">
+        <div class="ln-title">Latest News</div>
+        <div class="news-ticker">
+            <div class="news-ticker-contant">
+                <div class="nt-item"><span class="new">new</span>Xấu quá </div>
+                <div class="nt-item"><span class="strategy">strategy</span>sửa giùm đi </div>
+                <div class="nt-item"><span class="racing">racing</span>hay bỏ ta</div>
+            </div>
+        </div>
+    </div>
+    <!----------------------------------------------------------- -->
 <!-- ------------------------------- -->
 
+
+<div>
+
+
+    
+</div>
 
     <div>
         <div class="row">
@@ -216,6 +131,8 @@ html, body{
             
         <!------------------------- -->
         
+    
+
         <!--list card ------------------->
             <div class="container col-md-9">
                 <div class="row" >
@@ -388,13 +305,6 @@ html, body{
         </div>
     </div>
   
-<script>
-    $(document).ready(function(){
-        $('.menu-btn').click(function(){
-            $('.nav-menu').slideToggle(500);
-        })
-    })
-       
-</script>
+
 </body>
 </html>
