@@ -24,7 +24,7 @@ html, body{
     height: 100%;
     width: 100%;
     font-size: 16px;
-    font-family: Gotu;
+    font-family: Gotu,sans-serif;
 
 }
 .search-box{
@@ -104,22 +104,43 @@ html, body{
        margin: 15px;
    }
 
-/* --------------menu bar------------------- */
-    .nav-menu li{
-    list-style: none;
+/* --------------menu fliter------------------- */
+
+   
+    .header-menu{
+        
+        border: 1px solid rgb(0,0,0,0.12);
+        padding: 0px;
+       width: 200px;
+       
+       
+       
     }
-    a{
-    text-decoration: none;
-            
-     }
-    .menu-btn{
-    background-color: #4267B2;
-    display: block;
-    color: white;
-    text-align: center;
-    width: 226px;   
-    border-radius: 5px;
+    .menu-nhom>a{
+        background-color: #131313;
+        text-decoration: none;
+        display: block;
+        text-align: center;
+        color:  #f4f4f477;
+        padding-top: 10px;
+        padding-bottom: 10px;
+
     }
+    .menu-demuc{
+        font-weight: bold;
+        color: #f4f4f4;
+        padding: 5px ;
+        text-align: center;
+        background-color: rgb(31, 50, 223);
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+    .menu-nhom>a:hover{
+        color: #f4f4f4;
+        background-color: #131313e5;
+    }
+  
+
 
     /* --------------------Lasted new---------- */
 .latest-news-section {

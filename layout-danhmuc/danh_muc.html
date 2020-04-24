@@ -25,21 +25,9 @@
 <script src="/jquery/Text-Scrolling-Plugin-for-jQuery-Marquee/jquery.marquee.js"></script>
 
 <link rel="stylesheet" href="./danhmuc-style.css">
-<link rel="stylesheet" href="./danhmuc-javascripts.js">
+<script src="/layout-danhmuc/danhmuc-javascripts.js"></script>
 </head>
-<script>
-    $(document).ready(function(){
-        $('.news-ticker').marquee({
-            duration: 10000,
-            //gap in pixels between the tickers
-            //gap: 200,
-            delayBeforeStart: 0,
-            direction: 'left',
-            duplicated: true
-        });   
-    
-})
-</script>
+
 <body>
     <!----------------------- MAIN MENU--------------------->
     <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
@@ -108,24 +96,28 @@
 
     <div>
         <div class="row">
-            <!-- menu bar -->
+            <!-- menu flit-->
             
-                <div class="header-menu col-md-2">
-                    <div class="menu-btn">
-                        <span>Danh mục sản phẩm</span>
+                <div class="header-menu">
+                    
+                    
+                    <div class="menu-demuc">Category</div>
+                    <div class="menu-nhom ">
+                        <a href="#">Đua xe</a>
+                        <a href="#">Chiến thuật</a>
+                        <a href="#">Thể thao</a>
+                        <a href="#">Thám hiểm</a>
+                        <a href="#">Trưởng thành</a>
+                        <a href="#">Hành động</a>
+                        <a href="#">Giải đố</a>
+                        <a href="#">Nhập vai</a>
                     </div>
-                    <div class="nav-menu">
-                        <ul>
-                            <a href="#"><li>Đua xe</li></a>
-                            <a href=""><li>Chiến thuật</li></a>
-                            <a href="#"><li>Thể thao</li></a>
-                            <a href="#"><li>Adult</li></a>
-                            <a href="#"><li>Đối kháng</li></a>
-                            <a href="#"><li>Kinh dị</li></a>
-                            <a href="#"> <li>Nhập vai</li></a>
-                           <a href="#"><li>Mô phỏng</li></a>
-                            
-                        </ul>
+                    <div class="menu-demuc">Feature</div>
+                    <div class="menu-nhom ">
+                        <a href="#">Solo</a>
+                        <a href="#">Multiplay</a>
+                        <a href="#">Window</a>
+                        <a href="#">OSX</a>
                     </div>
                 </div>
             
@@ -134,7 +126,7 @@
     
 
         <!--list card ------------------->
-            <div class="container col-md-9">
+            <div class="container col-md-10">
                 <div class="row" >
                     <div class="col-md-6 col-lg-3 col-sm-6 col-xs-6 item-frames ">
                         <div class="item-game-wrapper">
