@@ -5,7 +5,30 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/additional-methods.js"></script>
+    <script>
+        $(function(){
+            $("#sign_up").validate({
+                rules: {
+                    acc1: {required: true},
+                    pass1: {required:true},
+                    dc1: {email:true, required:true},
+                    pass2: {equalTo: "[name='pass1']"},
+                    sdt1: {number:true, range:[10,13]}
+                },
+                messages:{
+                    acc1: {required: "Bạn chưa nhập"},
+                    pass1: {required: "Ban chưa nhập"},
+
+                }
+            });
+        });
+    </script>
     <style>
+        label.error{
+            color: green;
+        }
         .box div{
             display: inline;
             color: white;
@@ -17,7 +40,7 @@
 </head>
 <body>
     <img src="985672.jpg" width="100%" height="100%">
-    <form method="POST" action="#" class="box">
+    <form method="POST" action="#" class="box" id="sign_up">
         <h1>Sign Up</h1>
         <input placeholder="Tên Đăng Nhập" type="text" name="acc1">
         <input placeholder="Mật Khẩu" type="password" name="pass1">
@@ -28,7 +51,7 @@
         <div>
             Bạn đồng ý với <a href="dieukhoan.html">điều khoản</a> của chúng tôi
         </div>
-        <input type="button" value="Sign Up">
+        <input type="submit" value="Sign Up">
     </form>
 
 </body>
