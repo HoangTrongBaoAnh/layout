@@ -24,8 +24,11 @@
             .navbar li a{
                 color: #fff !important;
             }
+            .navbar li a.active{
+                border-bottom: 1px solid violet !important;
+            }
             .navbar li a:hover{
-                
+                border-bottom: 1px solid violet ;
                 color: black !important;
             }
             html, body{
@@ -81,7 +84,7 @@
     <body>
         <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
             <div class="container-fluid">
-                <a class="navbar-branch" href="#">
+                <a class="navbar-branch" href="./layout2.html">
                     <img height="50" src="../image/tải xuống.png">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
@@ -90,10 +93,10 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="/layout2.html">Home</a>
+                            <a class="nav-link active" href="/layout2.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Product</a>
+                            <a class="nav-link" href="/layout-danhmuc/danh_muc.html">Product</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>

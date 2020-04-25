@@ -5,7 +5,7 @@
     margin: 0;
 }
 body{
-    font-family: sans-serif;
+    font-family: sans-serif !important;
 }
 .navbar{
     background-color: #8c7ae6!important;
@@ -193,7 +193,6 @@ html, body{
     transition: .5s all;
 
 }
-
 
 /* Lasted new */
 .latest-news-section {
