@@ -21,7 +21,7 @@ Vinh
         <script src="https://kit.fontawesome.com/e9a3bfa470.js" crossorigin="anonymous"></script>
         <script src="jquery/Text-Scrolling-Plugin-for-jQuery-Marquee/jquery.marquee.js"></script>
         <link href="./style.css" rel="stylesheet">
-        
+        <script src="./layout-danhmuc/nav.html"></script>
 
         
         <script>
@@ -33,57 +33,17 @@ Vinh
                     delayBeforeStart: 0,
                     direction: 'left',
                     duplicated: true
-                });   
+                });
+                $("#nav-holder").load("nav.html");  
             });
+            
         </script> 
     </head>
     <body>
         <header>
             <!--------------------------- NAVIGATIONBAR ------------------------------->
-        <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
-            <div class="container-fluid">
-                <a class="navbar-branch" href="#">
-                    <img height="50" src="./image/tải xuống.png">
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./layout-danhmuc/danh_muc.html">Product</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
-                        </li>
-                    </ul>
-                    <!-- --------------------------------------------------------------- -->
-                    <!------------------------ SEARCH BOX----------------------------- -->
-                    <form class="form-inline my-2 my-lg-0">
-                        <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"> 
-                            Search
-                        </button> -->
-                        <div class="search-box">
-                            <input class="search-txt" type="text" name="" placeholder="Type to search">
-                            <a href="#" class="search-btn"><i class="fas fa-search"></i></a>
-                        </div>
-                        <button class="btn btn-outline-success my-2 my-sm-0 " type="submit">
-                            <a class="textcl" href="./layout-login/xxx.html">
-                                Login
-                            </a> 
-                         </button>
-                    </form>
-                    <!--------------------------------------------------------------------------- -->
-                </div>
-               
-            </div>
+        <nav id="nav-holder">
+            
         </nav>
         <!--------------------------------------------------- -->
 
