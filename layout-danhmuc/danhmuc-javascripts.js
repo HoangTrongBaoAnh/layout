@@ -8,4 +8,5 @@ $(document).ready(function(){
     $('.menu-demuc').click(function(){
         $(this).next().slideToggle(500);
     })
+    $("#nav-holder").load("/blocks/nav/nav.html");
 })

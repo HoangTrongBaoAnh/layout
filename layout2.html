@@ -1,8 +1,3 @@
-<!-- ngày 13/4 
-Vinh 
--thêm vào cái thẻ div class="slide-text" cái có mày xám với dòng chữ bên trái ấy
--chỉnh dòng 82 class="container-fluid thành container"
--đưa đống css trong style qua style.css và ở dòng 89 trong này thêm .slide-text, điều chỉnh top trong carousel-inner img thành 500px -->
 
 
 <!-- TÔI XIN MỌI NGƯỜI NẾU CÓ THỂ LÀM ƠN CHÚ THÍCH RIÊNG RA TỪNG PHẦN -->
@@ -21,20 +16,18 @@ Vinh
         <script src="https://kit.fontawesome.com/e9a3bfa470.js" crossorigin="anonymous"></script>
         <script src="jquery/Text-Scrolling-Plugin-for-jQuery-Marquee/jquery.marquee.js"></script>
         <link href="./style.css" rel="stylesheet">
-        <script src="./layout-danhmuc/nav.html"></script>
+        <script src="/layout-danhmuc/nav.html"></script>
 
         
         <script>
             $(function(){
                 $('.news-ticker').marquee({
                     duration: 10000,
-                    //gap in pixels between the tickers
-                    //gap: 200,
                     delayBeforeStart: 0,
                     direction: 'left',
                     duplicated: true
                 });
-                $("#nav-holder").load("nav.html");  
+                $("#nav-holder").load("/blocks/nav/nav.html");  
             });
             
         </script> 
