@@ -53,6 +53,13 @@ html, body{
     width: 95%;
     margin-bottom: 2rem;
 }
+.nhap_vai{
+    margin: 15px;
+}
+.nhap_vai h4 span{
+    color: #fff;
+    background-color: #2f3640;
+}
 .phan_loai{
     position: absolute;
     top: 20px;
