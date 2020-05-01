@@ -16,11 +16,12 @@
         <script src="https://kit.fontawesome.com/e9a3bfa470.js" crossorigin="anonymous"></script>
         <script src="jquery/Text-Scrolling-Plugin-for-jQuery-Marquee/jquery.marquee.js"></script>
         <link href="./style.css" rel="stylesheet">
-        <script src="/layout-danhmuc/nav.html"></script>
+        <script src="/blocks/nav/nav.html"></script>
+        <script src="/blocks/footer/footer.html"></script>
 
         
         <script>
-            $(function(){
+            $(document).ready(function(){
                 $('.news-ticker').marquee({
                     duration: 10000,
                     delayBeforeStart: 0,
@@ -28,6 +29,7 @@
                     duplicated: true
                 });
                 $("#nav-holder").load("/blocks/nav/nav.html");  
+                $("footer").load("/blocks/footer/footer.html");
             });
             
         </script> 
@@ -367,10 +369,11 @@
                 </div>
             </div>
         </div>
-        <div class="jumbotron text-center" style="margin-bottom:0">
+        <!-- <div class="jumbotron text-center" style="margin-bottom:0">
             <div>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis iusto quo doloribus et nostrum natus, veritatis similique doloremque mollitia praesentium cum omnis quaerat blanditiis nam tempore, atque ipsa ut explicabo.
             </div>
-        </div>
+        </div> -->
+        <footer></footer>
     </body>
 </html>
