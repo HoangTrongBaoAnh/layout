@@ -1,0 +1,27 @@
+.container{
+    width:800px;
+    margin: 0 auto;
+    
+}
+#hangtieude{
+    background-color: #09f;
+    color:white;
+    font-size: 24px;
+    padding: 10px;
+}
+#hang2 a{
+    width: 200px;
+    padding:10px;
+    background-color: #03f;
+    color: white;
+    font-weight: bold;
+    display: block;
+    float:left;
+    margin-right: 1px;
+    text-align: center;
+    
+}
+
+#hang2 a:hover{
+    background-color: red;
+}
