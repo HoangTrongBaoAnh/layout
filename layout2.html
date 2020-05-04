@@ -18,7 +18,7 @@
         <link href="./style.css" rel="stylesheet">
         <script src="/blocks/nav/nav.html"></script>
         <script src="/blocks/footer/footer.html"></script>
-
+        <script src="/blocks/loadingscreen/loadingscreen.html"></script>
         
         <script>
             $(document).ready(function(){
@@ -28,6 +28,7 @@
                     direction: 'left',
                     duplicated: true
                 });
+
                 $("#nav-holder").load("/blocks/nav/nav.html");  
                 $("footer").load("/blocks/footer/footer.html");
             });
@@ -36,6 +37,7 @@
     </head>
     <body>
         <header>
+        
             <!--------------------------- NAVIGATIONBAR ------------------------------->
         <nav id="nav-holder">
             
@@ -332,34 +334,47 @@
             </div>
             <div class="col-sm-4">
                 <h2 class="text-center">Lastest post</h2>
-                <div class="jumbotron text-center post1">
+                <div class="post1" style="border: 7px inset rgba(28,110,164,0.53);
+                border-radius: 0px 0px 0px 0px;background-color: azure;">
                     <div class="row"></div>
                     <div>
                         <div class="item-game-wrapper">
                             
-                            <div class="item-info">
-                                <a href="#">
-                                   <div class="item-title">Grand Theft Auto V - GTA V</div>
-                                </a>
-                                <div class="item-price">
-                                    <span class="cu-p">457,000đ</span>
+                            <div class="card">
+                                <div class="card-header" style="align-items: left;color: #fff;background-color: aquamarine;">
+                                    <h5>Game moi</h5>
                                 </div>
-            
-                            </div>
+                                <div class="row no-gutters">
+                                    <div class="col-auto">
+                                        <img style="width: 200px;height: 200px;" src="./image/hình/GTA.jpg" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="col">
+                                        <div class="card-block px-2">
+                                            <a href="#">
+                                                <h4 class="card-title" style="margin: 5px;">Grand Theft Auto V - GTA V</h4>
+                                            </a>
+                                            
+                                            <p class="card-text">457,000đ</p>
+                                            <a href="#" class="btn btn-primary">Buy</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer w-100 text-muted">
+                                    Quite astonishingly, Grand Theft Auto 5, which you need to play GTA Online, has sold more than 115m units. It is currently the fifth most popular game on Steam with, at the time of publication, 132,000 concurrent players.
+                                </div>
+                          </div>
                         </div>
                     </div>
                     
                     <div >
                         <div class="item-game-wrapper">
                     
-                            <div class="item-info">
-                                <a href="#">
-                                   <div class="item-title">Grand Theft Auto V - GTA V</div>
-                                </a>
-                                <div class="item-price">
-                                    <span class="cu-p">457,000đ</span>
+                            <div class="card">
+                                <img class="card-img-top" src="./image/hình/GTA.jpg" alt="Card image cap">
+                                <div class="card-body">
+                                    <a href="./game-detail/gameDetail.html" class="card-title">Grand Theft Auto V - GTA V</a>
+                                    <p class="card-text">457,000đ</p>
                                 </div>
-                    
                             </div>
                         </div>
                     </div>
