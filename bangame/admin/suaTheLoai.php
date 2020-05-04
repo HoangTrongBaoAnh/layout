@@ -35,7 +35,20 @@
         <div id="hang2">
             <?php require "menu.php" ?>
         </div>
-
+        <div class="margin-top:100px">
+            <form action="" method="POST">
+                <table style=width:100%>
+                    <tr>
+                        <th>SỬA THỂ LOẠI</th>
+                    </tr>
+                    <tr>
+                        <td>TenTL</td>
+                        <td><input type="text" name=TenTL></td>
+                    </tr>
+                    <tr><td><input type="submit" name="btnSua" id="btnSua" value="Sửa"></td></tr>
+                </table>
+            </form>
+        </div>
     </div>
 
 

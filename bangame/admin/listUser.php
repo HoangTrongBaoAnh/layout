@@ -35,6 +35,51 @@
         <div id="hang2">
             <?php require "menu.php" ?>
         </div>
+        <div style="margin-top:100px">
+            <table style="width:100%">
+                <tr>
+                    <th>DANH SÁCH TÀI KHOẢN</th>
+                </tr>
+                <tr>
+                    <td>idUser</td>
+                    <td>Username</td>
+                    <td>Password</td>
+                    <td>urlHinh</td>
+                    <td>PhanQuyen</td>
+                    <td>Email</td>
+                    <td><a href="themUser.php">Thêm</a></td>
+                </tr>
+                <tr>
+                    <td>{idUser}</td>
+                    <td>{Username}</td>
+                    <td>{Password}</td>
+                    <td><img src="" alt=""> {urlHinh} </td>
+                    <td>{PhanQuyen}</td>
+                    <td>{Email}</td>
+                    <td><a href="suaUser.php?id={idUser}">Sửa</a> <a href="xoaUser.php?id={idUser}">Xóa</a></td>
+                </tr>
+                <tr>
+                    <td>{idUser}</td>
+                    <td>{Username}</td>
+                    <td>{Password}</td>
+                    <td><img src="" alt=""> {urlHinh} </td>
+                    <td>{PhanQuyen}</td>
+                    <td>{Email}</td>
+                    <td><a href="suaUser.php?id={idUser}">Sửa</a> <a href="xoaUser.php?id={idUser}">Xóa</a></td>
+                </tr>
+                <tr>
+                    <td>{idUser}</td>
+                    <td>{Username}</td>
+                    <td>{Password}</td>
+                    <td><img src="" alt=""> {urlHinh} </td>
+                    <td>{PhanQuyen}</td>
+                    <td>{Email}</td>
+                    <td><a href="suaUser.php?id={idUser}">Sửa</a> <a href="xoaUser.php?id={idUser}">Xóa</a></td>
+                </tr>
+              
+            </table>
+        </div>
+
 
     </div>
 

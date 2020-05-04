@@ -34,7 +34,7 @@
 </style>
 <body>
     <div class="container">
-        <div id="hangtieude">TRANG QUẢNG TRỊ
+        <div id="hangtieude">TRANG QUẢN TRỊ
             <div style="width:200px;float:right">
 
                 Chào anh áaaa

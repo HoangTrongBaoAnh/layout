@@ -27,7 +27,7 @@
 
 
     <div class="container">
-        <div id="hangtieude">TRANG QUẢNG TRỊ
+        <div id="hangtieude">TRANG QUẢN TRỊ
             <div style="width:200px;float:right">
 
                 Chào anh áaaa
@@ -39,8 +39,8 @@
         </div>
         <div style="margin-top:100px" class="text-center">
             <form action="" method="$_POST">
-               <label>Tên thể loại:</label>
-               <input type="text" name="TenTL"><input type="submit" value="xác nhận" name="btnThem">
+                <label>Tên thể loại:</label>
+                <input type="text" name="TenTL"><input type="submit" value="xác nhận" name="btnThem">
             </form>
         </div>
     </div>

@@ -38,7 +38,7 @@
 
 
     <div class="container">
-        <div id="hangtieude">TRANG QUẢNG TRỊ
+        <div id="hangtieude">TRANG QUẢN TRỊ
             <div style="width:200px;float:right">
 
                 Chào anh áaaa
@@ -52,7 +52,7 @@
         <div style="margin-top:100px">
 
     
-        <form action="" method="POST">
+        <form action="" method="POST" enctype="multipart/form-data">
 
 
         <table style="width:100%">
@@ -92,7 +92,7 @@
             <tr><td>Gia</td><td><input type="number" name="Gia" id="Gia"></td></tr>
             <tr>
                 <td>Nam</td>
-                <td><input type="text" name="Nam"></td>
+                <td><input type="date" name="Nam"></td>
             </tr>
             <tr><td>urlVideo</td><td><input type="url" name="urlVideo" id="video"></td></tr>
             <tr>

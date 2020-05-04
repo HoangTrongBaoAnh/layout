@@ -35,7 +35,42 @@
         <div id="hang2">
             <?php require "menu.php" ?>
         </div>
+        <div style="margin-top:100px">
+            <form action="" method="POST" enctype="multipart/form-data">
+                <table style="width:100%">
+                    <tr>
+                        <th colspan="2">THÊM TÀI KHOẢN</th>
+                    </tr>
+                    <tr>
+                        <td>Username</td>
+                        <td><input type="text" name="Username"></td>
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                        <td><input type="password" name="Password" id="Password"></td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td><input type="email" name="Email" id="Email"></td>
+                    </tr>
+                    <tr>
+                        <td>urlHinh </td><td><img src="" alt=""><input type="file" name="urlHinh" id="urlHinh"></td>
+                    </tr>
+                    <tr>
+                        <td>PhanQuyen</td>
+                        <td>
+                            <label><input type="radio" name="PhanQuyen" id="PhanQuyen" value="0" checked>user</label>
+                            <br>
+                            <label><input type="radio" name="PhanQuyen" id="PhanQuyen" value="1">admin</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td><td><input type="submit" name="btnThem" value="Thêm"></td>
+                    </tr>
+                </table>
 
+            </form>
+        </div>
     </div>
 
 
