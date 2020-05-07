@@ -11,18 +11,7 @@
 
     </stlye>
     <script>
-        /*$(function(){
-            $(".tab a").click(function(){
-                var val = $(this);
-                if(!val.parent("li").hasClass("active")){
-                    val.parent("li").siblings().removeClass("active");
-                    val.parent("li").addClass("active");
-                    val.parent(".tab").next().children(".tabcontent1 div").hide()
-                    $(this.hash).fadeIn();
-                }
-                return false;
-            });
-        });*/
+      
         $(function(){
             $(".tab a").click(function() {
                 var elm = $(this);
@@ -99,9 +88,10 @@
     </div>
     <script>
         $(function(){
-            $("#nav-placeholder").load("nav.html");
+            $("#nav-placeholder").load("/blocks/nav/nav.html");
+            $("footer").load("/blocks/footer/footer.html");
         });
     </script>
-
+    <footer class="mt-5"></footer>
 </body>
 </html>
