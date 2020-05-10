@@ -15,13 +15,62 @@
     $(function(){
         $("#nav-holder").load("/blocks/nav/nav.html");
         $('footer').load("/blocks/footer/footer.html");
+        
     });
-    
+    function myFunction() {
+        var popup = document.getElementById("myPopup");
+        popup.classList.toggle("show");
+    }
     
 </script>
 <style>
     .image img{
-       width:100%;
+        width:100%;
+    }
+    /* popup */
+    .popup {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    
+    .popup .popuptext {
+        visibility: hidden;
+        width: 160px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 8px 0;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -80px;
+    }
+    
+    /* mũi tên popup */
+    .popup .popuptext::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+    }
+
+
+    .popup .show {
+        visibility: visible;
+        animation: fadeIn 1s;
+    }
+
+    @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
     }
 </style>
 <body>
@@ -37,7 +86,9 @@
                 </div>
                 <p class="text-center"><span>GRAND THEFT AUTO 5</span></p>
                 <p class="text-center">479.0000 VNĐ</p>
-                <div class="btn btn-primary w-100">BUY</div>
+                <div class="btn btn-primary w-100 popup" onclick="myFunction()">Buy
+                    <span class="popuptext" id="myPopup">Mua thành công</span>
+                </div>
                 <div class="border-top mt-4">
                     Thể loại:
                     <div class="badge badge-pill badge-primary">Hành động</div>
