@@ -9,4 +9,5 @@ $(document).ready(function(){
         $(this).next().slideToggle(500);
     })
     $("#nav-holder").load("/blocks/nav/nav.html");
+    $("footer").load("/blocks/footer/footer.html");
 })
