@@ -51,7 +51,7 @@ body{
     width: 400px;
 }
 
-#tab2 input[type="button"]{
+#tab2 input[type="submit"]{
     background-color: #6c5ce7;
     color: white;
     margin: 20px auto;
@@ -62,7 +62,7 @@ body{
     display: inline;
     
 }
-#tab2 input[type="button"]:hover{
+#tab2 input[type="submit"]:hover{
     background-color: #444343;
 }
 .left1{
