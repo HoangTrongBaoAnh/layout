@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-   
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -9,10 +10,11 @@
     <script src="https://kit.fontawesome.com/e9a3bfa470.js" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <title>Document</title>
 </head>
 <script>
-    $(function(){
+    $(function () {
         $("#nav-holder").load("/blocks/nav/nav.html");
         $('footer').load("/blocks/footer/footer.html");
         $('body').html(function(i, html) {
@@ -20,17 +22,36 @@
         });
 
     });
+
+    // hàm random chuỗi 5 ký tự
+    function makeid() {
+        var text = "";
+        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+        for (var i = 0; i < 5; i++)
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+        return text;
+    }
+
+    // hàm làm key
     function myFunction() {
-        var popup = document.getElementById("myPopup");
-        popup.classList.toggle("show");
+        x=makeid();
+        y=makeid();
+        z=makeid();
+        d=makeid();
+        key=x+" - "+y+" - "+z+" - "+d;
+        swal("Mua thành công","KEY: "+key, "success");
+
     }
     
 
 </script>
 <style>
-    .image img{
-        width:100%;
+    .image img {
+        width: 100%;
     }
+
     /* popup */
     .popup {
         position: relative;
@@ -38,7 +59,7 @@
         cursor: pointer;
     }
 
-    
+
     .popup .popuptext {
         visibility: hidden;
         width: 160px;
@@ -53,7 +74,7 @@
         left: 50%;
         margin-left: -80px;
     }
-    
+
     /* mũi tên popup */
     .popup .popuptext::after {
         content: "";
@@ -73,14 +94,20 @@
     }
 
     @keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity:1 ;}
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
     }
 </style>
+
 <body>
     <nav id="nav-holder">
-        
-        
+
+
     </nav>
     <div class="container-fluid mt-5">
         <div class="row">
@@ -91,7 +118,8 @@
                 <p class="text-center"><span>GRAND THEFT AUTO 5</span></p>
                 <p class="text-center">479.0000 VNĐ</p>
                 <div class="btn btn-primary w-100 popup" onclick="myFunction()">Buy
-                    <span class="popuptext" id="myPopup">Mua thành công</span>
+                    <!-- <span class="popuptext" id="myPopup">Mua thành công</span> -->
+
                 </div>
                 <div class="border-top mt-4">
                     Thể loại:
@@ -104,15 +132,17 @@
                 <div class="border-top mt-4">
                     <h5 class="text-center bg-dark text-light">MINIMUM</h5>
                     <div id="cauhinh2">
-                        <p>OS: Windows 8.1 64 Bit, Windows 8 64 Bit, Windows 7 64 Bit Service Pack 1, Windows Vista 64 Bit Service Pack 2*</p>
+                        <p>OS: Windows 8.1 64 Bit, Windows 8 64 Bit, Windows 7 64 Bit Service Pack 1, Windows Vista 64
+                            Bit Service Pack 2*</p>
                         <p>(*NVIDIA video card recommended if running Vista OS)</p>
-                        <p>Processor: Intel Core 2 Quad CPU Q6600 @ 2.40GHz (4 CPUs) / AMD Phenom 9850 Quad-Core Processor (4 CPUs) @ 2.5GHz</p>
+                        <p>Processor: Intel Core 2 Quad CPU Q6600 @ 2.40GHz (4 CPUs) / AMD Phenom 9850 Quad-Core
+                            Processor (4 CPUs) @ 2.5GHz</p>
                         <p>Memory: 4 GB RAM</p>
-                        <P>Graphics: NVIDIA 9800 GT 1GB / AMD HD 4870 1GB (DX 10, 10.1, 11)</P>    
+                        <P>Graphics: NVIDIA 9800 GT 1GB / AMD HD 4870 1GB (DX 10, 10.1, 11)</P>
                         <p>Hard Drive: 65 GB available space</p>
                         <p>Sound Card: 100% DirectX 10 compatible</p>
                     </div>
-                  
+
                 </div>
                 <div class="border-top mt-4">
                     <h5 class="text-center bg-dark text-light">RECOMMENDED</h5>
@@ -124,75 +154,108 @@
                         <p>Hard Drive: 65 GB available space</p>
                         <p>Sound Card: 100% DirectX 10 compatible</p>
                     </div>
-                  
+
                 </div>
-            
+
             </div>
             <div class="col-8 border ">
                 <div id="video_game">
                     <div>https://www.youtube.com/watch?v=hvoD7ehZPcM</div>
                 </div>
                 <p class="m-4 mt-4">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, reiciendis inventore ex veritatis eius nobis, quo et sit sed deleniti veniam voluptatibus! Id sequi provident ab voluptatem. Sed, quidem similique.
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, reiciendis inventore ex veritatis eius nobis, quo et sit sed deleniti veniam voluptatibus! Id sequi provident ab voluptatem. Sed, quidem similique.
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, reiciendis inventore ex veritatis eius nobis, quo et sit sed deleniti veniam voluptatibus! Id sequi provident ab voluptatem. Sed, quidem similique.
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, reiciendis inventore ex veritatis eius nobis, quo et sit sed deleniti veniam voluptatibus! Id sequi provident ab voluptatem. Sed, quidem similique.
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, reiciendis inventore ex veritatis eius nobis, quo et sit sed deleniti veniam voluptatibus! Id sequi provident ab voluptatem. Sed, quidem similique.
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, reiciendis inventore ex veritatis eius nobis, quo et sit sed deleniti veniam voluptatibus! Id sequi provident ab voluptatem. Sed, quidem similique.
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, reiciendis inventore ex veritatis eius nobis, quo et sit sed deleniti veniam voluptatibus! Id sequi provident ab voluptatem. Sed, quidem similique.
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, reiciendis inventore ex veritatis eius nobis, quo et sit sed deleniti veniam voluptatibus! Id sequi provident ab voluptatem. Sed, quidem similique.
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, reiciendis inventore ex veritatis eius nobis, quo et sit sed deleniti veniam voluptatibus! Id sequi provident ab voluptatem. Sed, quidem similique.
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, reiciendis inventore ex veritatis eius nobis, quo et sit sed deleniti veniam voluptatibus! Id sequi provident ab voluptatem. Sed, quidem similique.
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, reiciendis inventore ex veritatis eius nobis, quo et sit sed deleniti veniam voluptatibus! Id sequi provident ab voluptatem. Sed, quidem similique.
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, reiciendis inventore ex veritatis eius nobis, quo et sit sed deleniti veniam voluptatibus! Id sequi provident ab voluptatem. Sed, quidem similique.
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, reiciendis inventore ex veritatis eius nobis, quo et sit sed deleniti veniam voluptatibus! Id sequi provident ab voluptatem. Sed, quidem similique.
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, reiciendis inventore ex veritatis eius nobis, quo et sit sed deleniti veniam voluptatibus! Id sequi provident ab voluptatem. Sed, quidem similique.
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, reiciendis inventore ex veritatis eius nobis, quo et sit sed deleniti veniam voluptatibus! Id sequi provident ab voluptatem. Sed, quidem similique.
-    
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, reiciendis inventore ex
+                    veritatis eius nobis, quo et sit sed deleniti veniam voluptatibus! Id sequi provident ab voluptatem.
+                    Sed, quidem similique.
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, reiciendis inventore ex
+                    veritatis eius nobis, quo et sit sed deleniti veniam voluptatibus! Id sequi provident ab voluptatem.
+                    Sed, quidem similique.
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, reiciendis inventore ex
+                    veritatis eius nobis, quo et sit sed deleniti veniam voluptatibus! Id sequi provident ab voluptatem.
+                    Sed, quidem similique.
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, reiciendis inventore ex
+                    veritatis eius nobis, quo et sit sed deleniti veniam voluptatibus! Id sequi provident ab voluptatem.
+                    Sed, quidem similique.
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, reiciendis inventore ex
+                    veritatis eius nobis, quo et sit sed deleniti veniam voluptatibus! Id sequi provident ab voluptatem.
+                    Sed, quidem similique.
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, reiciendis inventore ex
+                    veritatis eius nobis, quo et sit sed deleniti veniam voluptatibus! Id sequi provident ab voluptatem.
+                    Sed, quidem similique.
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, reiciendis inventore ex
+                    veritatis eius nobis, quo et sit sed deleniti veniam voluptatibus! Id sequi provident ab voluptatem.
+                    Sed, quidem similique.
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, reiciendis inventore ex
+                    veritatis eius nobis, quo et sit sed deleniti veniam voluptatibus! Id sequi provident ab voluptatem.
+                    Sed, quidem similique.
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, reiciendis inventore ex
+                    veritatis eius nobis, quo et sit sed deleniti veniam voluptatibus! Id sequi provident ab voluptatem.
+                    Sed, quidem similique.
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, reiciendis inventore ex
+                    veritatis eius nobis, quo et sit sed deleniti veniam voluptatibus! Id sequi provident ab voluptatem.
+                    Sed, quidem similique.
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, reiciendis inventore ex
+                    veritatis eius nobis, quo et sit sed deleniti veniam voluptatibus! Id sequi provident ab voluptatem.
+                    Sed, quidem similique.
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, reiciendis inventore ex
+                    veritatis eius nobis, quo et sit sed deleniti veniam voluptatibus! Id sequi provident ab voluptatem.
+                    Sed, quidem similique.
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, reiciendis inventore ex
+                    veritatis eius nobis, quo et sit sed deleniti veniam voluptatibus! Id sequi provident ab voluptatem.
+                    Sed, quidem similique.
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, reiciendis inventore ex
+                    veritatis eius nobis, quo et sit sed deleniti veniam voluptatibus! Id sequi provident ab voluptatem.
+                    Sed, quidem similique.
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, reiciendis inventore ex
+                    veritatis eius nobis, quo et sit sed deleniti veniam voluptatibus! Id sequi provident ab voluptatem.
+                    Sed, quidem similique.
+
                 </p>
                 <div class="text-center" style="width: 800px; margin:0 auto;">
-                <div id="carousel" >
-                    <div id="slides" class="carousel slide" data-ride="carousel">
-                        <ul class="carousel-indicators">
-                            <li data-target="#slides" data-slide-to="0" class="active"></li>
-                            <li data-target="#slides" data-slide-to="1"></li>
-                            <li data-target="#slides" data-slide-to="2"></li>
-                            <li data-target="#slides" data-slide-to="3"></li>
-                        </ul>
-                       
-                        <div class="carousel-inner ">
-                            <div class="carousel-item active">
-                                <img src="../image/hình/ob_477681_cau-hinh-may-tinh-choi-gta-5.jpg"style="width: 100%">
-                               
-                                <div class="slide-text">
-                                    
+                    <div id="carousel">
+                        <div id="slides" class="carousel slide" data-ride="carousel">
+                            <ul class="carousel-indicators">
+                                <li data-target="#slides" data-slide-to="0" class="active"></li>
+                                <li data-target="#slides" data-slide-to="1"></li>
+                                <li data-target="#slides" data-slide-to="2"></li>
+                                <li data-target="#slides" data-slide-to="3"></li>
+                            </ul>
+
+                            <div class="carousel-inner ">
+                                <div class="carousel-item active">
+                                    <img src="../image/hình/ob_477681_cau-hinh-may-tinh-choi-gta-5.jpg"
+                                        style="width: 100%">
+
+                                    <div class="slide-text">
+
+                                    </div>
+
                                 </div>
-                                
-                            </div>
-                            <div class="carousel-item ">
-                                <img src="/image/hình/gta-5-full-cho-pc.jpg" style="width: 100%";>
-                                <div class="slide-text">
-                                    
+                                <div class="carousel-item ">
+                                    <img src="/image/hình/gta-5-full-cho-pc.jpg" style="width: 100%" ;>
+                                    <div class="slide-text">
+
+                                    </div>
+                                </div>
+                                <div class="carousel-item ">
+                                    <img src="./image/hình/GameHubVn-Muon-Zombie-xuat-hien-trong-GTA-5-Day-la-nhung-ban-Mod-ban-phai-cai-4.jpg"
+                                        style="width: 100%">
+                                    <div class="slide-text">
+
+                                    </div>
+                                </div>
+                                <div class="carousel-item ">
+                                    <img src="/image/hình/screenshot4f367a5e3-3012-404f-b81e-c39e0e6c59537b2e4880-2ac9-432a-8314-ff047803065d.webp"
+                                        style="width: 100%">
+                                    <div class="slide-text">
+
+                                    </div>
                                 </div>
                             </div>
-                            <div class="carousel-item ">
-                                <img  src="./image/hình/GameHubVn-Muon-Zombie-xuat-hien-trong-GTA-5-Day-la-nhung-ban-Mod-ban-phai-cai-4.jpg"style="width: 100%">
-                                <div class="slide-text">
-                                   
-                                </div>
-                            </div>
-                            <div class="carousel-item ">
-                                <img src="/image/hình/screenshot4f367a5e3-3012-404f-b81e-c39e0e6c59537b2e4880-2ac9-432a-8314-ff047803065d.webp"style="width: 100%">
-                                <div class="slide-text">
-                                   
-                                </div>
-                            </div>
+
                         </div>
-                     
                     </div>
                 </div>
             </div>
-             </div>
             <col>
         </div>
     </div>
