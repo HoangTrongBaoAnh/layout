@@ -17,6 +17,9 @@
     $(function () {
         $("#nav-holder").load("/blocks/nav/nav.html");
         $('footer').load("/blocks/footer/footer.html");
+        $('body').html(function(i, html) {
+            return html.replace(/(?:https:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?([^<]+)/g, '<center><iframe style="border: 1px solid red;" width="100%" height="500px" src="http://www.youtube.com/embed/$1?modestbranding=1&rel=0&wmode=transparent&theme=light&color=white" frameborder="0" allowfullscreen></iframe></center>').replace(/(?:https:\/\/)?(?:www\.)?(?:vimeo\.com)\/(.+)/g, '<center><iframe src="//player.vimeo.com/video/$1" style="border: 1px solid red;" width="100%" height="500px" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></center>').replace(/(?:https:\/\/)?(?:dailymotion\.com|dai\.ly)\/(.+)/g, '<center><iframe style="border: 1px solid red;" width="100%" height="500px" src="http://www.dailymotion.com/embed/video/$1?logo=0&foreground=ffffff&highlight=1bb4c6&background=000000" allowfullscreen></iframe></center>');
+        });
 
     });
 
@@ -41,6 +44,7 @@
         swal("Mua thành công","KEY: "+key, "success");
 
     }
+    
 
 </script>
 <style>
