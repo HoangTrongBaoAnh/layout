@@ -35,19 +35,14 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
         integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
         crossorigin="anonymous"></script>
+    <!-- Datatable jquery -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" />
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 
 </head>
-<style>
-    tr,
-    td,
-    table {
-        border: 1px solid;
-    }
 
-    table {
-        border-collapse: collapse;
-    }
-</style>
 
 <body>
     <div class="container">
@@ -66,125 +61,143 @@
             <a href="doanhthu.html">Quản lý doanh thu</a>
         </div>
         <div style="margin-top:100px">
-            <!-- <table>
-                <tr>
-                    <td>
-                        <h2>DANH SÁCH GAME</h2>
-                    </td>
-                    <td>
-                        <a class="btn btn-primary float-right" id="btnthem" href="../admin/themGame.php">Thêm +</a>
-                    </td>
-                </tr>
-            </table> -->
-
-            <!-- <div class="card-columns">
-                <div class="card" style="width:300px">
-                    <img src="../upload/game/tải xuống.jpg" alt="Card-image" class="card-img-top">
-
-                    <div class="card-body text-center">
-                        <div class="card-title ">game abcxtz</div>
-                        <a href="#" class="btn btn-success">Sửa</a>
-                        <a href="#" class="btn btn-danger">Xóa</a>
-                    </div>
-                </div>
-                <div class="card" style="width:300px">
-                    <img src="../upload/game/tải xuống.jpg" alt="Card-image" class="card-img-top">
-
-                    <div class="card-body text-center">
-                        <div class="card-title ">game abcxtz</div>
-                        <a href="#" class="btn btn-success">Sửa</a>
-                        <a href="#" class="btn btn-danger">Xóa</a>
-                    </div>
-                </div>
-                <div class="card" style="width:300px">
-                    <img src="../upload/game/tải xuống.jpg" alt="Card-image" class="card-img-top">
-
-                    <div class="card-body text-center">
-                        <div class="card-title ">game abcxtz</div>
-                        <a href="#" class="btn btn-success">Sửa</a>
-                        <a href="#" class="btn btn-danger">Xóa</a>
-                    </div>
-                </div>
-                <div class="card" style="width:300px">
-                    <img src="../upload/game/tải xuống.jpg" alt="Card-image" class="card-img-top">
-
-                    <div class="card-body text-center">
-                        <div class="card-title ">game abcxtz</div>
-                        <a href="#" class="btn btn-success">Sửa</a>
-                        <a href="#" class="btn btn-danger">Xóa</a>
-                    </div>
-                </div>
-                <div class="card" style="width:300px">
-                    <img src="../upload/game/tải xuống.jpg" alt="Card-image" class="card-img-top">
-
-                    <div class="card-body text-center">
-                        <div class="card-title ">game abcxtz</div>
-                        <a href="#" class="btn btn-success">Sửa</a>
-                        <a href="#" class="btn btn-danger">Xóa</a>
-                    </div>
-                </div>
 
 
 
-            </div> -->
-
-
-            <table style="width:100%">
-                <tr>
-                    <th colspan="5">DANH SÁCH GAME</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="themGame.html">Thêm</a></td>
-                </tr>
-                <tr>
-                    <td>idGame:{idGame}</td>
-                    <td>{urlHinh}<br>{TenGame}<br>{GiaTien}đ</td>
-                    <td>TheLoai:{TheLoai}</td>
-                    <td>LuotMua{LuotMua}</td>
-                    <td>
-                        <a href="suaGame.html?idGame={idGame}">Sửa</a>
-                        <a href="xoaGame.html?idGame={idGame}">Xóa</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>idGame:{idGame}</td>
-                    <td>{urlHinh}<br>{TenGame}<br>{GiaTien}đ</td>
-                    <td>TheLoai:{TheLoai}</td>
-                    <td>LuotMua{LuotMua}</td>
-                    <td>
-                        <a href="suaGame.html?idGame={idGame}">Sửa</a>
-                        <a href="xoaGame.html?idGame={idGame}">Xóa</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>idGame:{idGame}</td>
-                    <td>{urlHinh}<br>{TenGame}<br>{GiaTien}đ</td>
-                    <td>TheLoai:{TheLoai}</td>
-                    <td>LuotMua{LuotMua}</td>
-                    <td>
-                        <a href="suaGame.html?idGame={idGame}">Sửa</a>
-                        <a href="xoaGame.html?idGame={idGame}">Xóa</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>idGame:{idGame}</td>
-                    <td>{urlHinh}<br>{TenGame}<br>{GiaTien}đ</td>
-                    <td>TheLoai:{TheLoai}</td>
-                    <td>LuotMua{LuotMua}</td>
-                    <td>
-                        <a href="suaGame.html?idGame={idGame}">Sửa</a>
-                        <a href="xoaGame.html?idGame={idGame}">Xóa</a>
-                    </td>
-                </tr>
+            
+            <p class="text-center">DANH SÁCH GAME</p>
+            <table id="example" style="width:100%" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>idGame</th>
+                        <th>tenGame</th>
+                        <th>urlHinh</th>
+                        <th>GiaTien</th>
+                        <th>LuotMua</th>
+                        <th><a href="themGame.html">Thêm</a></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{idGame}</td>
+                        <td>{TenGame}</td>
+                        <td>{urlHinh}</td>
+                        <td>{TenGame}</td>
+                        <td>{LuotMua}</td>
+                        <td> <a href="suaGame.html?idGame={idGame}">Sửa</a>
+                            <a href="xoaGame.html?idGame={idGame}">Xóa</a></td>
+                    </tr>
+                    <tr>
+                        <td>{idGame}</td>
+                        <td>{TenGame}</td>
+                        <td>{urlHinh}</td>
+                        <td>{TenGame}</td>
+                        <td>{LuotMua}</td>
+                        <td> <a href="suaGame.html?idGame={idGame}">Sửa</a>
+                            <a href="xoaGame.html?idGame={idGame}">Xóa</a></td>
+                    </tr>
+                    <tr>
+                        <td>{idGame}</td>
+                        <td>{TenGame}</td>
+                        <td>{urlHinh}</td>
+                        <td>{TenGame}</td>
+                        <td>{LuotMua}</td>
+                        <td> <a href="suaGame.html?idGame={idGame}">Sửa</a>
+                            <a href="xoaGame.html?idGame={idGame}">Xóa</a></td>
+                    </tr>
+                    <tr>
+                        <td>{idGame}</td>
+                        <td>{TenGame}</td>
+                        <td>{urlHinh}</td>
+                        <td>{TenGame}</td>
+                        <td>{LuotMua}</td>
+                        <td> <a href="suaGame.html?idGame={idGame}">Sửa</a>
+                            <a href="xoaGame.html?idGame={idGame}">Xóa</a></td>
+                    </tr>
+                    <tr>
+                        <td>{idGame}</td>
+                        <td>{TenGame}</td>
+                        <td>{urlHinh}</td>
+                        <td>{TenGame}</td>
+                        <td>{LuotMua}</td>
+                        <td> <a href="suaGame.html?idGame={idGame}">Sửa</a>
+                            <a href="xoaGame.html?idGame={idGame}">Xóa</a></td>
+                    </tr>
+                    <tr>
+                        <td>{idGame}</td>
+                        <td>{TenGame}</td>
+                        <td>{urlHinh}</td>
+                        <td>{TenGame}</td>
+                        <td>{LuotMua}</td>
+                        <td> <a href="suaGame.html?idGame={idGame}">Sửa</a>
+                            <a href="xoaGame.html?idGame={idGame}">Xóa</a></td>
+                    </tr>
+                    <tr>
+                        <td>{idGame}</td>
+                        <td>{TenGame}</td>
+                        <td>{urlHinh}</td>
+                        <td>{TenGame}</td>
+                        <td>{LuotMua}</td>
+                        <td> <a href="suaGame.html?idGame={idGame}">Sửa</a>
+                            <a href="xoaGame.html?idGame={idGame}">Xóa</a></td>
+                    </tr>
+                    <tr>
+                        <td>{idGame}</td>
+                        <td>{TenGame}</td>
+                        <td>{urlHinh}</td>
+                        <td>{TenGame}</td>
+                        <td>{LuotMua}</td>
+                        <td> <a href="suaGame.html?idGame={idGame}">Sửa</a>
+                            <a href="xoaGame.html?idGame={idGame}">Xóa</a></td>
+                    </tr>
+                    <tr>
+                        <td>{idGame}</td>
+                        <td>{TenGame}</td>
+                        <td>{urlHinh}</td>
+                        <td>{TenGame}</td>
+                        <td>{LuotMua}</td>
+                        <td> <a href="suaGame.html?idGame={idGame}">Sửa</a>
+                            <a href="xoaGame.html?idGame={idGame}">Xóa</a></td>
+                    </tr>
+                    <tr>
+                        <td>{idGame}</td>
+                        <td>{TenGame}</td>
+                        <td>{urlHinh}</td>
+                        <td>{TenGame}</td>
+                        <td>{LuotMua}</td>
+                        <td> <a href="suaGame.html?idGame={idGame}">Sửa</a>
+                            <a href="xoaGame.html?idGame={idGame}">Xóa</a></td>
+                    </tr>
+                    <tr>
+                        <td>{idGame}</td>
+                        <td>{TenGame}</td>
+                        <td>{urlHinh}</td>
+                        <td>{TenGame}</td>
+                        <td>{LuotMua}</td>
+                        <td> <a href="suaGame.html?idGame={idGame}">Sửa</a>
+                            <a href="xoaGame.html?idGame={idGame}">Xóa</a></td>
+                    </tr>
+                    
+                    
+                </tbody>
+                <tfoot>
+                    <th>idGame</th>
+                    <th>tenGame</th>
+                    <th>urlHinh</th>
+                    <th>GiaTien</th>
+                    <th>LuotMua</th>
+                    <th></th>
+                </tfoot>
             </table>
         </div>
 
 
     </div>
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    </script>
 </body>
 
 </html>
