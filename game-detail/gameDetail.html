@@ -15,10 +15,9 @@
     $(document).ready(function() {
         $("#nav-holder").load("/blocks/nav/nav.html");
         $('footer').load("/blocks/footer/footer.html");
-        $('body').html(function(i, html) {
+        $('#video_game').html(function(i, html) {
             return html.replace(/(?:https:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?([^<]+)/g, '<center><iframe style="border: 1px solid red;" width="100%" height="500px" src="http://www.youtube.com/embed/$1?modestbranding=1&rel=0&wmode=transparent&theme=light&color=white" frameborder="0" allowfullscreen></iframe></center>')
-            
-            
+ 
         });
 
     });
@@ -41,8 +40,7 @@
         z=makeid();
         d=makeid();
         key=x+" - "+y+" - "+z+" - "+d;
-        swal("Mua thành công","KEY: "+key, "success");
-
+        swal("Mua thành công","KEY: "+key, "success"); 
     }
     
 
@@ -157,7 +155,7 @@
 
             </div>
             <div class="col-8 border ">
-                <div id="video_game ">
+                <div id="video_game">
                     
 <div>https://www.youtube.com/watch?v=HqZXw5M6qQY</div>                        
                   

@@ -40,6 +40,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" />
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <!-- chartJS -->
 </head>
 
 <body>
@@ -68,13 +69,13 @@
 
 
         <div style="margin-top:100px">
-            
-            <p class="text-center">DANH SÁCH THỂ LOẠI</p>
+
+            <p class="text-center" style="font-size: 40px;font-weight: bold;">DANH SÁCH THỂ LOẠI</p>
             <table id="example" style="width:100%" class="table table-striped table-bordered">
                 <thead>
                     <tr>
-                        <th>idTL</th>
-                        <th>TenTL</th>
+                        <th>id</th>
+                        <th>Tên Thể Loại </th>
                         <th><a href="themTheLoai.html">Thêm</a></th>
                     </tr>
                 </thead>
@@ -133,8 +134,8 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <th>idTL</th>
-                        <th>TenTL</th>
+                        <th>id</th>
+                        <th>Tên Thể Loại</th>
                     </tr>
 
                 </tfoot>
@@ -142,6 +143,7 @@
                     $(document).ready(function () {
                         $('#example').DataTable();
                     });
+                 
                 </script>
             </table>
         </div>
