@@ -13,9 +13,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <stlye>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>    <stlye>
 
     </stlye>
     <script>
@@ -96,20 +97,88 @@
                         </form>
                     </div>
                     <div id="tab3">
-                        lorem
+                        <table id="tb" class="display" style="width: 100%;">
+                            <thead>
+                                <tr>
+                                    <td>id</td>
+                                    <td>Tên Game</td>
+                                    <td>MyKey</td>
+                                    <td>Ngày</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        1
+                                    </td>
+                                    <td>
+                                        cyperpunker
+                                    </td>
+                                    <td>
+                                        jGzoc - Kmyll - gbKNW - 9cjPE
+                                    </td>
+                                   <td>
+                                        2000-7-5
+                                   </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        1
+                                    </td>
+                                    <td>
+                                        cyperpunker
+                                    </td>
+                                    <td>
+                                        jGzoc - Kmyll - gbKNW - 9cjPE
+                                    </td>
+                                   <td>
+                                        2000-7-5
+                                   </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        1
+                                    </td>
+                                    <td>
+                                        cyperpunker
+                                    </td>
+                                    <td>
+                                        jGzoc - Kmyll - gbKNW - 9cjPE
+                                    </td>
+                                   <td>
+                                        2000-7-5
+                                   </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        1
+                                    </td>
+                                    <td>
+                                        cyperpunker
+                                    </td>
+                                    <td>
+                                        jGzoc - Kmyll - gbKNW - 9cjPE
+                                    </td>
+                                   <td>
+                                        2000-7-5
+                                   </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
 
         </div>
     </div>
+    
+    <footer style="margin-top: 500px;"></footer>
     <script>
-        $(function () {
+        $(document).ready(function() {
             $("#nav-placeholder").load("/blocks/nav/nav.html");
             $("footer").load("/blocks/footer/footer.html");
         });
     </script>
-    <footer style="margin-top: 500px;"></footer>
 </body>
 
 </html>
