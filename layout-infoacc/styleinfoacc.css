@@ -33,7 +33,7 @@ body{
 }
 .tabcontent1 {
     clear:both;
-    width:90%;
+    width:100%;
     border:1px solid #CCC;
 }
 .tabcontent1 div {
@@ -74,3 +74,27 @@ body{
     padding: 5px;
     border: 1px solid #6c5ce7;
 }
+table,tr , td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+tr, td{
+    padding: 5px;
+}
+thead tr{
+    background-color: #fff !important;
+    font-weight: bolder;
+    text-align: center;
+}
+tr:nth-child(even){
+    background-color: #fff;
+    font-weight: bold;
+}
+tr:nth-child(odd){
+    background-color: #ddd;
+}
+#tab3 input[type="password"]{
+    width: 300px;
+}
+
+
