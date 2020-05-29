@@ -17,7 +17,9 @@
         <script src="/blocks/nav/nav.html"></script>
         <script src="/blocks/footer/footer.html"></script>
         <script src="/blocks/loadingscreen/loadingscreen.html"></script>
-        
+        <style>
+            
+        </style>
         <script>
             $(document).ready(function(){
                 $('.news-ticker').marquee({
@@ -26,14 +28,25 @@
                     direction: 'left',
                     duplicated: true
                 });
-
                 $("#nav-holder").load("/blocks/nav/nav.html");  
                 $("footer").load("/blocks/footer/footer.html");
+                
             });
             
-        </script> 
+        </script>
+        <script type="text/javascript">
+            $(function(){ // this replaces document.ready
+                $(window).on("load", function(){
+                    $('#loader').fadeOut('slow', function() {
+                    $(this).remove();
+                    });
+                });
+            });
+            
+            </script>
     </head>
     <body>
+        <section id="loader"></section>
         <header>
         
             <!--------------------------- NAVIGATIONBAR ------------------------------->
@@ -155,7 +168,7 @@
          <!--14/4 Chỉnh sửa 1 tí-->
         
         <!--  -->
-        <div class="container-fluid padding mt-4">
+        <div class="container-fluid padding mt-4 section">
             <div class="row padding">
                 <div class="col-8">
                     <h2 class="text-center">Game features</h2>
