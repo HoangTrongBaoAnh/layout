@@ -18,6 +18,9 @@
         <script src="/blocks/footer/footer.html"></script>
         <script src="/blocks/loadingscreen/loadingscreen.html"></script>
         
+        <script src="ModalVideofix/jquery-modal-video.min.js"></script>
+        <link href="ModalVideofix/modal-video.min.css" rel="stylesheet" >
+
         <script>
             $(document).ready(function(){
                 $('.news-ticker').marquee({
@@ -26,14 +29,44 @@
                     direction: 'left',
                     duplicated: true
                 });
-
                 $("#nav-holder").load("/blocks/nav/nav.html");  
-                $("footer").load("/blocks/footer/footer.html");
+                $("footer").load("/blocks/footer/footer.html");  
             });
-            
-        </script> 
+        </script>
+        <script type="text/javascript">
+            $(function(){ // this replaces document.ready
+                $(window).on("load", function(){
+                    $('#loader').fadeOut('slow', function() {
+                    $(this).remove();
+                    });
+                });
+                $(".video-play").modalVideo();
+                
+                $(this).data().video-id.on('change', function(){
+
+                    var newval = '',
+                        $this = $(this);
+
+                    if (newval = $this.val().match(/(\?|&)v=([^&#]+)/)) {
+
+                        $this.val(newval.pop());
+
+                    } else if (newval = $this.val().match(/(\.be\/)+([^\/]+)/)) {
+
+                        $this.val(newval.pop());
+
+                    } else if (newval = $this.val().match(/(\embed\/)+([^\/]+)/)) {
+
+                        $this.val(newval.pop().replace('?rel=0',''));
+
+                    }
+
+                });
+            });
+        </script>
     </head>
     <body>
+        <section id="loader"></section>
         <header>
         
             <!--------------------------- NAVIGATIONBAR ------------------------------->
@@ -50,8 +83,6 @@
                     <div class="nt-item"><span class="new">new</span>cyberpunk2077</div>
                     <div class="nt-item"><span class="strategy">strategy</span>totalwar:three kingdoms</div>
                     <div class="nt-item"><span class="racing">racing</span>need for speed</div>
-
-                    
                 </div>
             </div>
         </div>
@@ -74,12 +105,12 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde enim alias quasi aut cupiditate quas tempore! Eos iste doloribus quia, error illum architecto rerum a minima voluptas ratione sit asperiores!</p>
                         <!--14/4 Chỉnh sửa mục button-->
                         <div class="carousel_button">
-                            <button type="button" class="btn btn-outline-light btn-lg">
+                            <a id="video-id" class="btn btn-outline-light btn-lg video-play" data-video-id="GKXS_YA9s7E" type="button">
                                 Trailer
-                            </button>
-                            <a class="btn btn-primary btn-lg" href="/game-detail/gameDetail.html">
-                                Mua Ngay
                             </a>
+                            <button type="button" class="btn btn-primary btn-lg">
+                                Mua Ngay
+                            </button>
                         </div>
                     </div>
                     
@@ -93,9 +124,9 @@
                             <button type="button" class="btn btn-outline-light btn-lg">
                                 Trailer
                             </button>
-                            <a class="btn btn-primary btn-lg" href="/game-detail/gameDetail.html">
+                            <button type="button" class="btn btn-primary btn-lg">
                                 Mua Ngay
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -109,9 +140,9 @@
                             <button type="button" class="btn btn-outline-light btn-lg">
                                 Trailer
                             </button>
-                             <a class="btn btn-primary btn-lg" href="/game-detail/gameDetail.html">
+                            <button type="button" class="btn btn-primary btn-lg">
                                 Mua Ngay
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -155,7 +186,7 @@
          <!--14/4 Chỉnh sửa 1 tí-->
         
         <!--  -->
-        <div class="container-fluid padding mt-4">
+        <div class="container-fluid padding mt-4 section">
             <div class="row padding">
                 <div class="col-8">
                     <h2 class="text-center">Game features</h2>
@@ -445,4 +476,16 @@
         </div> -->
         <footer></footer>
     </body>
+    <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <video controls width="100%">
+                <source src="" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
 </html>
