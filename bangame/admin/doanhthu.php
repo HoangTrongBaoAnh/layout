@@ -54,11 +54,8 @@
             </div>
         </div>
         <div id="hang2">
-            <!-- <?php require "menu.php" ?> -->
-            <a href="listGame.html">Quản lý game</a>
-            <a href="listTheLoai.html">Quản lý thể loại</a>
-            <a href="listUser.html">Quản lý tài khoản</a>
-            <a href="doanhthu.html">Quản lý doanh thu</a>
+            <?php include "menu.php" ?>
+            
         </div>
         <div style="margin-top:100px">
 

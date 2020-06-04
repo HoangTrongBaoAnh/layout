@@ -51,11 +51,8 @@
             </div>
         </div>
         <div id="hang2">
-            <!-- <?php require "menu.php" ?> -->
-            <a href="listGame.html">Quản lý game</a>
-            <a href="listTheLoai.html">Quản lý thể loại</a>
-            <a href="listUser.html">Quản lý tài khoản</a>
-            <a href="doanhthu.html">Quản lý doanh thu</a>
+            <?php include "menu.php" ?>
+            
         </div>
         <div style="margin-top:100px">
 
@@ -69,7 +66,7 @@
                         <th>Hình</th>
                         <th>Phân quyền</th>
                         <th>Email</th>
-                        <th><a href="themUser.html">Thêm</a></th>
+                        <th><a href="themUser.php">Thêm</a></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -80,7 +77,7 @@
                         <td><img src="" alt=""> {urlHinh} </td>
                         <td>{PhanQuyen}</td>
                         <td>{Email}</td>
-                        <td><a href="suaUser.html?id={idUser}">Sửa</a> <a href="xoaUser.html?id={idUser}">Xóa</a></td>
+                        <td><a href="suaUser.php?id={idUser}">Sửa</a> <a href="xoaUser.php?id={idUser}">Xóa</a></td>
                     </tr>
                     <tr>
                         <td>{idUser}</td>
@@ -89,7 +86,7 @@
                         <td><img src="" alt=""> {urlHinh} </td>
                         <td>{PhanQuyen}</td>
                         <td>{Email}</td>
-                        <td><a href="suaUser.html?id={idUser}">Sửa</a> <a href="xoaUser.html?id={idUser}">Xóa</a></td>
+                        <td><a href="suaUser.php?id={idUser}">Sửa</a> <a href="xoaUser.php?id={idUser}">Xóa</a></td>
                     </tr>
                     <tr>
                         <td>{idUser}</td>
@@ -98,7 +95,7 @@
                         <td><img src="" alt=""> {urlHinh} </td>
                         <td>{PhanQuyen}</td>
                         <td>{Email}</td>
-                        <td><a href="suaUser.html?id={idUser}">Sửa</a> <a href="xoaUser.html?id={idUser}">Xóa</a></td>
+                        <td><a href="suaUser.php?id={idUser}">Sửa</a> <a href="xoaUser.php?id={idUser}">Xóa</a></td>
                     </tr>
                     <tr>
                         <td>{idUser}</td>
@@ -107,7 +104,7 @@
                         <td><img src="" alt=""> {urlHinh} </td>
                         <td>{PhanQuyen}</td>
                         <td>{Email}</td>
-                        <td><a href="suaUser.html?id={idUser}">Sửa</a> <a href="xoaUser.html?id={idUser}">Xóa</a></td>
+                        <td><a href="suaUser.php?id={idUser}">Sửa</a> <a href="xoaUser.php?id={idUser}">Xóa</a></td>
                     </tr>
                     <tr>
                         <td>{idUser}</td>
@@ -116,8 +113,27 @@
                         <td><img src="" alt=""> {urlHinh} </td>
                         <td>{PhanQuyen}</td>
                         <td>{Email}</td>
-                        <td><a href="suaUser.html?id={idUser}">Sửa</a> <a href="xoaUser.html?id={idUser}">Xóa</a></td>
+                        <td><a href="suaUser.php?id={idUser}">Sửa</a> <a href="xoaUser.php?id={idUser}">Xóa</a></td>
                     </tr>
+                    <tr>
+                        <td>{idUser}</td>
+                        <td>{Username}</td>
+                        <td>{Password}</td>
+                        <td><img src="" alt=""> {urlHinh} </td>
+                        <td>{PhanQuyen}</td>
+                        <td>{Email}</td>
+                        <td><a href="suaUser.php?id={idUser}">Sửa</a> <a href="xoaUser.php?id={idUser}">Xóa</a></td>
+                    </tr>
+                    <tr>
+                        <td>{idUser}</td>
+                        <td>{Username}</td>
+                        <td>{Password}</td>
+                        <td><img src="" alt=""> {urlHinh} </td>
+                        <td>{PhanQuyen}</td>
+                        <td>{Email}</td>
+                        <td><a href="suaUser.php?id={idUser}">Sửa</a> <a href="xoaUser.php?id={idUser}">Xóa</a></td>
+                    </tr>
+                    
                 </tbody>
                 <tfoot>
                     <th>id</th>

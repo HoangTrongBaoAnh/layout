@@ -1,6 +1,6 @@
 <html>
 <head>
-    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="./layout-login/style1.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -24,7 +24,7 @@
                 }
             });
 
-            $('nav').load('/blocks/nav/nav.html');
+           
         });
     </script>
     <style>
@@ -41,7 +41,9 @@
     </style>
 </head>
 <body>
-    <nav></nav>
+    <?php
+    include "./blocks/nav/nav.php";
+    ?>
     <div>
         <!-- <img src="985672.jpg" width="100%" height="100%"> -->
         <form method="POST" action="#" class="box" style="margin-top:100px" id="sign_up">
@@ -53,7 +55,7 @@
             <input placeholder="Số Điện Thoại" type="tell" name="sdt1">
             <input placeholder="Số Điện Thoại" type="checkbox" checked name="sdt1">
             <div>
-                Bạn đồng ý với <a href="dieukhoan.html">điều khoản</a> của chúng tôi
+                Bạn đồng ý với <a href="dieukhoan.php">điều khoản</a> của chúng tôi
             </div>
             <input type="submit" value="Sign Up">
         </form>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="./layout-login/style1.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -41,18 +41,12 @@
             text-decoration: none !important;
         }
     </style>
-    <script>
-        $(function(){
-            $("#nav-holder").load("/blocks/nav/nav.html");
-        });
-        
-    </script>
+   
 </head>
 <body>
-    <nav id="nav-holder">
-        
-        
-    </nav>
+    <?php
+        include "./blocks/nav/nav.php";
+    ?>
     <img width="100%" height="100%" src="985672.jpg">
     <form class="box" action="#" method="POST">
         <h1>login</h1>

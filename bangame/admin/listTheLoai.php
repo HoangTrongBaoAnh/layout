@@ -55,14 +55,11 @@
             </div>
         </div>
         <div id="hang2">
-            <!-- <?php
-            require "menu.php";
+            <?php
+            include "menu.php";
 
-            ?> -->
-            <a href="listGame.html">Quản lý game</a>
-            <a href="listTheLoai.html">Quản lý thể loại</a>
-            <a href="listUser.html">Quản lý tài khoản</a>
-            <a href="doanhthu.html">Quản lý doanh thu</a>
+            ?>
+            
 
         </div>
 
@@ -76,60 +73,56 @@
                     <tr>
                         <th>id</th>
                         <th>Tên Thể Loại </th>
-                        <th><a href="themTheLoai.html">Thêm</a></th>
+                        <th><a href="themTheLoai.php">Thêm</a></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>{idTL}</td>
                         <td>{TenTL}</td>
-                        <td><a href="suaTheLoai.html?id={idTL}">Sửa</a> <a href="xoaTheLoai.html?id={idTL}">Xóa</a></td>
+                        <td><a href="suaTheLoai.php?id={idTL}">Sửa</a> <a href="xoaTheLoai.php?id={idTL}">Xóa</a></td>
                     </tr>
                     <tr>
                         <td>{idTL}</td>
                         <td>{TenTL}</td>
-                        <td><a href="suaTheLoai.html?id={idTL}">Sửa</a> <a href="xoaTheLoai.html?id={idTL}">Xóa</a></td>
+                        <td><a href="suaTheLoai.php?id={idTL}">Sửa</a> <a href="xoaTheLoai.php?id={idTL}">Xóa</a></td>
                     </tr>
                     <tr>
                         <td>{idTL}</td>
                         <td>{TenTL}</td>
-                        <td><a href="suaTheLoai.html?id={idTL}">Sửa</a> <a href="xoaTheLoai.html?id={idTL}">Xóa</a></td>
+                        <td><a href="suaTheLoai.php?id={idTL}">Sửa</a> <a href="xoaTheLoai.php?id={idTL}">Xóa</a></td>
                     </tr>
                     <tr>
                         <td>{idTL}</td>
                         <td>{TenTL}</td>
-                        <td><a href="suaTheLoai.html?id={idTL}">Sửa</a> <a href="xoaTheLoai.html?id={idTL}">Xóa</a></td>
+                        <td><a href="suaTheLoai.php?id={idTL}">Sửa</a> <a href="xoaTheLoai.php?id={idTL}">Xóa</a></td>
                     </tr>
                     <tr>
                         <td>{idTL}</td>
                         <td>{TenTL}</td>
-                        <td><a href="suaTheLoai.html?id={idTL}">Sửa</a> <a href="xoaTheLoai.html?id={idTL}">Xóa</a></td>
+                        <td><a href="suaTheLoai.php?id={idTL}">Sửa</a> <a href="xoaTheLoai.php?id={idTL}">Xóa</a></td>
                     </tr>
                     <tr>
                         <td>{idTL}</td>
                         <td>{TenTL}</td>
-                        <td><a href="suaTheLoai.html?id={idTL}">Sửa</a> <a href="xoaTheLoai.html?id={idTL}">Xóa</a></td>
+                        <td><a href="suaTheLoai.php?id={idTL}">Sửa</a> <a href="xoaTheLoai.php?id={idTL}">Xóa</a></td>
                     </tr>
                     <tr>
                         <td>{idTL}</td>
                         <td>{TenTL}</td>
-                        <td><a href="suaTheLoai.html?id={idTL}">Sửa</a> <a href="xoaTheLoai.html?id={idTL}">Xóa</a></td>
+                        <td><a href="suaTheLoai.php?id={idTL}">Sửa</a> <a href="xoaTheLoai.php?id={idTL}">Xóa</a></td>
                     </tr>
                     <tr>
                         <td>{idTL}</td>
                         <td>{TenTL}</td>
-                        <td><a href="suaTheLoai.html?id={idTL}">Sửa</a> <a href="xoaTheLoai.html?id={idTL}">Xóa</a></td>
+                        <td><a href="suaTheLoai.php?id={idTL}">Sửa</a> <a href="xoaTheLoai.php?id={idTL}">Xóa</a></td>
                     </tr>
                     <tr>
                         <td>{idTL}</td>
                         <td>{TenTL}</td>
-                        <td><a href="suaTheLoai.html?id={idTL}">Sửa</a> <a href="xoaTheLoai.html?id={idTL}">Xóa</a></td>
+                        <td><a href="suaTheLoai.php?id={idTL}">Sửa</a> <a href="xoaTheLoai.php?id={idTL}">Xóa</a></td>
                     </tr>
-                    <tr>
-                        <td>{idTL}</td>
-                        <td>{TenTL}</td>
-                        <td><a href="suaTheLoai.html?id={idTL}">Sửa</a> <a href="xoaTheLoai.html?id={idTL}">Xóa</a></td>
-                    </tr>
+                    
 
                 </tbody>
                 <tfoot>

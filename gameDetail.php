@@ -13,8 +13,7 @@
 </head>
 <script>
     $(document).ready(function() {
-        $("#nav-holder").load("/blocks/nav/nav.html");
-        $('footer').load("/blocks/footer/footer.html");
+       
         $('#video_game').html(function(i, html) {
             return html.replace(/(?:https:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?([^<]+)/g, '<center><iframe style="border: 1px solid red;" width="100%" height="500px" src="http://www.youtube.com/embed/$1?modestbranding=1&rel=0&wmode=transparent&theme=light&color=white" frameborder="0" allowfullscreen></iframe></center>')
  
@@ -103,13 +102,14 @@
 </style>
 
 <body>
-    <nav id="nav-holder">
-    </nav>
+    <?php
+    include "./blocks/nav/nav.php"
+    ?>
     <div class="container-fluid mt-5">
-        <div class="row">
+        <div class="row mb-4">
             <div class="col-3 border p-0 mr-4 p-4">
                 <div class="image">
-                    <img src="/image/hình/GTA.jpg" alt="">
+                    <img src="./image/hình/GTA.jpg" alt="">
                 </div>
                 <p class="text-center"><span>GRAND THEFT AUTO 5</span></p>
                 <p class="text-center">479.0000 VNĐ</p>
@@ -154,7 +154,7 @@
                 </div>
 
             </div>
-            <div class="col-8 border ">
+            <div class="col-8 border">
                 <div id="video_game">
                     
 <div>https://www.youtube.com/watch?v=HqZXw5M6qQY</div>                        
@@ -184,7 +184,7 @@ Là trò chơi được mong chờ nhất trong năm 2013, Grand Theft Auto V đ
 
                             <div class="carousel-inner ">
                                 <div class="carousel-item active">
-                                    <img src="../image/hình/ob_477681_cau-hinh-may-tinh-choi-gta-5.jpg"
+                                    <img src="./image/hình/ob_477681_cau-hinh-may-tinh-choi-gta-5.jpg"
                                         style="width: 100%">
 
                                     <div class="slide-text">
@@ -193,7 +193,7 @@ Là trò chơi được mong chờ nhất trong năm 2013, Grand Theft Auto V đ
 
                                 </div>
                                 <div class="carousel-item ">
-                                    <img src="/image/hình/gta-5-full-cho-pc.jpg" style="width: 100%" ;>
+                                    <img src="./image/hình/gta-5-full-cho-pc.jpg" style="width: 100%" ;>
                                     <div class="slide-text">
 
                                     </div>
@@ -206,7 +206,7 @@ Là trò chơi được mong chờ nhất trong năm 2013, Grand Theft Auto V đ
                                     </div>
                                 </div>
                                 <div class="carousel-item ">
-                                    <img src="/image/hình/screenshot4f367a5e3-3012-404f-b81e-c39e0e6c59537b2e4880-2ac9-432a-8314-ff047803065d.webp"
+                                    <img src="./image/hình/screenshot4f367a5e3-3012-404f-b81e-c39e0e6c59537b2e4880-2ac9-432a-8314-ff047803065d.webp"
                                         style="width: 100%">
                                     <div class="slide-text">
 
@@ -221,9 +221,9 @@ Là trò chơi được mong chờ nhất trong năm 2013, Grand Theft Auto V đ
             <col>
         </div>
     </div>
-    <footer class="mt-4">
-
-    </footer>
+    <?php
+    include "./blocks/footer/footer.php";
+    ?>
 </body>
 
 </html>

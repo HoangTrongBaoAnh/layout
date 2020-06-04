@@ -54,11 +54,13 @@
             </div>
         </div>
         <div id="hang2">
-            <!-- <?php require "menu.php" ?> -->
-            <a href="listGame.html">Quản lý game</a>
+            <?php 
+            require "menu.php" 
+            ?> 
+            <!-- <a href="listGame.html">Quản lý game</a>
             <a href="listTheLoai.html">Quản lý thể loại</a>
             <a href="listUser.html">Quản lý tài khoản</a>
-            <a href="doanhthu.html">Quản lý doanh thu</a>
+            <a href="doanhthu.html">Quản lý doanh thu</a> -->
         </div>
         <div style="margin-top:100px">
 
@@ -74,7 +76,7 @@
                         <th>Hình</th>
                         <th>Giá tiền</th>
                         <th>Lượt mua</th>
-                        <th><a href="themGame.html">Thêm</a></th>
+                        <th><a href="themGame.php">Thêm</a></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -84,8 +86,8 @@
                         <td>{urlHinh}</td>
                         <td>{TenGame}</td>
                         <td>{LuotMua}</td>
-                        <td> <a href="suaGame.html?idGame={idGame}">Sửa</a>
-                            <a href="xoaGame.html?idGame={idGame}">Xóa</a></td>
+                        <td> <a href="suaGame.php?idGame={idGame}">Sửa</a>
+                            <a href="xoaGame.php?idGame={idGame}">Xóa</a></td>
                     </tr>
                     <tr>
                         <td>{idGame}</td>
@@ -93,8 +95,8 @@
                         <td>{urlHinh}</td>
                         <td>{TenGame}</td>
                         <td>{LuotMua}</td>
-                        <td> <a href="suaGame.html?idGame={idGame}">Sửa</a>
-                            <a href="xoaGame.html?idGame={idGame}">Xóa</a></td>
+                        <td> <a href="suaGame.php?idGame={idGame}">Sửa</a>
+                            <a href="xoaGame.php?idGame={idGame}">Xóa</a></td>
                     </tr>
                     <tr>
                         <td>{idGame}</td>
@@ -102,8 +104,8 @@
                         <td>{urlHinh}</td>
                         <td>{TenGame}</td>
                         <td>{LuotMua}</td>
-                        <td> <a href="suaGame.html?idGame={idGame}">Sửa</a>
-                            <a href="xoaGame.html?idGame={idGame}">Xóa</a></td>
+                        <td> <a href="suaGame.php?idGame={idGame}">Sửa</a>
+                            <a href="xoaGame.php?idGame={idGame}">Xóa</a></td>
                     </tr>
                     <tr>
                         <td>{idGame}</td>
@@ -111,8 +113,8 @@
                         <td>{urlHinh}</td>
                         <td>{TenGame}</td>
                         <td>{LuotMua}</td>
-                        <td> <a href="suaGame.html?idGame={idGame}">Sửa</a>
-                            <a href="xoaGame.html?idGame={idGame}">Xóa</a></td>
+                        <td> <a href="suaGame.php?idGame={idGame}">Sửa</a>
+                            <a href="xoaGame.php?idGame={idGame}">Xóa</a></td>
                     </tr>
                     <tr>
                         <td>{idGame}</td>
@@ -120,8 +122,8 @@
                         <td>{urlHinh}</td>
                         <td>{TenGame}</td>
                         <td>{LuotMua}</td>
-                        <td> <a href="suaGame.html?idGame={idGame}">Sửa</a>
-                            <a href="xoaGame.html?idGame={idGame}">Xóa</a></td>
+                        <td> <a href="suaGame.php?idGame={idGame}">Sửa</a>
+                            <a href="xoaGame.php?idGame={idGame}">Xóa</a></td>
                     </tr>
                     <tr>
                         <td>{idGame}</td>
@@ -129,8 +131,8 @@
                         <td>{urlHinh}</td>
                         <td>{TenGame}</td>
                         <td>{LuotMua}</td>
-                        <td> <a href="suaGame.html?idGame={idGame}">Sửa</a>
-                            <a href="xoaGame.html?idGame={idGame}">Xóa</a></td>
+                        <td> <a href="suaGame.php?idGame={idGame}">Sửa</a>
+                            <a href="xoaGame.php?idGame={idGame}">Xóa</a></td>
                     </tr>
                     <tr>
                         <td>{idGame}</td>
@@ -138,8 +140,8 @@
                         <td>{urlHinh}</td>
                         <td>{TenGame}</td>
                         <td>{LuotMua}</td>
-                        <td> <a href="suaGame.html?idGame={idGame}">Sửa</a>
-                            <a href="xoaGame.html?idGame={idGame}">Xóa</a></td>
+                        <td> <a href="suaGame.php?idGame={idGame}">Sửa</a>
+                            <a href="xoaGame.php?idGame={idGame}">Xóa</a></td>
                     </tr>
                     <tr>
                         <td>{idGame}</td>
@@ -147,8 +149,8 @@
                         <td>{urlHinh}</td>
                         <td>{TenGame}</td>
                         <td>{LuotMua}</td>
-                        <td> <a href="suaGame.html?idGame={idGame}">Sửa</a>
-                            <a href="xoaGame.html?idGame={idGame}">Xóa</a></td>
+                        <td> <a href="suaGame.php?idGame={idGame}">Sửa</a>
+                            <a href="xoaGame.php?idGame={idGame}">Xóa</a></td>
                     </tr>
                     <tr>
                         <td>{idGame}</td>
@@ -156,8 +158,8 @@
                         <td>{urlHinh}</td>
                         <td>{TenGame}</td>
                         <td>{LuotMua}</td>
-                        <td> <a href="suaGame.html?idGame={idGame}">Sửa</a>
-                            <a href="xoaGame.html?idGame={idGame}">Xóa</a></td>
+                        <td> <a href="suaGame.php?idGame={idGame}">Sửa</a>
+                            <a href="xoaGame.php?idGame={idGame}">Xóa</a></td>
                     </tr>
                     <tr>
                         <td>{idGame}</td>
@@ -165,8 +167,8 @@
                         <td>{urlHinh}</td>
                         <td>{TenGame}</td>
                         <td>{LuotMua}</td>
-                        <td> <a href="suaGame.html?idGame={idGame}">Sửa</a>
-                            <a href="xoaGame.html?idGame={idGame}">Xóa</a></td>
+                        <td> <a href="suaGame.php?idGame={idGame}">Sửa</a>
+                            <a href="xoaGame.php?idGame={idGame}">Xóa</a></td>
                     </tr>
                     <tr>
                         <td>{idGame}</td>
@@ -174,8 +176,8 @@
                         <td>{urlHinh}</td>
                         <td>{TenGame}</td>
                         <td>{LuotMua}</td>
-                        <td> <a href="suaGame.html?idGame={idGame}">Sửa</a>
-                            <a href="xoaGame.html?idGame={idGame}">Xóa</a></td>
+                        <td> <a href="suaGame.php?idGame={idGame}">Sửa</a>
+                            <a href="xoaGame.php?idGame={idGame}">Xóa</a></td>
                     </tr>
 
 

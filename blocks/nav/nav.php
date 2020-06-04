@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-        <script src="https://kit.fontawesome.com/e9a3bfa470.js" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/e9a3bfa470.js" crossorigin="anonymous"></script> -->
         <style>
            *{
                 margin: 0;
@@ -84,8 +84,8 @@
     <body>
         <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
             <div class="container-fluid">
-                <a class="navbar-branch" href="../index.html">
-                    <img height="70" src="/image/iconXamLo.png">
+                <a class="navbar-branch" href="./index.php">
+                    <img height="70" src="./image/iconXamLo.png">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
                     <span class="navbar-toggler-icon"></span>
@@ -93,13 +93,13 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="/index.html">Trang chủ</a>
+                            <a class="nav-link" href="./index.php">Trang chủ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/layout-danhmuc/danh_muc.html">Danh mục</a>
+                            <a class="nav-link" href="danh_muc.php">Danh mục</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/bangame/admin/index.html">Admin</a>
+                            <a class="nav-link" href="./bangame/admin/index.php">Admin</a>
                         </li>
                       
                     </ul>
@@ -113,12 +113,12 @@
                             <a href="#" class="search-btn"><i class="fas fa-search"></i></a>
                         </div>
                         <button class="btn btn-success my-2 my-sm-0 ml-3"  type="submit">
-                            <a class="textcl text-light" href="/layout-login/xxx.html">
+                            <a class="textcl text-light" href="xxx.php">
                                 Login
                             </a> 
                          </button>
                         <button class="btn btn-success my-2 my-sm-0 ml-3"  type="submit">
-                            <a class="textcl text-light" href="/layout-login/sign up.html">
+                            <a class="textcl text-light" href="sign up.php">
                                 Đăng ký
                             </a> 
                          </button>
