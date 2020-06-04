@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="styleinfoacc.css">
+    <link rel="stylesheet" href="./layout-infoacc/styleinfoacc.css">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         crossorigin="anonymous"></script>
@@ -16,7 +16,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>    <stlye>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>    
+    <stlye>
 
     </stlye>
     <script>
@@ -43,18 +44,20 @@
 </head>
 
 <body style="background-color: #f1f2f6;">
-    <nav id="nav-placeholder"></nav>
+    <?php
+    include "./blocks/nav/nav.php";
+    ?>
     <div class="col-12"
         style="background-image: linear-gradient(to right,#a29bfe, #9b59b6);; text-align: center; height: 140px; padding: 10px; color: white;">
         <h1>Hồ sơ của tôi</h1>
         <p style="font-size: 20px;">Bạn có thể thay đổi thông tin cá nhân tại đây</p>
     </div>
-    <div class="container" style="margin-top: 10px;">
+    <div class="container" style="margin-top: 100px;margin-bottom:200px">
         <div class="row">
             <div class="col-4 left1">
                 <div style="background-color: #444343; color:white; text-align: center;">
                     <br>
-                    <img src="../image/frog.jpg" style="width: 160px; height: 160px;" class="rounded-circle">
+                    <img src="./image/frog.jpg" style="width: 160px; height: 160px;" class="rounded-circle">
                     <br>
                     <br>
                     <div>
@@ -146,12 +149,14 @@
         </div>
     </div>
     
-    <footer style="margin-top: 500px;"></footer>
+    <?php
+    include "./blocks/footer/footer.php";
+    ?>
     <script>
-        $(document).ready(function() {
-            $("#nav-placeholder").load("/blocks/nav/nav.html");
-            $("footer").load("/blocks/footer/footer.html");
-        });
+        // $(document).ready(function() {
+        //     $("#nav-placeholder").load("/blocks/nav/nav.html");
+        //     $("footer").load("/blocks/footer/footer.html");
+        // });
         function anhien(checked){
             if(checked == true){
                 $(".abc").fadeIn();

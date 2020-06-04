@@ -53,7 +53,7 @@
         <input type="text" name="acc" placeholder="Username">
         <input type="password" name="pass" placeholder="Password">
         <input type="submit" value="Login">
-        <a href="sign up.html" class="tmp">
+        <a href="sign up.php" class="tmp">
             <input type="button" value="Sign up">
         </a>
         <br>
