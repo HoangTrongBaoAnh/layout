@@ -1,3 +1,7 @@
+<?php
+session_start();
+
+?>
 <html>
 <head>
     <link rel="stylesheet" href="./layout-login/style1.css">

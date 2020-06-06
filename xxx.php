@@ -1,6 +1,31 @@
+
+<?php
+session_start();
+include_once "./lib/DataProvider.php";
+?>
+<?php
+if(isset($_POST["btnLogin"])){
+    $un=$_POST["acc"];
+    $pass=$_POST["pass"];
+    $user=DataProvider::ExecuteQuery("SELECT * FROM user WHERE tendangnhap='$un' AND matkhau='$pass' ");
+    if(mysqli_num_rows($user)==1){
+        $row=mysqli_fetch_array($user);
+        $_SESSION['iduser']=$row['iduser'];
+        $_SESSION['tendangnhap']=$row['tendangnhap'];
+        $_SESSION['matkhau']=$row['matkhau'];
+        $_SESSION['idgroup']=$row['idgroup'];
+        $_SESSION['hinh']=$row['hinh'];
+        header("location:index.php");
+    }
+    
+}
+?>
 <!DOCTYPE html>
 <html>
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./layout-login/style1.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -9,50 +34,59 @@
     <script src="https://kit.fontawesome.com/e9a3bfa470.js" crossorigin="anonymous"></script>
     <title>Đăng nhập</title>
     <style>
-        .btn-primary{
+        .btn-primary {
             background-color: blueviolet;
             border: 1px solid white;
         }
-        .btn-primary:hover{
+
+        .btn-primary:hover {
             background-color: purple;
             border: 1px solid white;
         }
-        .navbar li a:hover{
+
+        .navbar li a:hover {
             border-bottom: 1px solid violet;
             color: black !important;
         }
-        .navbar{
+
+        .navbar {
             background-color: blueviolet !important;
         }
-        .btn{
+
+        .btn {
             color: #fff;
         }
-        .navbar li a{
+
+        .navbar li a {
             color: #fff !important;
         }
-        .textcl{
+
+        .textcl {
             color: white !important;
         }
-        .textcl:hover{
+
+        .textcl:hover {
             color: white !important;
             text-decoration: none !important;
         }
-        .tmp:hover{
+
+        .tmp:hover {
             text-decoration: none !important;
         }
     </style>
-   
+
 </head>
+
 <body>
     <?php
-        include "./blocks/nav/nav.php";
+    include "./blocks/nav/nav.php";
     ?>
     <img width="100%" height="100%" src="985672.jpg">
     <form class="box" action="#" method="POST">
         <h1>login</h1>
         <input type="text" name="acc" placeholder="Username">
         <input type="password" name="pass" placeholder="Password">
-        <input type="submit" value="Login">
+        <input type="submit" value="Login" name="btnLogin">
         <a href="sign up.php" class="tmp">
             <input type="button" value="Sign up">
         </a>
@@ -61,4 +95,5 @@
     </form>
 
 </body>
+
 </html>

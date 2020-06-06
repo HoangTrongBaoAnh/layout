@@ -1,5 +1,10 @@
 
 <!-- TÔI XIN MỌI NGƯỜI NẾU CÓ THỂ LÀM ƠN CHÚ THÍCH RIÊNG RA TỪNG PHẦN -->
+<?php
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
