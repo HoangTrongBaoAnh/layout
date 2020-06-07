@@ -105,7 +105,70 @@ if (isset($_REQUEST['btnDangXuat'])) {
             width: 60px;
 
         }
+        /*css phần hiển thị khi đã login*/ 
+        .dropbtn {
+            border-radius: 50px;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 200px;
+            overflow: auto;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            right: -5px;
+        }
+
+        .dropdown-content a {
+            float: left;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block; 
+        }
+        .ten{
+            color: black;
+            padding: 5px;
+        }
+        .dropdown a{min-width: 200px;}
+
+        .dropdown a:hover {background-color: #ddd;}
+
+        .show {display: block;}
     </style>
+    
+    <script>
+        /*jquery cho phần hiển thị đã đăng nhập */
+        function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+    </script>
+
 </head>
 
 <body>
@@ -156,23 +219,18 @@ if (!isset($_SESSION['iduser'])) {
 <?php
 } else {
 ?>
-
     <div>
-        <a href="./layoutaccinfo.php">
-            <img src="./image/<?php echo ($_SESSION['hinh']) ?>" alt="" class="hinh-dai-dien ml-4">
-        </a>
-        <?php
-        echo ($_SESSION['tendangnhap']);
-        ?>
-        <button class="btn btn-success my-2 my-sm-0 ml-3" type="submit" name="btnDangXuat">
-            <a class="textcl text-light">
-                Đăng xuất
-            </a>
-        </button>
+        <div class="dropdown">
+            <input type="image" onclick="myFunction()" class="dropbtn" height="48" src="./image/frog.jpg">
+            <div id="myDropdown" class="dropdown-content">
+                
+                <a href="#home">Thông Tin Tài Khoản</a>
+                <a href="#about">Mật Khẩu</a>
+                <a href="#contact">Kho Game</a>
+                <a href="#contact">Đăng Xuất</a>
+            </div>
+        </div>
     </div>
-
-
-
 <?php
 }
 ?>
