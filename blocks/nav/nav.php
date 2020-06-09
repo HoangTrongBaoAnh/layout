@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 if (isset($_REQUEST['btnDangXuat'])) {
     unset($_SESSION['iduser']);
     unset($_SESSION['tendangnhap']);
@@ -6,7 +6,7 @@ if (isset($_REQUEST['btnDangXuat'])) {
     unset($_SESSION['idgroup']);
     unset($_SESSION['hinh']);
 }
-?>
+?> -->
 <!DOCTYPE html>
 <html>
 
@@ -31,9 +31,11 @@ if (isset($_REQUEST['btnDangXuat'])) {
             background-color: #8c7ae6 !important;
 
         }
+
         .navbar li {
             padding-top: 10px;
         }
+
         .navbar li a {
             color: #fff !important;
         }
@@ -166,7 +168,7 @@ if (isset($_REQUEST['btnDangXuat'])) {
         }
 
         // Close the dropdown if the user clicks outside of it
-      window.onmouseout = function(event) {
+        window.onclick = function(event) {
             if (!event.target.matches('.dropbtn')) {
                 var dropdowns = document.getElementsByClassName("dropdown-content");
                 var i;
@@ -192,15 +194,15 @@ if (isset($_REQUEST['btnDangXuat'])) {
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
-               
-                
+
+
                 <ul class="navbar-nav ml-auto">
-                <form action="" method="post">
-                <div class="search-box" style="text-align:center">
-                    <input class="search-txt" type="text" name="" placeholder="Type to search">
-                    <a href="#" class="search-btn"><i class="fas fa-search"></i></a>
-                </div>
-                </form>
+                    <form action="" method="post">
+                        <div class="search-box" style="text-align:center">
+                            <input class="search-txt" type="text" name="" placeholder="Type to search">
+                            <a href="#" class="search-btn"><i class="fas fa-search"></i></a>
+                        </div>
+                    </form>
                     <li class="nav-item">
                         <a class="nav-link" href="./index.php">Trang chủ</a>
                     </li>
@@ -237,13 +239,15 @@ if (isset($_REQUEST['btnDangXuat'])) {
                     ?>
                         <div>
                             <div class="dropdown">
-                                <input type="image" onmouseover="myFunction()" class="dropbtn" height="48" src="./image/frog.jpg">
+                                <img onclick="myFunction()" class="dropbtn" height="48" src="./image/frog.jpg">
                                 <div id="myDropdown" class="dropdown-content">
 
-                                    <a href="#home">Thông Tin Tài Khoản</a>
-                                    <a href="#about">Mật Khẩu</a>
+                                    <a href="./layoutaccinfo.php">Thông Tin Tài Khoản</a>
+
                                     
-                                    <a href="#contact">Đăng Xuất</a>
+                                       
+                                        <a href="tmp.php">Đăng xuất</a>
+                                    
                                 </div>
                             </div>
                         </div>
