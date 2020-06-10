@@ -1,4 +1,4 @@
-<!-- <?php
+<?php
 if (isset($_REQUEST['btnDangXuat'])) {
     unset($_SESSION['iduser']);
     unset($_SESSION['tendangnhap']);
@@ -6,7 +6,7 @@ if (isset($_REQUEST['btnDangXuat'])) {
     unset($_SESSION['idgroup']);
     unset($_SESSION['hinh']);
 }
-?> -->
+?>
 <!DOCTYPE html>
 <html>
 
@@ -31,11 +31,9 @@ if (isset($_REQUEST['btnDangXuat'])) {
             background-color: #8c7ae6 !important;
 
         }
-
         .navbar li {
             padding-top: 10px;
         }
-
         .navbar li a {
             color: #fff !important;
         }
@@ -109,77 +107,19 @@ if (isset($_REQUEST['btnDangXuat'])) {
             width: 60px;
 
         }
-
-        /*css phần hiển thị khi đã login*/
-        .dropbtn {
-            border-radius: 50px;
-            color: white;
-            border: none;
-            cursor: pointer;
-            margin: 5px;
-        }
-
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f1f1f1;
-            min-width: 200px;
-            overflow: auto;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-            right: -5px;
-        }
-
-        .dropdown-content a {
-            float: left;
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-
-        .ten {
-            color: black;
-            padding: 5px;
-        }
-
-        .dropdown a {
-            min-width: 200px;
-        }
-
-        .dropdown a:hover {
-            background-color: #ddd;
-        }
-
-        .show {
+        .dropleft:hover .dropdown-menu {
             display: block;
         }
     </style>
 
     <script>
-        /*jquery cho phần hiển thị đã đăng nhập */
-        function myFunction() {
-            document.getElementById("myDropdown").classList.toggle("show");
-        }
-
-        // Close the dropdown if the user clicks outside of it
-        window.onclick = function(event) {
-            if (!event.target.matches('.dropbtn')) {
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                var i;
-                for (i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                        openDropdown.classList.remove('show');
-                    }
-                }
-            }
-        }
+        $( document ).ready(function() {
+            $('.dropdown-menu').find('form').click(function (e) {
+                e.stopPropagation();
+            });
+            
+        });
+        
     </script>
 
 </head>
@@ -194,15 +134,15 @@ if (isset($_REQUEST['btnDangXuat'])) {
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
-
-
+               
+                
                 <ul class="navbar-nav ml-auto">
-                    <form action="" method="post">
-                        <div class="search-box" style="text-align:center">
-                            <input class="search-txt" type="text" name="" placeholder="Type to search">
-                            <a href="#" class="search-btn"><i class="fas fa-search"></i></a>
-                        </div>
-                    </form>
+                <form action="" method="post">
+                <div class="search-box" style="text-align:center">
+                    <input class="search-txt" type="text" name="" placeholder="Type to search">
+                    <a href="#" class="search-btn"><i class="fas fa-search"></i></a>
+                </div>
+                </form>
                     <li class="nav-item">
                         <a class="nav-link" href="./index.php">Trang chủ</a>
                     </li>
@@ -216,7 +156,7 @@ if (isset($_REQUEST['btnDangXuat'])) {
 
 
                 </ul>
-                <form class="form-inline my-2 my-lg-0" method="POST">
+                
 
 
                     <?php
@@ -224,6 +164,7 @@ if (isset($_REQUEST['btnDangXuat'])) {
 
 
                     ?>
+                    <form class="form-inline my-2 my-lg-0" method="POST">
                         <button class="btn btn-success my-2 my-sm-0 ml-3" type="submit">
                             <a class="textcl text-light" href="xxx.php">
                                 Login
@@ -234,28 +175,29 @@ if (isset($_REQUEST['btnDangXuat'])) {
                                 Đăng ký
                             </a>
                         </button>
+                    </form>
                     <?php
                     } else {
                     ?>
                         <div>
-                            <div class="dropdown">
-                                <img onclick="myFunction()" class="dropbtn" height="48" src="./image/frog.jpg">
-                                <div id="myDropdown" class="dropdown-content">
-
-                                    <a href="./layoutaccinfo.php">Thông Tin Tài Khoản</a>
-
-                                    
-                                       
-                                        <a href="tmp.php">Đăng xuất</a>
-                                    
-                                </div>
+                            <div class="btn-group dropleft " data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                <img  height="48" src="./image/frog.jpg">
+                                <div class="dropdown-menu">
+                                    <form method="POST">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <input class="dropdown-item" name="btnDangXuat" id="btnDangXuat" type="submit" value="logout">
+                                    </form>
                             </div>
+                            
                         </div>
+                        
                     <?php
                     }
                     ?>
 
-                </form>
+                
 
             </div>
 
