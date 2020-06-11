@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (isset($_SESSION['iduser']) and $_SESSION['idgroup'] != 1) {
+    header("location:/layout/index.php");
+}
+include_once("/xampp/htdocs/layout/lib/DataProvider.php");
+include_once("/xampp/htdocs/layout/lib/quantri.php");
+?>
 <!DOCTYPE html>
 <html>
 
@@ -26,9 +34,9 @@
 <body>
     <div class="container">
         <div id="hangtieude">TRANG QUẢN TRỊ
-            <div style="width:200px;float:right">
+            <div style="width:400px;float:right">
 
-                Chào anh áaaa
+                <?php echo "Chào anh " . $_SESSION['tendangnhap'] ?>
 
             </div>
         </div>
@@ -58,7 +66,8 @@
                         <td><input type="email" name="Email" id="Email"></td>
                     </tr>
                     <tr>
-                        <td>urlHinh </td><td><img src="" alt=""><input type="file" name="urlHinh" id="urlHinh"></td>
+                        <td>urlHinh </td>
+                        <td><img src="" alt=""><input type="file" name="urlHinh" id="urlHinh"></td>
                     </tr>
                     <tr>
                         <td>PhanQuyen</td>
@@ -69,7 +78,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td></td><td><input type="submit" name="btnThem" value="Thêm"></td>
+                        <td></td>
+                        <td><input type="submit" name="btnThem" value="Thêm"></td>
                     </tr>
                 </table>
 

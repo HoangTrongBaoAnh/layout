@@ -5,6 +5,8 @@ if (isset($_REQUEST['btnDangXuat'])) {
     unset($_SESSION['matkhau']);
     unset($_SESSION['idgroup']);
     unset($_SESSION['hinh']);
+    unset($_SESSION['ten']);
+    header("location:./index.php");
 }
 ?>
 <!DOCTYPE html>
@@ -149,12 +151,19 @@ if (isset($_REQUEST['btnDangXuat'])) {
                     <li class="nav-item">
                         <a class="nav-link" href="danh_muc.php">Danh mục</a>
                     </li>
+                    <?php
+                    if (isset($_SESSION['iduser'])&&$_SESSION['idgroup']==1) {
+
+
+                    ?>
                     <li class="nav-item">
                         <a class="nav-link" href="./bangame/admin/index.php">Admin</a>
                     </li>
 
 
-
+                        <?php
+                    }
+                        ?>
                 </ul>
                 
 
@@ -164,18 +173,18 @@ if (isset($_REQUEST['btnDangXuat'])) {
 
 
                     ?>
-                    <form class="form-inline my-2 my-lg-0" method="POST">
-                        <button class="btn btn-success my-2 my-sm-0 ml-3" type="submit">
-                            <a class="textcl text-light" href="xxx.php">
+                   
+                        
+                            <a class=" btn btn-primary" href="xxx.php">
                                 Login
-                            </a>
+                           
                         </button>
-                        <button class="btn btn-success my-2 my-sm-0 ml-3" type="submit">
-                            <a class="textcl text-light" href="sign up.php">
+                        
+                            <a class=" btn btn-primary" href="sign up.php">
                                 Đăng ký
                             </a>
-                        </button>
-                    </form>
+                        
+                   
                     <?php
                     } else {
                     ?>
@@ -185,8 +194,8 @@ if (isset($_REQUEST['btnDangXuat'])) {
                                 <img  height="48" src="./image/frog.jpg">
                                 <div class="dropdown-menu">
                                     <form method="POST">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="layoutaccinfo.php">Trang cá nhân</a>
+                                        
                                         <input class="dropdown-item" name="btnDangXuat" id="btnDangXuat" type="submit" value="logout">
                                     </form>
                             </div>

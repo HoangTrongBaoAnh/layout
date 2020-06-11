@@ -1,3 +1,32 @@
+<?php
+session_start();
+if (isset($_SESSION['iduser']) and $_SESSION['idgroup'] != 1) {
+    header("location:/layout/index.php");
+}
+include_once("/xampp/htdocs/layout/lib/DataProvider.php");
+include_once("/xampp/htdocs/layout/lib/quantri.php");
+?>
+
+<?php
+if (isset($_POST['btnThem'])) {
+    $TenDN = $_POST['Username'];
+    $Pass = $_POST['Password'];
+    $Email = $_POST['Email'];
+    $sdt = $_POST['sdt'];
+    settype($sdt, "int");
+    $idgroup = $_POST['PhanQuyen'];
+    settype($idgroup, "int");
+    $ten = $_POST['ten'];
+    $hinh = 'frog.jpg';
+    $qr = "INSERT INTO user(tendangnhap,matkhau,email,ten,sdt,idgroup,hinh) VALUES('$TenDN','$Pass','$Email','$ten','$sdt','$idgroup','$hinh');
+    ";
+    // echo $qr;
+    // echo $TenDN;
+    DataProvider::ExecuteQuery($qr);
+    header("location:listUser.php");
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -26,21 +55,18 @@
 <body>
     <div class="container">
         <div id="hangtieude">TRANG QUẢN TRỊ
-            <div style="width:200px;float:right">
+            <div style="width:400px;float:right">
 
-                Chào anh áaaa
+                <?php echo "Chào anh " . $_SESSION['tendangnhap'] ?>
 
             </div>
         </div>
         <div id="hang2">
-            <!-- <?php require "menu.php" ?> -->
-            <a href="listGame.html">Quản lý game</a>
-            <a href="listTheLoai.html">Quản lý thể loại</a>
-            <a href="listUser.html">Quản lý tài khoản</a>
-            <a href="doanhthu.html">Quản lý doanh thu</a>
+            <?php include "menu.php" ?>
+
         </div>
         <div style="margin-top:100px">
-            <form action="" method="POST" enctype="multipart/form-data">
+            <form action="" method="POST">
                 <table style="width:100%">
                     <tr>
                         <th colspan="2">THÊM TÀI KHOẢN</th>
@@ -57,17 +83,30 @@
                         <td>Email</td>
                         <td><input type="email" name="Email" id="Email"></td>
                     </tr>
-                   
                     <tr>
-                        <td>PhanQuyen</td>
+                        <td>SĐT</td>
+                        <td><input type="tel" name="sdt" id="sdt"></td>
+                    </tr>
+                    <tr>
                         <td>
-                            <label><input type="radio" name="PhanQuyen" id="PhanQuyen" value="0" checked>user</label>
-                            <br>
-                            <label><input type="radio" name="PhanQuyen" id="PhanQuyen" value="1">admin</label>
+                            Tên
+                        </td>
+                        <td>
+                            <input type="text" name="ten" id="ten">
                         </td>
                     </tr>
                     <tr>
-                        <td></td><td><input type="submit" name="btnThem" value="Thêm"></td>
+                        <td>PhanQuyen</td>
+                        <td>
+                            <label><input type="radio" name="PhanQuyen" id="PhanQuyen_0" value="0" checked>user</label>
+                            <br>
+                            <label><input type="radio" name="PhanQuyen" id="PhanQuyen_1" value="1">admin</label>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" name="btnThem" value="Thêm" id="btnThem"></td>
                     </tr>
                 </table>
 

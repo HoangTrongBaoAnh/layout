@@ -1,6 +1,10 @@
 <?php
 session_start();
+// nếu đăng nhập rồi thì ko đc vào trang đăng ký nữa
 
+if (isset($_SESSION['iduser'])) {
+    header("location:/layout/index.php");
+}
 ?>
 <html>
 <head>

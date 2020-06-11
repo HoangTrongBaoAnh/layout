@@ -1,6 +1,12 @@
 <?php
 session_start();
-
+// nếu chưa đăng nhập thì ko dc vào trang này
+// nếu đăng nhập rồi thì ko đc vào trang đăng nhập nữa
+if (!isset($_SESSION['iduser'])) {
+    header("location:/layout/index.php");
+}
+include_once("./lib/DataProvider.php");
+include_once("./lib/quantri.php");
 ?>
 <html>
 
@@ -61,11 +67,13 @@ session_start();
             <div class="col-4 left1">
                 <div style="background-color: #444343; color:white; text-align: center;">
                     <br>
-                    <img src="./image/frog.jpg" style="width: 160px; height: 160px;" class="rounded-circle">
+                    <img src="./image/<?php echo $_SESSION['hinh'] ?>" style="width: 160px; height: 160px;" class="rounded-circle">
                     <br>
                     <br>
                     <div>
-                        Nguyen Van A
+                        <?php
+                            echo $_SESSION['ten'];
+                        ?>
                     </div>
                     <br>
                 </div>
@@ -78,11 +86,16 @@ session_start();
                 </ul>
                 <div class="tabcontent1">
                     <div id="tab1">
-                        <p style="background-color: white; padding : 5px;"><b>Tên đăng nhập:</b> deptraikoloithoat123
+                        <?php
+                            $dataThongTin=getThongTinByID($_SESSION['iduser']);
+                            $dataThongTin_row=mysqli_fetch_array($dataThongTin);
+
+                        ?>
+                        <p style="background-color: white; padding : 5px;"><b>Tên đăng nhập:</b> <?php echo $_SESSION['tendangnhap'] ?>
                         </p>
-                        <p style="background-color: white; padding : 5px;"><b>Email:</b> 1ngay2em@yahoo.com</p>
-                        <p style="background-color: white; padding : 5px;"><b>Tên:</b> Nguyen Van A</p>
-                        <p style="background-color: white; padding : 5px;"><b>Sdt:</b> 09999999999</p>
+                        <p style="background-color: white; padding : 5px;"><b>Email:</b><?php echo $dataThongTin_row['email'] ?></p>
+                        <p style="background-color: white; padding : 5px;"><b>Tên:</b> <?php echo $dataThongTin_row['ten'] ?></p>
+                        <p style="background-color: white; padding : 5px;"><b>Sdt:</b><?php echo $dataThongTin_row['sdt'] ?></p>
                     </div>
                     <div id="tab2">
                         <form action="" method="POST">

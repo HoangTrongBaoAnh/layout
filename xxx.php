@@ -1,6 +1,10 @@
 
 <?php
 session_start();
+// nếu đăng nhập rồi thì ko đc vào trang đăng nhập nữa
+if (isset($_SESSION['iduser'])) {
+    header("location:/layout/index.php");
+}
 include_once "./lib/DataProvider.php";
 ?>
 <?php
@@ -15,6 +19,7 @@ if(isset($_POST["btnLogin"])){
         $_SESSION['matkhau']=$row['matkhau'];
         $_SESSION['idgroup']=$row['idgroup'];
         $_SESSION['hinh']=$row['hinh'];
+        $_SESSION['ten']=$row['ten'];
         header("location:index.php");
     }
     

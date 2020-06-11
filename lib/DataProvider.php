@@ -6,7 +6,11 @@ class DataProvider
         $host="localhost";
         $user="root";
         $password="";
-        $database="bangame";
+		$database="bangame";
+		// $host="localhost";
+		// $user="id13941678_vinhtq";
+		// $password="hcuRh4eJ<XBna-a^";
+		// $database="id13941678_bangame";
 		try{
 			$connection = mysqli_connect($host,$user,$password,$database);//or 				die ("couldn't connect to localhost");				
 			mysqli_query($connection, "set names 'utf8'");		

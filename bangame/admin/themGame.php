@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (isset($_SESSION['iduser']) and $_SESSION['idgroup'] != 1) {
+    header("location:/layout/index.php");
+}
+include_once("/xampp/htdocs/layout/lib/DataProvider.php");
+include_once("/xampp/htdocs/layout/lib/quantri.php");
+?>
 <!DOCTYPE html>
 <html>
 
@@ -41,9 +49,9 @@
 
     <div class="container">
         <div id="hangtieude">TRANG QUẢN TRỊ
-            <div style="width:200px;float:right">
+            <div style="width:400px;float:right">
 
-                Chào anh áaaa
+                <?php echo "Chào anh " . $_SESSION['tendangnhap'] ?>
 
             </div>
         </div>
@@ -57,72 +65,78 @@
         </div>
         <div style="margin-top:100px">
 
-    
-        <form action="" method="POST" enctype="multipart/form-data">
+
+            <form action="" method="POST" enctype="multipart/form-data">
 
 
-        <table style="width:100%">
-            <tr>
-                <th colspan="2" class="text-center">THÊM GAME</th>
-            </tr>
-            <tr>
-                <td>TenGame</td>
-                <td><input type="text" name="TenGame"></td>
-            </tr>
-            <tr>
-                <td>TheLoai</td>
-                <td>
-                    <input type="checkbox" name="TheLoai" id="TheLoai">Hành Động
-                    <input type="checkbox" name="TheLoai" id="TheLoai">Hành Động
-                    <input type="checkbox" name="TheLoai" id="TheLoai">Hành Động
-                    <input type="checkbox" name="TheLoai" id="TheLoai">Hành Động
-                    <input type="checkbox" name="TheLoai" id="TheLoai">Hành Động
-                    <input type="checkbox" name="TheLoai" id="TheLoai">Hành Động
-                    <input type="checkbox" name="TheLoai" id="TheLoai">Hành Động
-                    <input type="checkbox" name="TheLoai" id="TheLoai">Hành Động
-                    <input type="checkbox" name="TheLoai" id="TheLoai">Hành Động
-                    <input type="checkbox" name="TheLoai" id="TheLoai">Hành Động
-                    <input type="checkbox" name="TheLoai" id="TheLoai">Hành Động
-                    <input type="checkbox" name="TheLoai" id="TheLoai">Hành Động
-                    <input type="checkbox" name="TheLoai" id="TheLoai">Hành Động
-                    <input type="checkbox" name="TheLoai" id="TheLoai">Hành Động
-                    <input type="checkbox" name="TheLoai" id="TheLoai">Hành Động
-                </td>
-            </tr>
-            <tr>
-            </tr>
-            <tr>
-                <td>urlHinh</td>
-                <td><img src="" alt=""><input type="file" name="urlHinh" id="Hinh"></td>
-            </tr>
-            <tr><td>Gia</td><td><input type="number" name="Gia" id="Gia"></td></tr>
-            <tr>
-                <td>Nam</td>
-                <td><input type="date" name="Nam"></td>
-            </tr>
-            <tr><td>urlVideo</td><td><input type="url" name="urlVideo" id="video"></td></tr>
-            <tr>
-                <td>NhaPhatHanh</td>
-                <td><input type="text" name="NhaPhatHanh"></td>
-            </tr>
-            <tr>
-                <td>minimum</td>
-                <td><textarea name="minimum" id="" cols="30" rows="10"></textarea></td>
-            </tr>
-            <tr>
-                <td>maximum</td>
-                <td><textarea name="maximum" id="" cols="30" rows="10"></textarea></td>
-            </tr>
-            <tr>
-                <td>NoiDung</td>
-                <td><textarea name="NoiDung" id="NoiDung" cols="30" rows="10"></textarea></td>
-            </tr>
-            <tr>
-                <td colspan="2" class="text-center"><input type="submit" name="btnThem" value="Thêm" style="width:200px"></input></td>
-            </tr>
-        </table>
-        </form>       
-    </div>
+                <table style="width:100%">
+                    <tr>
+                        <th colspan="2" class="text-center">THÊM GAME</th>
+                    </tr>
+                    <tr>
+                        <td>TenGame</td>
+                        <td><input type="text" name="TenGame"></td>
+                    </tr>
+                    <tr>
+                        <td>TheLoai</td>
+                        <td>
+                            <input type="checkbox" name="TheLoai" id="TheLoai">Hành Động
+                            <input type="checkbox" name="TheLoai" id="TheLoai">Hành Động
+                            <input type="checkbox" name="TheLoai" id="TheLoai">Hành Động
+                            <input type="checkbox" name="TheLoai" id="TheLoai">Hành Động
+                            <input type="checkbox" name="TheLoai" id="TheLoai">Hành Động
+                            <input type="checkbox" name="TheLoai" id="TheLoai">Hành Động
+                            <input type="checkbox" name="TheLoai" id="TheLoai">Hành Động
+                            <input type="checkbox" name="TheLoai" id="TheLoai">Hành Động
+                            <input type="checkbox" name="TheLoai" id="TheLoai">Hành Động
+                            <input type="checkbox" name="TheLoai" id="TheLoai">Hành Động
+                            <input type="checkbox" name="TheLoai" id="TheLoai">Hành Động
+                            <input type="checkbox" name="TheLoai" id="TheLoai">Hành Động
+                            <input type="checkbox" name="TheLoai" id="TheLoai">Hành Động
+                            <input type="checkbox" name="TheLoai" id="TheLoai">Hành Động
+                            <input type="checkbox" name="TheLoai" id="TheLoai">Hành Động
+                        </td>
+                    </tr>
+                    <tr>
+                    </tr>
+                    <tr>
+                        <td>urlHinh</td>
+                        <td><img src="" alt=""><input type="file" name="urlHinh" id="Hinh"></td>
+                    </tr>
+                    <tr>
+                        <td>Gia</td>
+                        <td><input type="number" name="Gia" id="Gia"></td>
+                    </tr>
+                    <tr>
+                        <td>Nam</td>
+                        <td><input type="date" name="Nam"></td>
+                    </tr>
+                    <tr>
+                        <td>urlVideo</td>
+                        <td><input type="url" name="urlVideo" id="video"></td>
+                    </tr>
+                    <tr>
+                        <td>NhaPhatHanh</td>
+                        <td><input type="text" name="NhaPhatHanh"></td>
+                    </tr>
+                    <tr>
+                        <td>minimum</td>
+                        <td><textarea name="minimum" id="" cols="30" rows="10"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>maximum</td>
+                        <td><textarea name="maximum" id="" cols="30" rows="10"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>NoiDung</td>
+                        <td><textarea name="NoiDung" id="NoiDung" cols="30" rows="10"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="text-center"><input type="submit" name="btnThem" value="Thêm" style="width:200px"></input></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
     </div>
 </body>
 

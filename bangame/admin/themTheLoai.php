@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (isset($_SESSION['iduser']) and $_SESSION['idgroup'] != 1) {
+    header("location:/layout/index.php");
+}
+include_once("/xampp/htdocs/layout/lib/DataProvider.php");
+include_once("/xampp/htdocs/layout/lib/quantri.php");
+?>
 <!DOCTYPE html>
 <html>
 
@@ -28,9 +36,9 @@
 
     <div class="container">
         <div id="hangtieude">TRANG QUẢN TRỊ
-            <div style="width:200px;float:right">
+            <div style="width:400px;float:right">
 
-                Chào anh áaaa
+                <?php echo "Chào anh " . $_SESSION['tendangnhap'] ?>
 
             </div>
         </div>
