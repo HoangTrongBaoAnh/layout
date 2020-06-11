@@ -1,4 +1,6 @@
+
 <?php
+/*
 session_start();
 
     unset($_SESSION['iduser']);
@@ -7,4 +9,7 @@ session_start();
     unset($_SESSION['idgroup']);
     unset($_SESSION['hinh']);
 header("location:xxx.php");
+
+*/
+echo "ko bi trung";
 ?>
