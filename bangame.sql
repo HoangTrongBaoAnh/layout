@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 03, 2020 lúc 07:57 AM
+-- Thời gian đã tạo: Th6 11, 2020 lúc 08:33 AM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.4.4
 
@@ -136,14 +136,22 @@ INSERT INTO `theloai` (`idtheloai`, `tentheloai`, `tentheloai_khongdau`) VALUES
 CREATE TABLE `user` (
   `iduser` int(11) NOT NULL,
   `tendangnhap` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `maykhau` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `matkhau` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `ten` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `sdt` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
   `idgroup` int(11) NOT NULL,
-  `hinh` text COLLATE utf8_unicode_ci NOT NULL,
-  `tien` int(10) NOT NULL
+  `hinh` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `tien` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `user`
+--
+
+INSERT INTO `user` (`iduser`, `tendangnhap`, `matkhau`, `email`, `ten`, `sdt`, `idgroup`, `hinh`, `tien`) VALUES
+(1, 'batman347', '0123456789Vi', 'quangvinh2018vi@gmail.com', 'Vinh Trương', '0966003417', 1, 'frog.jpg', 100000),
+(2, 'johncena', '1', 'bdsa@gmail.com', 'cena', '975411255', 0, 'frog.jpg', 0);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -221,7 +229,7 @@ ALTER TABLE `theloai`
 -- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
-  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
