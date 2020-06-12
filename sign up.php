@@ -14,9 +14,9 @@ include_once ('lib/DataProvider.php');
 include_once ('lib/quantri.php');
 if(isset($_POST['btnsignup'])){
     $data = getListUser();
-    $row = mysqli_fetch_array($data);
-    $tenhienco = $row['tendangnhap'];
-    if($tenhienco != $_POST['acc1']){
+    $tenhienco = $_POST['acc1'];
+    $qr = DataProvider::ExecuteQuery("SELECT * FROM user WHERE tendangnhap='$tenhienco'");
+    if(mysqli_num_rows($qr) == 0){
         $TenDN = $_POST['acc1'];
         $Pass = $_POST['pass1'];
         $Email = $_POST['dc1'];
@@ -47,6 +47,7 @@ if(isset($_POST['btnsignup'])){
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/additional-methods.js"></script>
     <script src="https://kit.fontawesome.com/e9a3bfa470.js" crossorigin="anonymous"></script>
+    <title>Đăng ký</title>
     <script>
         $(function(){
             $("#sign_up").validate({

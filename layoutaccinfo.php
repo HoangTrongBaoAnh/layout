@@ -8,9 +8,42 @@ if (!isset($_SESSION['iduser'])) {
 include_once("./lib/DataProvider.php");
 include_once("./lib/quantri.php");
 ?>
-<html>
+<?php
+if(isset($_POST['doimatkhau'])){
+    $data = getListUser();
+    $iduser = $_SESSION['iduser'];
+    if(isset($_POST['mkcu']) && isset($_POST['mkmoi'])){
+        $matkhau = $_POST['mkcu'];
+        $matkhaumoi = $_POST['mkmoi'];
+        
+        $qr = "UPDATE user
+        SET matkhau = '$matkhaumoi'
+        WHERE iduser='$iduser'";
+        DataProvider::ExecuteQuery($qr); 
+        //header("location:xxx.php");
+    }
+}
 
+if(isset($_POST['doiemail'])){
+    $iduser = $_SESSION['iduser'];
+    if(isset($_POST['emailcu']) && isset($_POST['emailmoi'])){
+        $emailcu = $_POST['emailcu'];
+        $emailmoi = $_POST['emailmoi'];
+        
+        $qr = "UPDATE user
+        SET email = '$emailmoi'
+        WHERE iduser='$iduser'";
+        DataProvider::ExecuteQuery($qr); 
+        //header("location:xxx.php");
+    }
+}
+
+?>
+<html>
 <head>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/additional-methods.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.js"></script>
+    <script src="https://kit.fontawesome.com/e9a3bfa470.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./layout-infoacc/styleinfoacc.css">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -30,6 +63,7 @@ include_once("./lib/quantri.php");
     <stlye>
 
     </stlye>
+
     <script>
 
         $(function () {
@@ -98,17 +132,17 @@ include_once("./lib/quantri.php");
                         <p style="background-color: white; padding : 5px;"><b>Sdt:</b><?php echo $dataThongTin_row['sdt'] ?></p>
                     </div>
                     <div id="tab2">
-                        <form action="" method="POST">
+                        <form id="thay_mk" action="" method="POST">
                             <input type="password" name="mkcu" placeholder="Mật Khẩu Hiện Tại">
                             <input type="password" name="mkmoi" placeholder="Mật Khẩu Mới">
-                            <input type="password" placeholder="Nhập Lại Mật Khẩu Mới">
+                            <input type="password" name="mkmoi2" placeholder="Nhập Lại Mật Khẩu Mới">
                             <input type="submit" name="doimatkhau" value="Đổi mật khẩu">
                         </form>
                         <form action="" method="POST">
                             <input type="text" name="emailcu" placeholder="Email Hiện Tại">
-                            <input type="text" name="mkmoi" placeholder="Email Mới">
+                            <input type="text" name="emailmoi" placeholder="Email Mới">
                             <input type="text" placeholder="Nhập Lại Email Mới">
-                            <input type="submit" name="doimatkhau" value="Đổi Email">
+                            <input type="submit" name="doiemail" value="Đổi Email">
 
                         </form>
                         <form action="" method="post">
@@ -181,6 +215,21 @@ include_once("./lib/quantri.php");
                 $(".abc").fadeOut();
             }
         }
+    </script>
+    <script>
+        $(function(){
+            $("#thay_mk").validate({
+                rules: {
+                    mkcu: {required: true},
+                    mkmoi: {required:true},
+                    mkmoi2: {equalTo: "[name='mkmoi']"},
+                },
+                messages:{
+                    mkcu: {required: "Bạn chưa nhập"},
+                    mkmoi: {required: "Ban chưa nhập"},
+                }
+            });
+        });
     </script>
 </body>
 
