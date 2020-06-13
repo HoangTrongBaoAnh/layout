@@ -19,8 +19,7 @@ session_start();
         <script src="https://kit.fontawesome.com/e9a3bfa470.js" crossorigin="anonymous"></script>
         <script src="jquery/Text-Scrolling-Plugin-for-jQuery-Marquee/jquery.marquee.js"></script>
         <link href="./trangchu/style.css" rel="stylesheet">
-        <script src="/blocks/nav/nav.html"></script>
-        <script src="/blocks/footer/footer.html"></script>
+        
         <script src="/blocks/loadingscreen/loadingscreen.html"></script>
         <script src="jquery/modalvideo/jquery-modal-video.min.js"></script>
         <link href="jquery/modalvideo/modal-video.min.css" rel="stylesheet" >

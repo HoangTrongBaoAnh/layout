@@ -50,14 +50,7 @@ html, body{
 .carousel_button{
     padding: 20px;
 }
-.btn-primary{
-    background-color: blueviolet;
-    border: 1px solid white;
-}
-.btn-primary:hover{
-    background-color: purple;
-    border: 1px solid white;
-}
+    
 .welcome hr{
     border-top: 2px solid red;
     width: 100%;
