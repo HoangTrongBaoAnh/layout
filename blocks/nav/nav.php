@@ -9,6 +9,10 @@ if (isset($_REQUEST['btnDangXuat'])) {
     header("location:./index.php");
 }
 ?>
+<?php
+    include_once("./lib/DataProvider.php");
+    include_once("./lib/quantri.php");
+?>
 <!DOCTYPE html>
 <html>
 
@@ -109,8 +113,9 @@ if (isset($_REQUEST['btnDangXuat'])) {
             width: 60px;
 
         }
-        .dropleft:hover .dropdown-menu {
-            display: block;
+        .dropdown-menu .dropdown-item{
+            min-width: 250px !important;
+
         }
     </style>
 
@@ -151,19 +156,6 @@ if (isset($_REQUEST['btnDangXuat'])) {
                     <li class="nav-item">
                         <a class="nav-link" href="danh_muc.php">Danh mục</a>
                     </li>
-                    <?php
-                    if (isset($_SESSION['iduser'])&&$_SESSION['idgroup']==1) {
-
-
-                    ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./bangame/admin/index.php">Admin</a>
-                    </li>
-
-
-                        <?php
-                    }
-                        ?>
                 </ul>
                 
 
@@ -189,15 +181,36 @@ if (isset($_REQUEST['btnDangXuat'])) {
                     } else {
                     ?>
                         <div>
-                            <div class="btn-group dropleft " data-toggle="dropdown" aria-haspopup="true"
+                            <?php
+                                $datathongtin = getThongTinByID($_SESSION['iduser']);
+                                $datathongtin_row = mysqli_fetch_array($datathongtin);
+                            ?>
+                            <div class="btn-group" data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false">
-                                <img  height="48" src="./image/frog.jpg">
-                                <div class="dropdown-menu">
-                                    <form method="POST">
-                                        <a class="dropdown-item" href="layoutaccinfo.php">Trang cá nhân</a>
-                                        
-                                        <input class="dropdown-item" name="btnDangXuat" id="btnDangXuat" type="submit" value="logout">
-                                    </form>
+                                <img  style="border-radius: 25px;" height="48" src="./image/<?php echo $datathongtin_row['hinh'] ?>">
+                                <div class="dropdown-menu dropdown-menu-right ">
+                                    <table>
+                                        <tr>
+                                            <td rowspan="2"><img class="mr-2 ml-1" style="border-radius: 25px;" height="48" src="./image/<?php echo $datathongtin_row['hinh'] ?>"></td>
+                                            <td><b style="font-size: 18px;"><?php echo $datathongtin_row['tendangnhap'] ?></b></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-size: 14px;"><?php echo $datathongtin_row['email'] ?></td>
+                                        </tr>
+                                    </table>
+                                        <li class="divider"></li>
+                                        <form method="POST">
+                                            <a class="dropdown-item" href="layoutaccinfo.php"> <i class="fas fa-home mr-1"></i>Trang cá nhân</a>
+                                            <?php
+                                                if($_SESSION['idgroup']==1){
+                                            ?>
+                                                <a class="dropdown-item" href="./bangame/admin/index.php"><i class="fas fa-users-cog mr-1"></i>Admin</a>
+                                            <?php
+                                                }
+                                            ?>
+                                            <a class="dropdown-item" href="tmp.php"><i class="fas fa-sign-out-alt mr-1"></i>Logout</a>
+                                        </form>
+                                </div>
                             </div>
                             
                         </div>
