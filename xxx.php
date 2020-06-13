@@ -39,15 +39,7 @@ if(isset($_POST["btnLogin"])){
     <script src="https://kit.fontawesome.com/e9a3bfa470.js" crossorigin="anonymous"></script>
     <title>Đăng nhập</title>
     <style>
-        .btn-primary {
-            background-color: blueviolet;
-            border: 1px solid white;
-        }
-
-        .btn-primary:hover {
-            background-color: purple;
-            border: 1px solid white;
-        }
+        
 
         .navbar li a:hover {
             border-bottom: 1px solid violet;
@@ -83,11 +75,9 @@ if(isset($_POST["btnLogin"])){
 </head>
 
 <body>
-    <?php
-    include "./blocks/nav/nav.php";
-    ?>
-    <img width="100%" height="100%" src="985672.jpg">
-    <form class="box" action="#" method="POST">
+    <div class="text-center mt-4"><img src="./image/iconXamLo.png" style="width:150px" ></div>
+    <!-- <img width="100%" height="100%" src="985672.jpg"> -->
+    <form class="box" method="POST" style="margin-top:50px">
         <h1>login</h1>
         <input type="text" name="acc" placeholder="Username">
         <input type="password" name="pass" placeholder="Password">
@@ -98,7 +88,7 @@ if(isset($_POST["btnLogin"])){
         <br>
         <a href="#" target="_blank">Forgot Password?</a>
     </form>
-
+    
 </body>
 
 </html>

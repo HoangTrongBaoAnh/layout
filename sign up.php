@@ -69,6 +69,7 @@ if(isset($_POST['btnsignup'])){
         });
     </script>
     <style>
+        
         label.error{
             color: green;
         }

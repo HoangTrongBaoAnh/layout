@@ -117,6 +117,16 @@ if (isset($_REQUEST['btnDangXuat'])) {
             min-width: 250px !important;
 
         }
+
+        .btn-nav {
+            background-color: blueviolet;
+            border: 1px solid white;
+        }
+
+        .btn-nav:hover {
+            background-color: purple;
+            border: 1px solid white;
+        }
     </style>
 
     <script>
@@ -167,12 +177,12 @@ if (isset($_REQUEST['btnDangXuat'])) {
                     ?>
                    
                         
-                            <a class=" btn btn-primary" href="xxx.php">
+                            <a class=" btn btn-nav text-light" href="xxx.php">
                                 Login
                            
                         </button>
                         
-                            <a class=" btn btn-primary" href="sign up.php">
+                            <a class=" btn btn-nav text-light" href="sign up.php">
                                 Đăng ký
                             </a>
                         
@@ -188,7 +198,7 @@ if (isset($_REQUEST['btnDangXuat'])) {
                             <div class="btn-group" data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false">
                                 <img  style="border-radius: 25px;" height="48" src="./image/<?php echo $datathongtin_row['hinh'] ?>">
-                                <div class="dropdown-menu dropdown-menu-right ">
+                                <div class="dropdown-menu dropdown-menu-right">
                                     <table>
                                         <tr>
                                             <td rowspan="2"><img class="mr-2 ml-1" style="border-radius: 25px;" height="48" src="./image/<?php echo $datathongtin_row['hinh'] ?>"></td>
@@ -198,17 +208,16 @@ if (isset($_REQUEST['btnDangXuat'])) {
                                             <td style="font-size: 14px;"><?php echo $datathongtin_row['email'] ?></td>
                                         </tr>
                                     </table>
-                                        <li class="divider"></li>
-                                        <form method="POST">
-                                            <a class="dropdown-item" href="layoutaccinfo.php"> <i class="fas fa-home mr-1"></i>Trang cá nhân</a>
+                                        <form method="POST" >
+                                            <a class="dropdown-item text-primary" href="layoutaccinfo.php"><i class="fas fa-home mr-1"></i>Trang cá nhân</a>
                                             <?php
                                                 if($_SESSION['idgroup']==1){
                                             ?>
-                                                <a class="dropdown-item" href="./bangame/admin/index.php"><i class="fas fa-users-cog mr-1"></i>Admin</a>
+                                                <a class="dropdown-item text-primary" href="./bangame/admin/index.php"><i class="fas fa-users-cog mr-1"></i>Admin</a>
                                             <?php
                                                 }
                                             ?>
-                                            <a class="dropdown-item" href="tmp.php"><i class="fas fa-sign-out-alt mr-1"></i>Logout</a>
+                                            <button type="submit" name="btnDangXuat" id="btnDangXuat" class="dropdown-item text-primary" ><i class="fas fa-sign-out-alt"></i> Logout</button>
                                         </form>
                                 </div>
                             </div>
