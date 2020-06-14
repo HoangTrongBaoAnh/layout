@@ -17,7 +17,7 @@ if (isset($_POST['btnThem'])) {
     $idgroup = $_POST['PhanQuyen'];
     settype($idgroup, "int");
     $ten = $_POST['ten'];
-    $hinh = 'frog.jpg';
+    $hinh = '';
     $qr = "INSERT INTO user(tendangnhap,matkhau,email,ten,sdt,idgroup,hinh) VALUES('$TenDN','$Pass','$Email','$ten','$sdt','$idgroup','$hinh');
     ";
     // echo $qr;
@@ -114,7 +114,23 @@ if (isset($_POST['btnThem'])) {
         </div>
     </div>
 
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
 
+                reader.onload = function(e) {
+                    $('#blah').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]); // convert to base64 string
+            }
+        }
+
+        $("#imgInp").change(function() {
+            readURL(this);
+        });
+    </script>
 </body>
 
 </html>

@@ -9,7 +9,8 @@ function getListTheLoai(){
     return $data;
 }
 function getThongTinByID($id){
-    $data=DataProvider::ExecuteQuery("SELECT tendangnhap,matkhau,email,ten,sdt,hinh FROM user WHERE iduser='$id'");
+    $data=DataProvider::ExecuteQuery("SELECT iduser,tendangnhap,matkhau,email,ten,sdt,hinh,idgroup FROM user WHERE iduser='$id'");
     return $data;
 }
+
 ?>
