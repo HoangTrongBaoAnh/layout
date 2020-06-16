@@ -213,7 +213,7 @@ if (isset($_REQUEST['btnDangXuat'])) {
                                             <?php
                                                 if($_SESSION['idgroup']==1){
                                             ?>
-                                                <a class="dropdown-item text-primary" href="./bangame/admin/index.php"><i class="fas fa-users-cog mr-1"></i>Admin</a>
+                                                <a class="dropdown-item text-primary" href="./admin/index.php"><i class="fas fa-users-cog mr-1"></i>Admin</a>
                                             <?php
                                                 }
                                             ?>
