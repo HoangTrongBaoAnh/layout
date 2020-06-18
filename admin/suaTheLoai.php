@@ -5,6 +5,28 @@ if (isset($_SESSION['iduser']) and $_SESSION['idgroup'] != 1) {
 }
 include_once("/xampp/htdocs/layout/lib/DataProvider.php");
 include_once("/xampp/htdocs/layout/lib/quantri.php");
+
+$idTL=$_GET['id'];
+settype($idTL,"int");
+$dataTL=getThongTinTheLoaiByID($idTL);
+$dataTL_row=mysqli_fetch_array($dataTL);
+?>
+<?php
+if(isset($_POST['btnSuaTL'])){
+    $TenTL=$_POST['TenTL'];
+    trim($TenTL);
+    $TenTL_khongdau=changeTitle($TenTL);
+if($TenTL!=null){
+$qr="
+UPDATE theloai SET
+tentheloai='$TenTL',
+tentheloai_khongdau='$TenTL_khongdau'
+WHERE idtheloai=$idTL
+";
+DataProvider::ExecuteQuery($qr);
+header("location:listTheLoai.php");
+}
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -41,11 +63,11 @@ include_once("/xampp/htdocs/layout/lib/quantri.php");
             </div>
         </div>
         <div id="hang2">
-            <!-- <?php require "menu.php" ?> -->
-            <a href="listGame.html">Quản lý game</a>
+            <?php include "menu.php" ?>
+            <!-- <a href="listGame.html">Quản lý game</a>
             <a href="listTheLoai.html">Quản lý thể loại</a>
             <a href="listUser.html">Quản lý tài khoản</a>
-            <a href="doanhthu.html">Quản lý doanh thu</a>
+            <a href="doanhthu.html">Quản lý doanh thu</a> -->
         </div>
         <div class="margin-top:100px">
             <form action="" method="POST">
@@ -54,11 +76,11 @@ include_once("/xampp/htdocs/layout/lib/quantri.php");
                         <th>SỬA THỂ LOẠI</th>
                     </tr>
                     <tr>
-                        <td>TenTL</td>
-                        <td><input type="text" name=TenTL></td>
+                        <td>Tên Thể loại</td>
+                        <td><input type="text" name='TenTL' value="<?php echo $dataTL_row['tentheloai']?>"></td>
                     </tr>
                     <tr>
-                        <td><input type="submit" name="btnSua" id="btnSua" value="Sửa"></td>
+                        <td><input type="submit" name="btnSuaTL" id="btnSua" value="Sửa"></td>
                     </tr>
                 </table>
             </form>

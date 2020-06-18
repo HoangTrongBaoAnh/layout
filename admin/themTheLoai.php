@@ -6,6 +6,20 @@ if (isset($_SESSION['iduser']) and $_SESSION['idgroup'] != 1) {
 include_once("/xampp/htdocs/layout/lib/DataProvider.php");
 include_once("/xampp/htdocs/layout/lib/quantri.php");
 ?>
+<?php
+if(isset($_POST['btnThem'])){
+    $TenTL=$_POST['TenTL'];
+    trim($TenTL);
+    if($TenTL!=null){
+        $TenTL_KhongDau=changeTitle($TenTL);
+       echo $qr="
+        INSERT INTO theloai(tentheloai,tentheloai_khongdau) VALUES ('$TenTL','$TenTL_KhongDau');
+        ";
+        DataProvider::ExecuteQuery($qr);
+        header("location:listTheLoai.php");
+    }
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -43,14 +57,11 @@ include_once("/xampp/htdocs/layout/lib/quantri.php");
             </div>
         </div>
         <div id="hang2">
-            <!-- <?php require "menu.php" ?> -->
-            <a href="listGame.html">Quản lý game</a>
-            <a href="listTheLoai.html">Quản lý thể loại</a>
-            <a href="listUser.html">Quản lý tài khoản</a>
-            <a href="doanhthu.html">Quản lý doanh thu</a>
+            <?php include "menu.php" ?>
+            
         </div>
         <div style="margin-top:100px" class="text-center">
-            <form action="" method="$_POST">
+            <form action="" method="POST">
                 <label>Tên thể loại:</label>
                 <input type="text" name="TenTL"><input type="submit" value="xác nhận" name="btnThem">
             </form>
