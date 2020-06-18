@@ -74,7 +74,7 @@ body{
     padding: 5px;
     border: 1px solid #6c5ce7;
 }
-table,tr , td{
+table, tr , td{
     border: 1px solid black;
     border-collapse: collapse;
 }

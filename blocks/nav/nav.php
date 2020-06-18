@@ -127,6 +127,7 @@ if (isset($_REQUEST['btnDangXuat'])) {
             background-color: purple;
             border: 1px solid white;
         }
+       
     </style>
 
     <script>

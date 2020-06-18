@@ -17,7 +17,7 @@ if (isset($_POST['btnThem'])) {
     $idgroup = $_POST['PhanQuyen'];
     settype($idgroup, "int");
     $ten = $_POST['ten'];
-    $hinh = '';
+    $hinh = 'frog.jpg';
     $qr = "INSERT INTO user(tendangnhap,matkhau,email,ten,sdt,idgroup,hinh) VALUES('$TenDN','$Pass','$Email','$ten','$sdt','$idgroup','$hinh');
     ";
     // echo $qr;

@@ -9,32 +9,40 @@ include_once("./lib/DataProvider.php");
 include_once("./lib/quantri.php");
 ?>
 <?php
+$data=getThongTinByID($_SESSION['iduser']);
+$data_row=mysqli_fetch_array($data);
 if(isset($_POST['doimatkhau'])){
-    $data = getListUser();
-    $iduser = $_SESSION['iduser'];
-    if(isset($_POST['mkcu']) && isset($_POST['mkmoi'])){
-        $matkhau = $_POST['mkcu'];
-        $matkhaumoi = $_POST['mkmoi'];
-        
+    $mkcu=$_POST['mkcu'];
+    trim($mkcu);
+    $mkmoi=$_POST['mkmoi'];
+    trim($mkmoi);
+    $mkmoi2=$_POST['mkmoi2'];
+    trim($mkmoi2);
+    if($mkcu!=null && $mkmoi!=null && $mkmoi2!=null && $mkmoi==$mkmoi2 && $mkcu==$data_row['matkhau']){
+    $iduser = $data_row['iduser'];
         $qr = "UPDATE user
-        SET matkhau = '$matkhaumoi'
+        SET matkhau = '$mkmoi'
         WHERE iduser='$iduser'";
         DataProvider::ExecuteQuery($qr); 
-        //header("location:xxx.php");
+        header("location:layoutaccinfo.php");
     }
 }
 
+
 if(isset($_POST['doiemail'])){
-    $iduser = $_SESSION['iduser'];
-    if(isset($_POST['emailcu']) && isset($_POST['emailmoi'])){
-        $emailcu = $_POST['emailcu'];
-        $emailmoi = $_POST['emailmoi'];
-        
+    $emailcu=$_POST['emailcu'];
+    trim($emailcu);
+    $emailmoi=$_POST['emailmoi'];
+    trim($emailmoi);
+    $emailmoi2=$_POST['emailmoi2'];
+    trim($emailmoi2);
+    $iduser = $data_row['iduser'];
+    if($emailmoi!=null && $emailcu!=null && $emailmoi2=$emailmoi && $emailcu==$data_row['email']){
         $qr = "UPDATE user
         SET email = '$emailmoi'
         WHERE iduser='$iduser'";
         DataProvider::ExecuteQuery($qr); 
-        //header("location:xxx.php");
+        header("location:layoutaccinfo.php");
     }
 }
 
@@ -101,12 +109,12 @@ if(isset($_POST['doiemail'])){
             <div class="col-4 left1">
                 <div style="background-color: #444343; color:white; text-align: center;">
                     <br>
-                    <img src="./image/<?php echo $_SESSION['hinh'] ?>" style="width: 160px; height: 160px;" class="rounded-circle">
+                    <img src="./image/<?php echo $data_row['hinh']?>" style="width: 160px; height: 160px;" class="rounded-circle">
                     <br>
                     <br>
                     <div>
                         <?php
-                            echo $_SESSION['ten'];
+                            echo $data_row['ten'];
                         ?>
                     </div>
                     <br>
@@ -120,16 +128,12 @@ if(isset($_POST['doiemail'])){
                 </ul>
                 <div class="tabcontent1">
                     <div id="tab1">
-                        <?php
-                            $dataThongTin=getThongTinByID($_SESSION['iduser']);
-                            $dataThongTin_row=mysqli_fetch_array($dataThongTin);
 
-                        ?>
-                        <p style="background-color: white; padding : 5px;"><b>Tên đăng nhập:</b> <?php echo $_SESSION['tendangnhap'] ?>
+                        <p style="background-color: white; padding : 5px;"><b>Tên đăng nhập:</b> <?php echo $data_row['tendangnhap'] ?>
                         </p>
-                        <p style="background-color: white; padding : 5px;"><b>Email:</b><?php echo $dataThongTin_row['email'] ?></p>
-                        <p style="background-color: white; padding : 5px;"><b>Tên:</b> <?php echo $dataThongTin_row['ten'] ?></p>
-                        <p style="background-color: white; padding : 5px;"><b>Sdt:</b><?php echo $dataThongTin_row['sdt'] ?></p>
+                        <p style="background-color: white; padding : 5px;"><b>Email:</b><?php echo  $data_row['email'] ?></p>
+                        <p style="background-color: white; padding : 5px;"><b>Tên:</b> <?php echo  $data_row['ten'] ?></p>
+                        <p style="background-color: white; padding : 5px;"><b>Sdt:</b><?php echo  $data_row['sdt'] ?></p>
                     </div>
                     <div id="tab2">
                         <form id="thay_mk" action="" method="POST">
@@ -141,7 +145,7 @@ if(isset($_POST['doiemail'])){
                         <form action="" method="POST">
                             <input type="text" name="emailcu" placeholder="Email Hiện Tại">
                             <input type="text" name="emailmoi" placeholder="Email Mới">
-                            <input type="text" placeholder="Nhập Lại Email Mới">
+                            <input type="text" name="emailmoi2" placeholder="Nhập Lại Email Mới" >
                             <input type="submit" name="doiemail" value="Đổi Email">
 
                         </form>
@@ -204,10 +208,7 @@ if(isset($_POST['doiemail'])){
     include "./blocks/footer/footer.php";
     ?>
     <script>
-        // $(document).ready(function() {
-        //     $("#nav-placeholder").load("/blocks/nav/nav.html");
-        //     $("footer").load("/blocks/footer/footer.html");
-        // });
+       
         function anhien(checked){
             if(checked == true){
                 $(".abc").fadeIn();
