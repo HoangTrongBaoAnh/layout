@@ -2,6 +2,10 @@
 session_start();
 
 ?>
+<?php
+    include_once("./lib/DataProvider.php");
+    include_once("./layout-danhmuc/danhmuc.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -74,26 +78,18 @@ session_start();
                         <tr class="mt-4">
                             <td><label class="ml-4">Thể loại: </label></td>
                             <td>
+                                <?php
+                                    $tentheloai=laytheloai();
+                                    while($row_tentheloai=mysqli_fetch_array($tentheloai)){
+
+                                    
+                                ?>
                                 <div class="ml-4">
-                                    <label class="mr-4"><input type="checkbox" name="idTL" id="idTL">Hành động </label>
-                                    <label class="mr-4"><input type="checkbox" name="idTL" id="idTL">Hành
-                                        động</label><br>
+                                    <label class="mr-4"><input type="checkbox" name="idTL" id="idTL"><?php echo $row_tentheloai['tentheloai'] ?> </label>
                                 </div>
-                                <div class="ml-4">
-                                    <label class="mr-4"><input type="checkbox" name="idTL" id="idTL">Hành động </label>
-                                    <label class="mr-4"><input type="checkbox" name="idTL" id="idTL">Hành
-                                        động</label><br>
-                                </div>
-                                <div class="ml-4">
-                                    <label class="mr-4"><input type="checkbox" name="idTL" id="idTL">Hành động </label>
-                                    <label class="mr-4"><input type="checkbox" name="idTL" id="idTL">Hành
-                                        động</label><br>
-                                </div>
-                                <div class="ml-4">
-                                    <label class="mr-4"><input type="checkbox" name="idTL" id="idTL">Hành động </label>
-                                    <label class="mr-4"><input type="checkbox" name="idTL" id="idTL">Hành
-                                        động</label><br>
-                                </div>
+                                <?php
+                                    }
+                                ?>
                             </td>
                         </tr>
                         <tr>
@@ -128,315 +124,37 @@ session_start();
             <!--list card ------------------->
             <div class="container col-md-8 ">
                 <div class="row">
+                    <?php
+                        $laygame=laygame();
+                        while($row_laygame=mysqli_fetch_array($laygame)){
+                            $gia=number_format($row_laygame['giatien']);
+
+                    ?>
                     <div class="col-md-6 col-lg-3 col-sm-6 col-xs-6 item-frames">
                         <div class="item-game-wrapper">
                             <a href="#">
                                 <div class="img">
                                     <a href="gameDetail.php">
-                                        <img src="https://steamcdn-a.akamaihd.net/steam/apps/271590/header.jpg" alt=""
+                                        <img src="./image/hình/<?php echo $row_laygame['tenhinh'] ?>" alt=""
                                             class="check_img_errs">
                                     </a>
                                 </div>
                             </a>
                             <div class="item-info">
                                 <a href="/game-detail/gameDetail.html">
-                                    <div class="item-title">Grand Theft Auto V - GTA V</div>
+                                    <div class="item-title"><?php echo $row_laygame['tengame'] ?></div>
                                 </a>
                                 <div class="item-price">
-                                    <span class="cu-p">457,000đ</span>
+                                    <span class="cu-p"><?php echo $gia ?></span>
                                 </div>
                                 <a href="gameDetail.php" class="btn btn-outline-primary btn-buy">Mua
                                     hàng</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-3 col-sm-6 col-xs-6 item-frames">
-                        <div class="item-game-wrapper">
-                            <a href="#">
-                                <div class="img">
-                                    <a href="gameDetail.php">
-                                        <img src="https://steamcdn-a.akamaihd.net/steam/apps/271590/header.jpg" alt=""
-                                            class="check_img_errs">
-                                    </a>
-                                </div>
-                            </a>
-                            <div class="item-info">
-                                <a href="/game-detail/gameDetail.html">
-                                    <div class="item-title">Grand Theft Auto V - GTA V</div>
-                                </a>
-                                <div class="item-price">
-                                    <span class="cu-p">457,000đ</span>
-                                </div>
-                                <a href="gameDetail.php" class="btn btn-outline-primary btn-buy">Mua
-                                    hàng</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 col-sm-6 col-xs-6 item-frames">
-                        <div class="item-game-wrapper">
-                            <a href="#">
-                                <div class="img">
-                                    <a href="gameDetail.php">
-                                        <img src="https://steamcdn-a.akamaihd.net/steam/apps/271590/header.jpg" alt=""
-                                            class="check_img_errs">
-                                    </a>
-                                </div>
-                            </a>
-                            <div class="item-info">
-                                <a href="/game-detail/gameDetail.html">
-                                    <div class="item-title">Grand Theft Auto V - GTA V</div>
-                                </a>
-                                <div class="item-price">
-                                    <span class="cu-p">457,000đ</span>
-                                </div>
-                                <a href="gameDetail.php" class="btn btn-outline-primary btn-buy">Mua
-                                    hàng</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 col-sm-6 col-xs-6 item-frames">
-                        <div class="item-game-wrapper">
-                            <a href="#">
-                                <div class="img">
-                                    <a href="gameDetail.php">
-                                        <img src="https://steamcdn-a.akamaihd.net/steam/apps/271590/header.jpg" alt=""
-                                            class="check_img_errs">
-                                    </a>
-                                </div>
-                            </a>
-                            <div class="item-info">
-                                <a href="/game-detail/gameDetail.html">
-                                    <div class="item-title">Grand Theft Auto V - GTA V</div>
-                                </a>
-                                <div class="item-price">
-                                    <span class="cu-p">457,000đ</span>
-                                </div>
-                                <a href="gameDetail.php" class="btn btn-outline-primary btn-buy">Mua
-                                    hàng</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 col-sm-6 col-xs-6 item-frames">
-                        <div class="item-game-wrapper">
-                            <a href="#">
-                                <div class="img">
-                                    <a href="gameDetail.php">
-                                        <img src="https://steamcdn-a.akamaihd.net/steam/apps/271590/header.jpg" alt=""
-                                            class="check_img_errs">
-                                    </a>
-                                </div>
-                            </a>
-                            <div class="item-info">
-                                <a href="/game-detail/gameDetail.html">
-                                    <div class="item-title">Grand Theft Auto V - GTA V</div>
-                                </a>
-                                <div class="item-price">
-                                    <span class="cu-p">457,000đ</span>
-                                </div>
-                                <a href="gameDetail.php" class="btn btn-outline-primary btn-buy">Mua
-                                    hàng</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 col-sm-6 col-xs-6 item-frames">
-                        <div class="item-game-wrapper">
-                            <a href="#">
-                                <div class="img">
-                                    <a href="gameDetail.php">
-                                        <img src="https://steamcdn-a.akamaihd.net/steam/apps/271590/header.jpg" alt=""
-                                            class="check_img_errs">
-                                    </a>
-                                </div>
-                            </a>
-                            <div class="item-info">
-                                <a href="/game-detail/gameDetail.html">
-                                    <div class="item-title">Grand Theft Auto V - GTA V</div>
-                                </a>
-                                <div class="item-price">
-                                    <span class="cu-p">457,000đ</span>
-                                </div>
-                                <a href="gameDetail.php" class="btn btn-outline-primary btn-buy">Mua
-                                    hàng</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 col-sm-6 col-xs-6 item-frames">
-                        <div class="item-game-wrapper">
-                            <a href="#">
-                                <div class="img">
-                                    <a href="gameDetail.php">
-                                        <img src="https://steamcdn-a.akamaihd.net/steam/apps/271590/header.jpg" alt=""
-                                            class="check_img_errs">
-                                    </a>
-                                </div>
-                            </a>
-                            <div class="item-info">
-                                <a href="/game-detail/gameDetail.html">
-                                    <div class="item-title">Grand Theft Auto V - GTA V</div>
-                                </a>
-                                <div class="item-price">
-                                    <span class="cu-p">457,000đ</span>
-                                </div>
-                                <a href="gameDetail.php" class="btn btn-outline-primary btn-buy">Mua
-                                    hàng</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 col-sm-6 col-xs-6 item-frames">
-                        <div class="item-game-wrapper">
-                            <a href="#">
-                                <div class="img">
-                                    <a href="gameDetail.php">
-                                        <img src="https://steamcdn-a.akamaihd.net/steam/apps/271590/header.jpg" alt=""
-                                            class="check_img_errs">
-                                    </a>
-                                </div>
-                            </a>
-                            <div class="item-info">
-                                <a href="/game-detail/gameDetail.html">
-                                    <div class="item-title">Grand Theft Auto V - GTA V</div>
-                                </a>
-                                <div class="item-price">
-                                    <span class="cu-p">457,000đ</span>
-                                </div>
-                                <a href="gameDetail.php" class="btn btn-outline-primary btn-buy">Mua
-                                    hàng</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 col-sm-6 col-xs-6 item-frames">
-                        <div class="item-game-wrapper">
-                            <a href="#">
-                                <div class="img">
-                                    <a href="gameDetail.php">
-                                        <img src="https://steamcdn-a.akamaihd.net/steam/apps/271590/header.jpg" alt=""
-                                            class="check_img_errs">
-                                    </a>
-                                </div>
-                            </a>
-                            <div class="item-info">
-                                <a href="/game-detail/gameDetail.html">
-                                    <div class="item-title">Grand Theft Auto V - GTA V</div>
-                                </a>
-                                <div class="item-price">
-                                    <span class="cu-p">457,000đ</span>
-                                </div>
-                                <a href="gameDetail.php" class="btn btn-outline-primary btn-buy">Mua
-                                    hàng</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 col-sm-6 col-xs-6 item-frames">
-                        <div class="item-game-wrapper">
-                            <a href="#">
-                                <div class="img">
-                                    <a href="gameDetail.php">
-                                        <img src="https://steamcdn-a.akamaihd.net/steam/apps/271590/header.jpg" alt=""
-                                            class="check_img_errs">
-                                    </a>
-                                </div>
-                            </a>
-                            <div class="item-info">
-                                <a href="/game-detail/gameDetail.html">
-                                    <div class="item-title">Grand Theft Auto V - GTA V</div>
-                                </a>
-                                <div class="item-price">
-                                    <span class="cu-p">457,000đ</span>
-                                </div>
-                                <a href="gameDetail.php" class="btn btn-outline-primary btn-buy">Mua
-                                    hàng</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 col-sm-6 col-xs-6 item-frames">
-                        <div class="item-game-wrapper">
-                            <a href="#">
-                                <div class="img">
-                                    <a href="gameDetail.php">
-                                        <img src="https://steamcdn-a.akamaihd.net/steam/apps/271590/header.jpg" alt=""
-                                            class="check_img_errs">
-                                    </a>
-                                </div>
-                            </a>
-                            <div class="item-info">
-                                <a href="/game-detail/gameDetail.html">
-                                    <div class="item-title">Grand Theft Auto V - GTA V</div>
-                                </a>
-                                <div class="item-price">
-                                    <span class="cu-p">457,000đ</span>
-                                </div>
-                                <a href="gameDetail.php" class="btn btn-outline-primary btn-buy">Mua
-                                    hàng</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 col-sm-6 col-xs-6 item-frames">
-                        <div class="item-game-wrapper">
-                            <a href="#">
-                                <div class="img">
-                                    <a href="gameDetail.php">
-                                        <img src="https://steamcdn-a.akamaihd.net/steam/apps/271590/header.jpg" alt=""
-                                            class="check_img_errs">
-                                    </a>
-                                </div>
-                            </a>
-                            <div class="item-info">
-                                <a href="/game-detail/gameDetail.html">
-                                    <div class="item-title">Grand Theft Auto V - GTA V</div>
-                                </a>
-                                <div class="item-price">
-                                    <span class="cu-p">457,000đ</span>
-                                </div>
-                                <a href="gameDetail.php" class="btn btn-outline-primary btn-buy">Mua
-                                    hàng</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 col-sm-6 col-xs-6 item-frames">
-                        <div class="item-game-wrapper">
-                            <a href="#">
-                                <div class="img">
-                                    <a href="gameDetail.php">
-                                        <img src="https://steamcdn-a.akamaihd.net/steam/apps/271590/header.jpg" alt=""
-                                            class="check_img_errs">
-                                    </a>
-                                </div>
-                            </a>
-                            <div class="item-info">
-                                <a href="/game-detail/gameDetail.html">
-                                    <div class="item-title">Grand Theft Auto V - GTA V</div>
-                                </a>
-                                <div class="item-price">
-                                    <span class="cu-p">457,000đ</span>
-                                </div>
-                                <a href="gameDetail.php" class="btn btn-outline-primary btn-buy">Mua
-                                    hàng</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3 col-sm-6 col-xs-6 item-frames">
-                        <div class="item-game-wrapper">
-                            <a href="#">
-                                <div class="img">
-                                    <a href="gameDetail.php">
-                                        <img src="https://steamcdn-a.akamaihd.net/steam/apps/271590/header.jpg" alt=""
-                                            class="check_img_errs">
-                                    </a>
-                                </div>
-                            </a>
-                            <div class="item-info">
-                                <a href="/game-detail/gameDetail.html">
-                                    <div class="item-title">Grand Theft Auto V - GTA V</div>
-                                </a>
-                                <div class="item-price">
-                                    <span class="cu-p">457,000đ</span>
-                                </div>
-                                <a href="gameDetail.php" class="btn btn-outline-primary btn-buy">Mua
-                                    hàng</a>
-                            </div>
-                        </div>
-                    </div>
- 
+                    <?php
+                        }
+                    ?>        
                 </div>
                 <div id="pagination-container" style="margin-top: 200px;"></div>
             </div>
