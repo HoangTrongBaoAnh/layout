@@ -57,14 +57,14 @@ session_start();
         <div class="row">
             <!-- menu flit-->
             <style>
-                tr {
+                #bang tr {
                     border-bottom: 1px solid rgb(182, 179, 179);
                 }
             </style>
 
             <div class="col-md-3 ml-2 border">
                 <form action="" method="POST">
-                    <table>
+                    <table id="bang">
                         <tr >
                             <td colspan="2" class="text-center"><input type="text" placeholder="Tìm kiếm" name="txtTen"
                                     class="m-4"></td>
