@@ -20,7 +20,10 @@ return $data;
 }
 
 
-
+function getListGame(){
+    $data=DataProvider::ExecuteQuery("SELECT g.idgame,g.tengame,g.giatien,h.tenhinh FROM game g,hinh h WHERE g.idgame=h.idgame AND h.idloaihinh=1");
+    return $data;
+}
 
 
 

@@ -57,122 +57,44 @@ include_once("/xampp/htdocs/layout/lib/quantri.php");
             <a href="doanhthu.html">Quản lý doanh thu</a> -->
         </div>
         <div style="margin-top:100px">
-
-
-
-
             <p class="text-center" style="font-weight: bold;font-size: 40px;">DANH SÁCH GAME</p>
             <table id="example" style="width:100%" class="table table-striped table-bordered">
                 <thead>
+
                     <tr>
                         <th>id</th>
                         <th>Tên game</th>
                         <th>Hình</th>
                         <th>Giá tiền</th>
-                        <th>Lượt mua</th>
+                        <!-- <th>Lượt mua</th> -->
                         <th><a href="themGame.php">Thêm</a></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>{idGame}</td>
-                        <td>{TenGame}</td>
-                        <td>{urlHinh}</td>
-                        <td>{TenGame}</td>
-                        <td>{LuotMua}</td>
-                        <td> <a href="suaGame.php?idGame={idGame}">Sửa</a>
-                            <a href="xoaGame.php?idGame={idGame}">Xóa</a></td>
-                    </tr>
-                    <tr>
-                        <td>{idGame}</td>
-                        <td>{TenGame}</td>
-                        <td>{urlHinh}</td>
-                        <td>{TenGame}</td>
-                        <td>{LuotMua}</td>
-                        <td> <a href="suaGame.php?idGame={idGame}">Sửa</a>
-                            <a href="xoaGame.php?idGame={idGame}">Xóa</a></td>
-                    </tr>
-                    <tr>
-                        <td>{idGame}</td>
-                        <td>{TenGame}</td>
-                        <td>{urlHinh}</td>
-                        <td>{TenGame}</td>
-                        <td>{LuotMua}</td>
-                        <td> <a href="suaGame.php?idGame={idGame}">Sửa</a>
-                            <a href="xoaGame.php?idGame={idGame}">Xóa</a></td>
-                    </tr>
-                    <tr>
-                        <td>{idGame}</td>
-                        <td>{TenGame}</td>
-                        <td>{urlHinh}</td>
-                        <td>{TenGame}</td>
-                        <td>{LuotMua}</td>
-                        <td> <a href="suaGame.php?idGame={idGame}">Sửa</a>
-                            <a href="xoaGame.php?idGame={idGame}">Xóa</a></td>
-                    </tr>
-                    <tr>
-                        <td>{idGame}</td>
-                        <td>{TenGame}</td>
-                        <td>{urlHinh}</td>
-                        <td>{TenGame}</td>
-                        <td>{LuotMua}</td>
-                        <td> <a href="suaGame.php?idGame={idGame}">Sửa</a>
-                            <a href="xoaGame.php?idGame={idGame}">Xóa</a></td>
-                    </tr>
-                    <tr>
-                        <td>{idGame}</td>
-                        <td>{TenGame}</td>
-                        <td>{urlHinh}</td>
-                        <td>{TenGame}</td>
-                        <td>{LuotMua}</td>
-                        <td> <a href="suaGame.php?idGame={idGame}">Sửa</a>
-                            <a href="xoaGame.php?idGame={idGame}">Xóa</a></td>
-                    </tr>
-                    <tr>
-                        <td>{idGame}</td>
-                        <td>{TenGame}</td>
-                        <td>{urlHinh}</td>
-                        <td>{TenGame}</td>
-                        <td>{LuotMua}</td>
-                        <td> <a href="suaGame.php?idGame={idGame}">Sửa</a>
-                            <a href="xoaGame.php?idGame={idGame}">Xóa</a></td>
-                    </tr>
-                    <tr>
-                        <td>{idGame}</td>
-                        <td>{TenGame}</td>
-                        <td>{urlHinh}</td>
-                        <td>{TenGame}</td>
-                        <td>{LuotMua}</td>
-                        <td> <a href="suaGame.php?idGame={idGame}">Sửa</a>
-                            <a href="xoaGame.php?idGame={idGame}">Xóa</a></td>
-                    </tr>
-                    <tr>
-                        <td>{idGame}</td>
-                        <td>{TenGame}</td>
-                        <td>{urlHinh}</td>
-                        <td>{TenGame}</td>
-                        <td>{LuotMua}</td>
-                        <td> <a href="suaGame.php?idGame={idGame}">Sửa</a>
-                            <a href="xoaGame.php?idGame={idGame}">Xóa</a></td>
-                    </tr>
-                    <tr>
-                        <td>{idGame}</td>
-                        <td>{TenGame}</td>
-                        <td>{urlHinh}</td>
-                        <td>{TenGame}</td>
-                        <td>{LuotMua}</td>
-                        <td> <a href="suaGame.php?idGame={idGame}">Sửa</a>
-                            <a href="xoaGame.php?idGame={idGame}">Xóa</a></td>
-                    </tr>
-                    <tr>
-                        <td>{idGame}</td>
-                        <td>{TenGame}</td>
-                        <td>{urlHinh}</td>
-                        <td>{TenGame}</td>
-                        <td>{LuotMua}</td>
-                        <td> <a href="suaGame.php?idGame={idGame}">Sửa</a>
-                            <a href="xoaGame.php?idGame={idGame}">Xóa</a></td>
-                    </tr>
+                    <?php
+                    $datagame = getListGame();
+                    while ($datagame_row = mysqli_fetch_array($datagame)) {
+                        ob_start();
+                    ?>
+                        <tr>
+                            <td>{idGame}</td>
+                            <td>{TenGame}</td>
+                            <td><img src="../image/hình/{urlHinh}" alt="" srcset="" width="200px"></td>
+                            <td>{GiaTien}</td>
+                            <!-- <td>{LuotMua}</td> -->
+                            <td> <a href="suaGame.php?idGame={idGame}">Sửa</a>
+                                <a href="xoaGame.php?idGame={idGame}">Xóa</a></td>
+                        </tr>
+                    <?php
+
+                        $s = ob_get_clean();
+                        $s = str_replace("{idGame}", $datagame_row['idgame'], $s);
+                        $s = str_replace("{TenGame}", $datagame_row['tengame'], $s);
+                        $s = str_replace("{urlHinh}", $datagame_row['tenhinh'], $s);
+                        $s = str_replace("{GiaTien}", $datagame_row['giatien'], $s);
+                        echo $s;
+                    }
+                    ?>
 
 
                 </tbody>
@@ -181,7 +103,7 @@ include_once("/xampp/htdocs/layout/lib/quantri.php");
                     <th>Tên game</th>
                     <th>Hình</th>
                     <th>Giá tiền</th>
-                    <th>Lượt mua</th>
+                    <!-- <th>Lượt mua</th> -->
                     <th></th>
                 </tfoot>
             </table>
