@@ -25,9 +25,31 @@ function getListGame(){
     return $data;
 }
 
+function getTatCaTheLoaiQuaID($id){
+    $data=DataProvider::ExecuteQuery("SELECT tentheloai FROM chitiettheloai ct, theloai tl ,game g WHERE ct.idgame=g.idgame AND ct.idtheloai=tl.idtheloai AND g.idgame=$id");
+    return $data;
+}
 
+// ---------lay ds game--------------------
+function getListGameMain(){
+    $data=DataProvider::ExecuteQuery("SELECT * FROM game g,hinh h WHERE g.idgame=h.idgame AND h.idloaihinh=1 limit 0,4");
+    return $data;
+}
 
+// ---------lay chi tiet game--------------------
 
+function getDetailGame($idgame){
+    $data=DataProvider::ExecuteQuery("SELECT * FROM game WHERE idgame=$idgame");
+    return $data;
+}
+function getThumbnailGame($idgame){
+    $data=DataProvider::ExecuteQuery("SELECT tenhinh FROM game,hinh WHERE game.idgame=$idgame AND game.idgame=hinh.idgame AND hinh.idloaihinh=1");
+    return $data;
+}
+function getCarouselGame($idgame){
+    $data=DataProvider::ExecuteQuery("SELECT tenhinh FROM game,hinh WHERE game.idgame=$idgame AND game.idgame=hinh.idgame AND hinh.idloaihinh=2");
+    return $data;
+}
 
 
 // ---------Hàm chuyển chữ thành không dấu--------------------
@@ -69,3 +91,4 @@ function stripUnicode($str){
   }
 
 ?>
+

@@ -2,7 +2,8 @@
 <!-- TÔI XIN MỌI NGƯỜI NẾU CÓ THỂ LÀM ƠN CHÚ THÍCH RIÊNG RA TỪNG PHẦN -->
 <?php
 session_start();
-
+include_once('lib/DataProvider.php');
+include_once('lib/quantri.php');
 ?>
 
 <!DOCTYPE html>
@@ -45,26 +46,6 @@ session_start();
                 });
                 $(".video-play").modalVideo();
                 
-                $(this).data().video-id.on('change', function(){
-
-                    var newval = '',
-                        $this = $(this);
-
-                    if (newval = $this.val().match(/(\?|&)v=([^&#]+)/)) {
-
-                        $this.val(newval.pop());
-
-                    } else if (newval = $this.val().match(/(\.be\/)+([^\/]+)/)) {
-
-                        $this.val(newval.pop());
-
-                    } else if (newval = $this.val().match(/(\embed\/)+([^\/]+)/)) {
-
-                        $this.val(newval.pop().replace('?rel=0',''));
-
-                    }
-
-                });
             });
         </script>
     </head>
@@ -93,6 +74,9 @@ session_start();
         </header>
         
         <!------------ CAROUSEL INDICATORS----------------------------- -->
+        <?php 
+        $qr = getListGameMain();
+        ?>
         <div  id="slides" class="container carousel slide" data-ride="carousel">
             <ul class="carousel-indicators">
                 <li data-target="#slides" data-slide-to="0" class="active"></li>
@@ -101,71 +85,37 @@ session_start();
                 <li data-target="#slides" data-slide-to="3"></li>
             </ul>
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="./image/slider-1.jpg">
+            <?php
+                $count = 0;
+                while($row = mysqli_fetch_array($qr)){
+                $count++;
+                
+                $youtube = isset($row['trailer']) ? $row['trailer'] : '';
+                parse_str( parse_url( $youtube, PHP_URL_QUERY ), $my_array_of_vars );
+                $idyoutube = $my_array_of_vars['v'];
+                
+            ?>
+                <div class="carousel-item  <?php if($count===1){echo "active";} ?>">
+                    <img src="./image/hình/<?php echo $row['tenhinh'] ?>">
                     <div class="slide-text">
-                        <h3>OVERWATCH</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde enim alias quasi aut cupiditate quas tempore! Eos iste doloribus quia, error illum architecto rerum a minima voluptas ratione sit asperiores!</p>
+                        <h3><?php echo $row['tengame'] ?></h3>
+                        <p><?php echo $row['mota'] ?></p>
                         <!--14/4 Chỉnh sửa mục button-->
                         <div class="carousel_button">
-                            <a id="video-id" class="btn btn-outline-light btn-lg video-play" data-video-id="GKXS_YA9s7E" type="button">
+                            <a id="video-id" class="btn btn-outline-light btn-lg video-play" data-video-id="<?php echo $idyoutube ?>" type="button">
                                 Trailer
                             </a>
-                            <a href="gameDetail.php" class="btn btn-primary btn-lg">
+                            <a href="gameDetail.php?idgame=<?php echo $row['idgame']  ?>" class="btn btn-primary btn-lg">
                                 Mua Ngay
                             </a>
                         </div>
                     </div>
                     
                 </div>
-                <div class="carousel-item ">
-                    <img src="./image/pubg-mobile-update-01_qpqg.jpg">
-                    <div class="slide-text">
-                        <h3>PUBG</h3>
-                        <p>DEAD GAME sit amet, consectetur adipisicing elit. Unde enim alias quasi aut cupiditate quas tempore! Eos iste doloribus quia, error illum architecto rerum a minima voluptas ratione sit asperiores!</p>
-                        <div class="carousel_button">
-                            <button type="button" class="btn btn-outline-light btn-lg">
-                                Trailer
-                            </button>
-                            <a href="gameDetail.php" class="btn btn-primary btn-lg">
-                                Mua Ngay
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item ">
-                    <img  src="./image/486147.jpg">
-                    <div class="slide-text">
-                        <h3>MARIO</h3>
-                        
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde enim alias quasi aut cupiditate quas tempore! Eos iste doloribus quia, error illum architecto rerum a minima voluptas ratione sit asperiores!</p>
-                        <div class="carousel_button">
-                            <button type="button" class="btn btn-outline-light btn-lg">
-                                Trailer
-                            </button>
-                            <a href="gameDetail.php" class="btn btn-primary btn-lg">
-                                Mua Ngay
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item ">
-                    
-                    <img  src="./image/e3-2016-god-of-war-chien-than-trong-su-cach-tan-day-moi-me-gioi-thieu-game.jpg">
-                    <div class="slide-text">
-                        <h3>GODOFWAR3</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde enim alias quasi aut cupiditate quas tempore! Eos iste doloribus quia, error illum architecto rerum a minima voluptas ratione sit asperiores!</p>
-                        <div class="carousel_button">
-                            <button type="button" class="btn btn-outline-light btn-lg">
-                                Trailer
-                            </button>
-                            <a href="gameDetail.php" class="btn btn-primary btn-lg">
-                                Mua Ngay
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php
+            }
+            ?>
+            </div>  
         </div>
         <!-------------------------- -->
         <div class="container-fluid">
