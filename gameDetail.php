@@ -9,7 +9,11 @@ $hinh = getThumbnailGame($idgame);
 $row2 = $hinh->fetch_assoc();
 $carousel = getCarouselGame($idgame);
 $theloai = getTatCaTheLoaiQuaID($idgame);
+
+$cost = $row['giatien'];
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,6 +37,10 @@ $theloai = getTatCaTheLoaiQuaID($idgame);
 
     });
 
+    $( document ).ready(function() {
+        
+    });
+
     // hàm random chuỗi 5 ký tự
     function makeid() {
         var text = "";
@@ -43,19 +51,60 @@ $theloai = getTatCaTheLoaiQuaID($idgame);
 
         return text;
     }
-
+    x=makeid();
+    y=makeid();
+    z=makeid();
+    d=makeid();
+    key=x+" - "+y+" - "+z+" - "+d;
+    document.cookie = "key = " + key;
     // hàm làm key
-    function myFunction() {
-        x=makeid();
-        y=makeid();
-        z=makeid();
-        d=makeid();
-        $key=x+" - "+y+" - "+z+" - "+d;
-        swal("Mua thành công","KEY: "+ $key, "success"); 
-    }
-    
+    $(document).on('click', '#btnmua', function(e) {
+            //e.preventDefault();
+            var form = $(this).parents('form');
+            
+            <?php 
+            if(isset($_SESSION['iduser'])){
+            ?>
+            swal({
+                title: "Are you sure?",
+                text: "Purchase this product will cost: "+ <?php echo $cost ?> + " vnd",
+                icon: "warning",
+                buttons: true,
+                closeOnConfirm: true,
+                })
+
+                .then((result) => {
+                if (result) {
+                    swal("Mua thành công","KEY: "+ key, "success");
+                    
+                } else {
+                    swal("Poof! Your imaginary file has been deleted!", {
+                    icon: "success",
+                    });
+                }
+            });
+            <?php
+            }else{
+            ?>
+            swal("U need to login before purchase this product"," vui lòng đăng nhập để tiếp tục" ,"warning");
+            <?php
+            }
+            ?>
+    });
+
 
 </script>
+
+<?php
+if(isset($_POST['btnmua'])){
+    $iduser = $_SESSION['iduser'];
+    $date = date("Y/m/d");
+    $key= $_COOKIE['key'];
+    $qr = "INSERT INTO `hoadon` (`idhoadon`, `code`, `idgame`, `iduser`, `ngay`) VALUES (NULL,'$key', '$idgame', '$iduser', '$date');";
+    DataProvider::ExecuteQuery($qr);
+}
+?>
+
 <style>
     .image img {
         width: 100%;
@@ -125,10 +174,9 @@ $theloai = getTatCaTheLoaiQuaID($idgame);
                 </div>
                 <p class="text-center"><span><?php echo $row['tengame'] ?></span></p>
                 <p class="text-center"><?php echo $row['giatien'] ?> VNĐ</p>
-                <div class="btn btn-primary w-100 popup" onclick="myFunction()">MUA NGAY
-                    <!-- <span class="popuptext" id="myPopup">Mua thành công</span> -->
-
-                </div>
+                <form method="POST" name = "form" id = "form" >
+                    <button type="submit" name="btnmua" id="btnmua" class="w-100 popup btn-primary" >MUA NGAY</button>
+                </form>
                 <div class="border-top mt-4">
                     Thể loại:
                     <?php 
