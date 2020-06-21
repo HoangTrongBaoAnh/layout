@@ -12,7 +12,7 @@ if(isset($_POST['btnThem'])){
     trim($TenTL);
     if($TenTL!=null){
         $TenTL_KhongDau=changeTitle($TenTL);
-       echo $qr="
+       $qr="
         INSERT INTO theloai(tentheloai,tentheloai_khongdau) VALUES ('$TenTL','$TenTL_KhongDau');
         ";
         DataProvider::ExecuteQuery($qr);
