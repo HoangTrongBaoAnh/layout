@@ -24,7 +24,7 @@ $cost = $row['giatien'];
     <script src="https://kit.fontawesome.com/e9a3bfa470.js" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://unpkg.com/sweetalert2@7.8.2/dist/sweetalert2.all.js"></script>
     <title>Chi tiết</title>
 </head>
 <script>
@@ -58,31 +58,52 @@ $cost = $row['giatien'];
     key=x+" - "+y+" - "+z+" - "+d;
     document.cookie = "key = " + key;
     // hàm làm key
+    idgame = <?php echo $idgame ?>;
     $(document).on('click', '#btnmua', function(e) {
-            //e.preventDefault();
-            var form = $(this).parents('form');
-            
+            e.preventDefault();
             <?php 
+            $flag = 'false';
             if(isset($_SESSION['iduser'])){
             ?>
             swal({
                 title: "Are you sure?",
                 text: "Purchase this product will cost: "+ <?php echo $cost ?> + " vnd",
-                icon: "warning",
-                buttons: true,
-                closeOnConfirm: true,
+                type: "warning",
+                confirmButtonText: "Approve!",
+                confirmButtonColor: "#44E753",
+                cancelButtonText: "Reasssign!",
+                showCancelButton: true,
                 })
+                .then(function (result) {
+                    if (result.value) {
+                        <?php $flag = 'true'; ?>
+                        swal("Mua thành công","KEY: "+ key, "success")
+                        .then(function(isConfirm){
+                            if(isConfirm.value){
+                                
+                                $.ajax({
 
-                .then((result) => {
-                if (result) {
-                    swal("Mua thành công","KEY: "+ key, "success");
-                    
-                } else {
-                    swal("Poof! Your imaginary file has been deleted!", {
-                    icon: "success",
-                    });
-                }
-            });
+                                    url : 'themhang.php',
+                                    type : 'POST',
+                                    data : {
+                                        key: key,
+                                        idgame: idgame,
+                                    },
+                                    dataType:'json',
+                                    success : function(data) {              
+                                        alert('Data: '+data);
+                                    },
+                                    error : function(request,error)
+                                    {
+                                        alert("Request: "+JSON.stringify(request));
+                                    }
+                                });
+                            }
+                        });
+                    } else if (result.dismiss === 'cancel') {
+                        swal("Poof! Your imaginary file has been deleted!","Khong thanh cong",'error')
+                    }
+                });
             <?php
             }else{
             ?>
@@ -95,15 +116,7 @@ $cost = $row['giatien'];
 
 </script>
 
-<?php
-if(isset($_POST['btnmua'])){
-    $iduser = $_SESSION['iduser'];
-    $date = date("Y/m/d");
-    $key= $_COOKIE['key'];
-    $qr = "INSERT INTO `hoadon` (`idhoadon`, `code`, `idgame`, `iduser`, `ngay`) VALUES (NULL,'$key', '$idgame', '$iduser', '$date');";
-    DataProvider::ExecuteQuery($qr);
-}
-?>
+
 
 <style>
     .image img {
@@ -174,8 +187,8 @@ if(isset($_POST['btnmua'])){
                 </div>
                 <p class="text-center"><span><?php echo $row['tengame'] ?></span></p>
                 <p class="text-center"><?php echo $row['giatien'] ?> VNĐ</p>
-                <form method="POST" name = "form" id = "form" >
-                    <button type="submit" name="btnmua" id="btnmua" class="w-100 popup btn-primary" >MUA NGAY</button>
+                <form method="POST" name ="form" id ="form" onclick="event.preventDefault()">
+                    <button type="button" name="btnmua" id="btnmua" class="w-100 popup btn-primary "  >MUA NGAY</button>
                 </form>
                 <div class="border-top mt-4">
                     Thể loại:
