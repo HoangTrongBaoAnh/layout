@@ -349,9 +349,9 @@ if (isset($_POST['btnThem'])) {
             $("#delete" + a).on('click', function() {
                 $("#uploadCaptureInputFile" + a).val('');
                 $('#img_game' + a).attr('src', '');
+                $(this).hide();
 
-            })
-            $(this).hide();
+            })     
         }
         deleteImage(1);
         deleteImage(2);

@@ -19,7 +19,6 @@ $data=DataProvider::ExecuteQuery("SELECT tentheloai,tentheloai_khongdau FROM the
 return $data;
 }
 
-
 function getListGame(){
     $data=DataProvider::ExecuteQuery("SELECT g.idgame,g.tengame,g.giatien,h.tenhinh FROM game g,hinh h WHERE g.idgame=h.idgame AND h.idloaihinh=1");
     return $data;
@@ -27,6 +26,10 @@ function getListGame(){
 
 function getTatCaTheLoaiQuaID($id){
     $data=DataProvider::ExecuteQuery("SELECT tentheloai FROM chitiettheloai ct, theloai tl ,game g WHERE ct.idgame=g.idgame AND ct.idtheloai=tl.idtheloai AND g.idgame=$id");
+    return $data;
+}
+function getListIDTheLoaiByIDGame($id){
+    $data=DataProvider::ExecuteQuery("SELECT idtheloai FROM chitiettheloai WHERE idgame='$id'");
     return $data;
 }
 
