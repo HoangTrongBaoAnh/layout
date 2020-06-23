@@ -147,7 +147,7 @@ session_start();
                                 <div class="item-price">
                                     <span class="cu-p"><?php echo $gia ?></span>
                                 </div>
-                                <a href="gameDetail.php" class="btn btn-outline-primary btn-buy">Mua
+                                <a href="gameDetail.php?idgame=<?php echo $row_laygame['idgame'] ?>" class="btn btn-outline-primary btn-buy">Mua
                                     hàng</a>
                             </div>
                         </div>

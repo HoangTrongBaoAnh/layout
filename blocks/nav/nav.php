@@ -8,6 +8,16 @@ if (isset($_REQUEST['btnDangXuat'])) {
     unset($_SESSION['ten']);
     header("location:./index.php");
 }
+
+/*
+if (isset($_POST['btnsearch'])) {
+    $tengame = $_POST['textsearch'];
+    $qr = DataProvider::ExecuteQuery("select tengame from game where tengame like '%$tengame%'");
+    
+    //header("location:./index.php");
+}
+*/
+
 ?>
 <?php
     include_once("./lib/DataProvider.php");
@@ -155,11 +165,11 @@ if (isset($_REQUEST['btnDangXuat'])) {
                
                 
                 <ul class="navbar-nav ml-auto">
-                <form action="" method="post">
-                <div class="search-box" style="text-align:center">
-                    <input class="search-txt" type="text" name="" placeholder="Type to search">
-                    <a href="#" class="search-btn"><i class="fas fa-search"></i></a>
-                </div>
+                <form method="POST">
+                    <div class="search-box" style="text-align:center">
+                        <input class="search-txt" type="text" name="textsearch" placeholder="Type to search">
+                        <button class="search-btn" type="submit" name="btnsearch"><i class="fas fa-search"></i></button>
+                    </div>
                 </form>
                     <li class="nav-item">
                         <a class="nav-link" href="./index.php">Trang chủ</a>
