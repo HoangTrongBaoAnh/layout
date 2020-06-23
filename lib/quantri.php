@@ -55,8 +55,8 @@ function getCarouselGame($idgame){
 }
 
 // ---------lay hoa don--------------------
-function getListBill($iduser,$idgame){
-    $data=DataProvider::ExecuteQuery("SELECT * FROM game g,hoadon hd,user u WHERE g.idgame=hd.idgame AND u.iduser=hd.iduser and u.iduser = $iduser and g.idgame=$idgame");
+function getListBill($iduser){
+    $data=DataProvider::ExecuteQuery("SELECT * FROM game g,hoadon hd,user u WHERE g.idgame=hd.idgame AND u.iduser=hd.iduser and u.iduser = $iduser");
     return $data;
 }
 

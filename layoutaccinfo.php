@@ -170,31 +170,19 @@ if(isset($_POST['doiemail'])){
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php 
+                                $listbill = getListBill($_SESSION['iduser']);
+                                while($rowlistbill = mysqli_fetch_array($listbill)){
+                                ?>
                                 <tr>
-                                    <td>1</td>
-                                    <td>cyperpunker</td>
-                                    <td > <label class="abc" style="display: none;"> jGzoc - Kmyll - gbKNW - 9cjPE </label></td>
-                                    <td>2000-7-5</td>
+                                    <td><?php echo $rowlistbill['idhoadon'] ?></td>
+                                    <td><?php echo $rowlistbill['tengame'] ?></td>
+                                    <td > <label class="abc" style="display: none;"><?php echo $rowlistbill['code'] ?></label></td>
+                                    <td><?php echo $rowlistbill['ngay'] ?></td>
                                 </tr> 
-                                <tr>
-                                    <td>1</td>
-                                    <td>cyperpunker</td>
-                                    <td > <label class="abc" style="display: none;"> jGzoc - Kmyll - gbKNW - 9cjPE </label> </td>
-                                    <td>2000-7-5</td>
-                                </tr> 
-                                <tr>
-                                    <td>1</td>
-                                    <td>cyperpunker</td>
-                                    <td > <label class="abc" style="display: none;"> jGzoc - Kmyll - gbKNW - 9cjPE </label> </td>
-                                    <td>2000-7-5</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>cyperpunker</td>
-                                    <td > <label class="abc" style="display: none;"> jGzoc - Kmyll - gbKNW - 9cjPE </label> </td>
-                                    <td>2000-7-5</td>
-                                </tr>  
-                                
+                                <?php
+                                }
+                                ?>
                             </tbody>
                         </table>
                     </div>
