@@ -1,10 +1,10 @@
 <?php
 session_start();
-if(isset($_SESSION['iduser']) and $_SESSION['idgroup']!=1){
-header("location:/layout/index.php");
+if (isset($_SESSION['iduser']) and $_SESSION['idgroup'] != 1) {
+    header("location:/layout/index.php");
 }
-include_once("/xampp/htdocs/layout/lib/DataProvider.php");
-include_once("/xampp/htdocs/layout/lib/quantri.php");
+include_once("./../lib/DataProvider.php");
+include_once("./../lib/quantri.php");
 ?>
 <!DOCTYPE html>
 <html>
