@@ -6,8 +6,17 @@ if (isset($_SESSION['iduser']) and $_SESSION['idgroup'] != 1) {
 include_once("/xampp/htdocs/layout/lib/DataProvider.php");
 include_once("/xampp/htdocs/layout/lib/quantri.php");
 ?>
+<?php $datahinh = getHinhByIDGame($_GET['idGame']);
+$hinhbandau = array();
+$idhinhbandau = array();
+while ($datahinh_row = mysqli_fetch_array($datahinh)) {
+    array_push($hinhbandau, $datahinh_row['tenhinh']);
+    array_push($idhinhbandau, $datahinh_row['idhinh']);
+}
+?>
 <?php
-if (isset($_POST['btnThem'])) {
+$idgame = $_GET['idGame'];
+if (isset($_POST['btnSua'])) {
     $TenGame = $_POST['TenGame'];
     trim($TenGame);
     $Gia = $_POST['Gia'];
@@ -36,7 +45,6 @@ if (isset($_POST['btnThem'])) {
     trim($graphics_recommend);
     $harddrive_recommend = $_POST['harddrive_recommend'];
     trim($harddrive_recommend);
-
     $noidung = $_POST['NoiDung'];
     trim($noidung);
     $urlvideo = $_POST['urlVideo'];
@@ -49,66 +57,81 @@ if (isset($_POST['btnThem'])) {
     $hinh3 = $_FILES['hinh3']['name'];
     $hinh4 = $_FILES['hinh4']['name'];
     $hinh5 = $_FILES['hinh5']['name'];
-    array_push($manghinh, $_FILES['hinh2'], $_FILES['hinh3'], $_FILES['hinh4'], $_FILES['hinh5']);
+    // array_push($manghinh, $_FILES['hinh2'], $_FILES['hinh3'], $_FILES['hinh4'], $_FILES['hinh5']);
     if (isset($_POST['theloai'])) {
-        if (
-            $hinh1 != null && $hinh2 != null && $hinh3 != null && $hinh4 != null && $hinh5 != null
-            && $TenGame != null && $Gia != null && $_FILES['hinh1']['error'] == 0 && $_FILES['hinh1']['error'] == 0 && $_FILES['hinh2']['error'] == 0
-            && $_FILES['hinh3']['error'] == 0  && $_FILES['hinh4']['error'] == 0  && $_FILES['hinh5']['error'] == 0
-        ) {
-            echo  $qrgame = "
-            INSERT INTO game(tengame,
-            giatien,
-            namphathanh,
-            nhaphathanh,
-            os_mini,
-            processor_mini,
-            memory_mini,
-            graphics_mini,
-            harddrive_mini,
-            os_recommend,
-            processor_recommend,
-            memory_recommend,
-            graphics_recommend,
-            harddrive_recommend,
-            content,
-            mota,
-            trailer)
-            VALUES('$TenGame','$Gia','$Nam','$NhaPhatHanh','$os_mini','$processor_mini','$memory_mini','$graphics_mini','$harddrive_mini',
-                    '$os_recommend','$processor_recommend','$memory_recommend','$graphics_recommend','$harddrive_recommend',
-                    '$noidung','$MoTa','$urlvideo')";
+        if ($TenGame != null && $Gia != null) {
+            $qrgame = "
+            UPDATE game SET
+            tengame='$TenGame',
+            giatien='$Gia',
+            namphathanh='$Nam',
+            nhaphathanh='$NhaPhatHanh',
+            os_mini='$os_mini',
+            processor_mini='$processor_mini',
+            memory_mini='$memory_mini',
+            graphics_mini='$graphics_mini',
+            harddrive_mini='$harddrive_mini',
+            os_recommend='$os_recommend',
+            processor_recommend='$processor_recommend',
+            memory_recommend='$memory_recommend',
+            graphics_recommend='$graphics_recommend',
+            harddrive_recommend='$harddrive_recommend',
+            content='$noidung',
+            mota='$MoTa',
+            trailer='$urlvideo'
+            WHERE idgame='$idgame'
+            ";
             DataProvider::ExecuteQuery($qrgame);
 
 
-
-            if (move_uploaded_file($_FILES['hinh1']['tmp_name'], './../image/hình/' . $hinh1)) {
-                $idmoinhat = DataProvider::ExecuteQuery("SELECT idgame FROM game ORDER BY idgame DESC LIMIT 0,1");
-                $idmoinhat_row = mysqli_fetch_array($idmoinhat);
-                $idgamevalue = $idmoinhat_row['idgame'];
-                $qrhinhbia = "
-        INSERT INTO hinh(tenhinh,idgame,idloaihinh)VALUES('$hinh1','$idgamevalue','1');
-        ";
-                DataProvider::ExecuteQuery($qrhinhbia);
+            $theloai = $_POST['theloai'];
+            $qrDeleteTheLoaiByIdGame = "DELETE FROM chitiettheloai WHERE idgame=$idgame";
+            DataProvider::ExecuteQuery($qrDeleteTheLoaiByIdGame);
+            foreach ($theloai as $item) {
+                settype($item, "int");
+                $qrTheLoai = "INSERT INTO chitiettheloai(idgame,idtheloai)VALUES('$idgame','$item')";
+                DataProvider::ExecuteQuery($qrTheLoai);
             }
 
-            foreach ($manghinh as $value) {
-                $tenhinhvalue = $value['name'];
 
-                if (move_uploaded_file($value['tmp_name'], './../image/hình/' . $tenhinhvalue)) {
-                    $qrhinh = "
-                INSERT INTO hinh(tenhinh,idgame,idloaihinh)VALUES('$tenhinhvalue','$idgamevalue','2');
-                ";
-                    DataProvider::ExecuteQuery($qrhinh);
+            if ($hinh1 != null && $_FILES['hinh1']['error'] == 0) {
+                if (move_uploaded_file($_FILES['hinh1']['tmp_name'], './../image/hình/' . $hinh1)) {
+                    $tmp = $idhinhbandau[0];
+                    $qrUpdateHinh = "UPDATE hinh SET tenhinh='$hinh1' WHERE idhinh='$tmp'";
+                    DataProvider::ExecuteQuery($qrUpdateHinh);
+                }
+            }
+            if ($hinh2 != null && $_FILES['hinh2']['error'] == 0) {
+                if (move_uploaded_file($_FILES['hinh2']['tmp_name'], './../image/hình/' . $hinh2)) {
+                    $tmp = $idhinhbandau[1];
+                    $qrUpdateHinh = "UPDATE hinh SET tenhinh='$hinh2' WHERE idhinh='$tmp'";
+                    DataProvider::ExecuteQuery($qrUpdateHinh);
+                }
+            }
+            if ($hinh3 != null && $_FILES['hinh3']['error'] == 0) {
+                if (move_uploaded_file($_FILES['hinh3']['tmp_name'], './../image/hình/' . $hinh3)) {
+                    $tmp = $idhinhbandau[2];
+                    $qrUpdateHinh = "UPDATE hinh SET tenhinh='$hinh3' WHERE idhinh='$tmp'";
+                    DataProvider::ExecuteQuery($qrUpdateHinh);
+                }
+            }
+            if ($hinh4 != null && $_FILES['hinh4']['error'] == 0) {
+                if (move_uploaded_file($_FILES['hinh4']['tmp_name'], './../image/hình/' . $hinh4)) {
+                    $tmp = $idhinhbandau[3];
+                    $qrUpdateHinh = "UPDATE hinh SET tenhinh='$hinh4' WHERE idhinh='$tmp'";
+                    DataProvider::ExecuteQuery($qrUpdateHinh);
+                }
+            }
+            if ($hinh5 != null && $_FILES['hinh5']['error'] == 0) {
+                if (move_uploaded_file($_FILES['hinh5']['tmp_name'], './../image/hình/' . $hinh5)) {
+                    $tmp = $idhinhbandau[4];
+                    $qrUpdateHinh = "UPDATE hinh SET tenhinh='$hinh5' WHERE idhinh='$tmp'";
+                    DataProvider::ExecuteQuery($qrUpdateHinh);
                 }
             }
 
-            $theloai = $_POST['theloai'];
-            foreach ($theloai as $item) {
-                settype($item, "int");
-                $qrTheLoai = "INSERT INTO chitiettheloai(idgame,idtheloai)VALUES('$idgamevalue','$item')";
-                DataProvider::ExecuteQuery($qrTheLoai);
-            }
-            header("location:listGame.php");
+
+                header("location:listGame.php");
         }
     }
 }
@@ -171,8 +194,8 @@ if (isset($_POST['btnThem'])) {
 
             <form action="" method="POST" enctype="multipart/form-data">
                 <?php
-                    $datagame=getDetailGame($_GET['idGame']);
-                    $datagame_row=mysqli_fetch_array($datagame);
+                $datagame = getDetailGame($_GET['idGame']);
+                $datagame_row = mysqli_fetch_array($datagame);
                 ?>
 
                 <table style="width:100%">
@@ -181,22 +204,24 @@ if (isset($_POST['btnThem'])) {
                     </tr>
                     <tr>
                         <td>Tên Game</td>
-                        <td><input type="text" name="TenGame" value="<?php echo $datagame_row['tengame']?>"></td>
+                        <td><input type="text" name="TenGame" value="<?php echo $datagame_row['tengame'] ?>"></td>
                     </tr>
                     <tr>
                         <td>Thể loại</td>
                         <td>
                             <?php
                             $dataTheLoai = getListTheLoai();
-                            $dataTheLoaichecked=getListIDTheLoaiByIDGame($datagame_row['idgame']);
-                            $mangchecked=array();
-                            while($dataTheLoaichecked_row=mysqli_fetch_array($dataTheLoaichecked)){
-                                array_push($mangchecked,$dataTheLoaichecked_row['idtheloai']);
+                            $dataTheLoaichecked = getListIDTheLoaiByIDGame($datagame_row['idgame']);
+                            $mangchecked = array();
+                            while ($dataTheLoaichecked_row = mysqli_fetch_array($dataTheLoaichecked)) {
+                                array_push($mangchecked, $dataTheLoaichecked_row['idtheloai']);
                             }
                             while ($dataTheLoai_row = mysqli_fetch_array($dataTheLoai)) {
 
                             ?>
-                                <label class="mr-4"><input type="checkbox" name="theloai[]" id="TheLoai" value="<?php echo $dataTheLoai_row['idtheloai'] ?>" <?php foreach($mangchecked as $checked){ if($dataTheLoai_row['idtheloai']==$checked) echo "checked";} ?>><?php echo $dataTheLoai_row['tentheloai'] ?></label>
+                                <label class="mr-4"><input type="checkbox" name="theloai[]" id="TheLoai" value="<?php echo $dataTheLoai_row['idtheloai'] ?>" <?php foreach ($mangchecked as $checked) {
+                                                                                                                                                                    if ($dataTheLoai_row['idtheloai'] == $checked) echo "checked";
+                                                                                                                                                                } ?>><?php echo $dataTheLoai_row['tentheloai'] ?></label>
                             <?php } ?>
                         </td>
                     </tr>
@@ -205,31 +230,32 @@ if (isset($_POST['btnThem'])) {
                     <tr>
                         <td>Hình</td>
                         <td>
+
                             <div>
                                 <div>
                                     Hình Bìa <br>
-                                    <img src="" alt="" style="width:200px;height:100px" id="img_game1">
+                                    <img src="/layout/image/hình/<?php echo $hinhbandau[0] ?>" alt="" style="width:200px;height:100px" id="img_game1">
                                     <input type="file" name="hinh1" id="uploadCaptureInputFile1" accept="image/*"><button style="display:none" class="btn btn-primary" id="delete1" type="button">delete</button>
                                     <img>
                                 </div>
                                 <div>
                                     Hình minh họa <br>
-                                    <img src="" alt="" style="width:200px;height:100px" id="img_game2">
+                                    <img src="/layout/image/hình/<?php echo $hinhbandau[1] ?>" alt="" style="width:200px;height:100px" id="img_game2">
                                     <input type="file" name="hinh2" id="uploadCaptureInputFile2" accept="image/*"><button style="display:none" class="btn btn-primary" id="delete2" type="button">delete</button>
                                     <img>
                                 </div>
                                 <div>Hình minh họa <br>
-                                    <img src="" alt="" style="width:200px;height:100px" id="img_game3">
+                                    <img src="/layout/image/hình/<?php echo $hinhbandau[2] ?>" alt="" style="width:200px;height:100px" id="img_game3">
                                     <input type="file" name="hinh3" id="uploadCaptureInputFile3" accept="image/*"><button style="display:none" class="btn btn-primary" id="delete3" type="button">delete</button>
                                     <img>
                                 </div>
                                 <div>Hình minh họa <br>
-                                    <img src="" alt="" style="width:200px;height:100px" id="img_game4">
+                                    <img src="/layout/image/hình/<?php echo $hinhbandau[3] ?>" alt="" style="width:200px;height:100px" id="img_game4">
                                     <input type="file" name="hinh4" id="uploadCaptureInputFile4" accept="image/*"><button style="display:none" class="btn btn-primary" id="delete4" type="button">delete</button>
                                     <img>
                                 </div>
                                 <div>Hình minh họa <br>
-                                    <img src="" alt="" style="width:200px;height:100px" id="img_game5">
+                                    <img src="/layout/image/hình/<?php echo $hinhbandau[4] ?>" alt="" style="width:200px;height:100px" id="img_game5">
                                     <input type="file" name="hinh5" id="uploadCaptureInputFile5" accept="image/*"><button style="display:none" class="btn btn-primary" id="delete5" type="button">delete</button>
                                     <img>
                                 </div>
@@ -253,49 +279,49 @@ if (isset($_POST['btnThem'])) {
                     </tr>
                     <tr>
                         <td>Nhà phát hành</td>
-                        <td><input type="text" name="NhaPhatHanh" value="<?php echo $datagame_row['nhaphathanh']?>"></td>
+                        <td><input type="text" name="NhaPhatHanh" value="<?php echo $datagame_row['nhaphathanh'] ?>"></td>
                     </tr>
                     <!-- mini -->
                     <tr>
                         <td>os mini</td>
-                        <td><textarea name="os_mini" id="" cols="30" rows="10" ><?php echo $datagame_row['os_mini']?></textarea></td>
+                        <td><textarea name="os_mini" id="" cols="30" rows="10"><?php echo $datagame_row['os_mini'] ?></textarea></td>
                     </tr>
                     <tr>
                         <td>processcor mini</td>
-                        <td><textarea name="processor_mini" id="" cols="30" rows="10"><?php echo $datagame_row['processor_mini']?></textarea></td>
+                        <td><textarea name="processor_mini" id="" cols="30" rows="10"><?php echo $datagame_row['processor_mini'] ?></textarea></td>
                     </tr>
                     <tr>
                         <td>memory mini</td>
-                        <td><textarea name="memory_mini" id="" cols="30" rows="10"><?php echo $datagame_row['memory_mini']?></textarea></td>
+                        <td><textarea name="memory_mini" id="" cols="30" rows="10"><?php echo $datagame_row['memory_mini'] ?></textarea></td>
                     </tr>
                     <tr>
                         <td>graphics mini</td>
-                        <td><textarea name="graphics_mini" id="" cols="30" rows="10"><?php echo $datagame_row['graphics_mini']?></textarea></td>
+                        <td><textarea name="graphics_mini" id="" cols="30" rows="10"><?php echo $datagame_row['graphics_mini'] ?></textarea></td>
                     </tr>
                     <tr>
                         <td>harddrive mini</td>
-                        <td><textarea name="harddrive_mini" id="" cols="30" rows="10"><?php echo $datagame_row['harddrive_mini']?></textarea></td>
+                        <td><textarea name="harddrive_mini" id="" cols="30" rows="10"><?php echo $datagame_row['harddrive_mini'] ?></textarea></td>
                     </tr>
                     <!-- recommend -->
                     <tr>
                         <td>os recommend</td>
-                        <td><textarea name="os_recommend" id="" cols="30" rows="10"><?php echo $datagame_row['os_recommend']?></textarea></td>
+                        <td><textarea name="os_recommend" id="" cols="30" rows="10"><?php echo $datagame_row['os_recommend'] ?></textarea></td>
                     </tr>
                     <tr>
                         <td>processcor recommend</td>
-                        <td><textarea name="processor_recommend" id="" cols="30" rows="10"><?php echo $datagame_row['processor_recommend']?></textarea></td>
+                        <td><textarea name="processor_recommend" id="" cols="30" rows="10"><?php echo $datagame_row['processor_recommend'] ?></textarea></td>
                     </tr>
                     <tr>
                         <td>memory recommend</td>
-                        <td><textarea name="memory_recommend" id="" cols="30" rows="10"><?php echo $datagame_row['memory_recommend']?></textarea></td>
+                        <td><textarea name="memory_recommend" id="" cols="30" rows="10"><?php echo $datagame_row['memory_recommend'] ?></textarea></td>
                     </tr>
                     <tr>
                         <td>graphics recommend</td>
-                        <td><textarea name="graphics_recommend" id="" cols="30" rows="10"><?php echo $datagame_row['graphics_recommend']?></textarea></td>
+                        <td><textarea name="graphics_recommend" id="" cols="30" rows="10"><?php echo $datagame_row['graphics_recommend'] ?></textarea></td>
                     </tr>
                     <tr>
                         <td>harddrive recommend</td>
-                        <td><textarea name="harddrive_recommend" id="" cols="30" rows="10"><?php echo $datagame_row['harddrive_recommend']?></textarea></td>
+                        <td><textarea name="harddrive_recommend" id="" cols="30" rows="10"><?php echo $datagame_row['harddrive_recommend'] ?></textarea></td>
                     </tr>
 
 
@@ -303,15 +329,15 @@ if (isset($_POST['btnThem'])) {
 
                     <tr>
                         <td>Nội dung</td>
-                        <td><textarea name="NoiDung" id="NoiDung" cols="30" rows="10"><?php echo $datagame_row['content']?></textarea></td>
+                        <td><textarea name="NoiDung" id="NoiDung" cols="30" rows="10"><?php echo $datagame_row['content'] ?></textarea></td>
                     </tr>
                     <tr>
                         <td>Mô tả</td>
-                        <td><textarea name="MoTa" id="MoTa" cols="30" rows="10"><?php echo $datagame_row['mota']?></textarea></td>
+                        <td><textarea name="MoTa" id="MoTa" cols="30" rows="10"><?php echo $datagame_row['mota'] ?></textarea></td>
                     </tr>
 
                     <tr>
-                        <td colspan="2" class="text-center"><input type="submit" name="btnThem" value="Thêm"></input></td>
+                        <td colspan="2" class="text-center"><input type="submit" name="btnSua" value="Sửa"></input></td>
                     </tr>
                 </table>
             </form>
@@ -352,13 +378,25 @@ if (isset($_POST['btnThem'])) {
             readURL(this, 5);
         });
 
+        // tạo mảng chuyển từ mảng trong php sang javascripts
+        var hinhbandaujs = new Array();
+
+        <?php
+        foreach ($hinhbandau as $value) {
+        ?>
+            hinhbandaujs.push("<?php echo $value ?>");
+        <?php
+        }
+        ?>
+
         function deleteImage(a) {
+
             $("#delete" + a).on('click', function() {
                 $("#uploadCaptureInputFile" + a).val('');
-                $('#img_game' + a).attr('src', '');
+                $('#img_game' + a).attr('src', '/layout/image/hình/' + hinhbandaujs[a - 1]);
                 $(this).hide();
             })
-            
+
         }
         deleteImage(1);
         deleteImage(2);

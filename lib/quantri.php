@@ -97,6 +97,11 @@ function stripUnicode($str){
       $str = str_replace(' ','-',$str);
       return $str;
   }
-
+// Hinh------------------------------------
+function getHinhByIDGame($id){
+    $qr= " SELECT idhinh,idgame,tenhinh,idloaihinh FROM hinh WHERE idgame='$id'";
+    $data=DataProvider::ExecuteQuery($qr);
+    return $data;
+}
 ?>
 
