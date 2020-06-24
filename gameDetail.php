@@ -8,10 +8,9 @@ $row = $results->fetch_assoc();
 $hinh = getThumbnailGame($idgame);
 $row2 = $hinh->fetch_assoc();
 $carousel = getCarouselGame($idgame);
-$theloai = getTatCaTheLoaiQuaID($idgame);
+
 
 $cost = $row['giatien'];
-$tengame = $row['tengame'];
 ?>
 
 
@@ -59,7 +58,8 @@ $tengame = $row['tengame'];
     key=x+" - "+y+" - "+z+" - "+d;
     document.cookie = "key = " + key;
     // hàm làm key
-    idgame = "<?php echo $tengame ?>";
+    <?php $tengame = $row['tengame']; ?>
+    idgame = '<?php echo $tengame ?>';
     $(document).on('click', '#btnmua', function(e) {
             e.preventDefault();
             <?php 
@@ -188,7 +188,7 @@ $tengame = $row['tengame'];
                 </div>
                 <p class="text-center"><span><?php echo $row['tengame'] ?></span></p>
                 <p class="text-center"><?php echo $row['giatien'] ?> VNĐ</p>
-                <?php 
+                <?php
                 $qr = DataProvider::ExecuteQuery("SELECT * FROM hoadon WHERE tengame='$tengame'");
                 if(mysqli_num_rows($qr) == 0){
                 ?>
@@ -206,11 +206,10 @@ $tengame = $row['tengame'];
                 ?>
                 <div class="border-top mt-4">
                     Thể loại:
-                    <?php 
-                    $theloai2 = getTatCaTheLoaiQuaID($idgame);
-                    while($tentheloai = $theloai2->fetch_assoc()){
+                    <?php
+                    $theloai = getTatCaTheLoaiQuaID($idgame);
+                    while($tentheloai = $theloai->fetch_assoc()){
                     ?>
-                    
                     <div class="badge badge-pill badge-primary"><?php echo $tentheloai['tentheloai'] ?></div>
                     <?php
                     }

@@ -2,10 +2,10 @@
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 21, 2020 lúc 07:05 AM
--- Phiên bản máy phục vụ: 10.4.11-MariaDB
--- Phiên bản PHP: 7.4.4
+-- Host: 127.0.0.1
+-- Generation Time: Jun 24, 2020 at 01:42 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `bangame`
+-- Database: `bangame`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `chitiettheloai`
+-- Table structure for table `chitiettheloai`
 --
 
 CREATE TABLE `chitiettheloai` (
@@ -33,7 +33,7 @@ CREATE TABLE `chitiettheloai` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `chitiettheloai`
+-- Dumping data for table `chitiettheloai`
 --
 
 INSERT INTO `chitiettheloai` (`idgame`, `idtheloai`) VALUES
@@ -45,7 +45,7 @@ INSERT INTO `chitiettheloai` (`idgame`, `idtheloai`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `game`
+-- Table structure for table `game`
 --
 
 CREATE TABLE `game` (
@@ -70,7 +70,7 @@ CREATE TABLE `game` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `game`
+-- Dumping data for table `game`
 --
 
 INSERT INTO `game` (`idgame`, `tengame`, `giatien`, `namphathanh`, `nhaphathanh`, `os_mini`, `processor_mini`, `memory_mini`, `graphics_mini`, `harddrive_mini`, `os_recommend`, `processor_recommend`, `memory_recommend`, `graphics_recommend`, `harddrive_recommend`, `content`, `mota`, `trailer`) VALUES
@@ -108,7 +108,7 @@ INSERT INTO `game` (`idgame`, `tengame`, `giatien`, `namphathanh`, `nhaphathanh`
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `hinh`
+-- Table structure for table `hinh`
 --
 
 CREATE TABLE `hinh` (
@@ -119,7 +119,7 @@ CREATE TABLE `hinh` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `hinh`
+-- Dumping data for table `hinh`
 --
 
 INSERT INTO `hinh` (`idhinh`, `tenhinh`, `idgame`, `idloaihinh`) VALUES
@@ -135,21 +135,30 @@ INSERT INTO `hinh` (`idhinh`, `tenhinh`, `idgame`, `idloaihinh`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `hoadon`
+-- Table structure for table `hoadon`
 --
 
 CREATE TABLE `hoadon` (
   `idhoadon` int(11) NOT NULL,
   `code` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `idgame` int(11) NOT NULL,
+  `tengame` varchar(2000) COLLATE utf8_unicode_ci NOT NULL,
   `iduser` int(11) NOT NULL,
   `ngay` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `hoadon`
+--
+
+INSERT INTO `hoadon` (`idhoadon`, `code`, `tengame`, `iduser`, `ngay`) VALUES
+(3, 'LxhJO - l3Hzy - Vzjp', 'GrandThefAuto V', 8, '2020-06-24 18:25:09'),
+(4, 'Of2vu - rmv1a - it5f', 'Doki Doki Literature Club!', 8, '2020-06-24 18:27:45'),
+(5, 'UPNld - Emf02 - uVi9', '', 8, '2020-06-24 18:31:13');
+
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `theloai`
+-- Table structure for table `theloai`
 --
 
 CREATE TABLE `theloai` (
@@ -159,7 +168,7 @@ CREATE TABLE `theloai` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `theloai`
+-- Dumping data for table `theloai`
 --
 
 INSERT INTO `theloai` (`idtheloai`, `tentheloai`, `tentheloai_khongdau`) VALUES
@@ -174,7 +183,7 @@ INSERT INTO `theloai` (`idtheloai`, `tentheloai`, `tentheloai_khongdau`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -190,7 +199,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`iduser`, `tendangnhap`, `matkhau`, `email`, `ten`, `sdt`, `idgroup`, `hinh`, `tien`) VALUES
@@ -204,106 +213,97 @@ INSERT INTO `user` (`iduser`, `tendangnhap`, `matkhau`, `email`, `ten`, `sdt`, `
 (8, 'admin', '23', 'admin@da', 'admin', '1234567890', 0, 'frog.jpg', 0);
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `chitiettheloai`
+-- Indexes for table `chitiettheloai`
 --
 ALTER TABLE `chitiettheloai`
   ADD KEY `idgame` (`idgame`),
   ADD KEY `idtheloai` (`idtheloai`);
 
 --
--- Chỉ mục cho bảng `game`
+-- Indexes for table `game`
 --
 ALTER TABLE `game`
   ADD PRIMARY KEY (`idgame`);
 
 --
--- Chỉ mục cho bảng `hinh`
+-- Indexes for table `hinh`
 --
 ALTER TABLE `hinh`
   ADD PRIMARY KEY (`idhinh`),
   ADD KEY `idgame` (`idgame`);
 
 --
--- Chỉ mục cho bảng `hoadon`
+-- Indexes for table `hoadon`
 --
 ALTER TABLE `hoadon`
-  ADD PRIMARY KEY (`idhoadon`),
-  ADD KEY `iduser` (`iduser`),
-  ADD KEY `idgame` (`idgame`);
+  ADD PRIMARY KEY (`idhoadon`);
 
 --
--- Chỉ mục cho bảng `theloai`
+-- Indexes for table `theloai`
 --
 ALTER TABLE `theloai`
   ADD PRIMARY KEY (`idtheloai`);
 
 --
--- Chỉ mục cho bảng `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`iduser`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `game`
+-- AUTO_INCREMENT for table `game`
 --
 ALTER TABLE `game`
   MODIFY `idgame` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
--- AUTO_INCREMENT cho bảng `hinh`
+-- AUTO_INCREMENT for table `hinh`
 --
 ALTER TABLE `hinh`
   MODIFY `idhinh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT cho bảng `hoadon`
+-- AUTO_INCREMENT for table `hoadon`
 --
 ALTER TABLE `hoadon`
-  MODIFY `idhoadon` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idhoadon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT cho bảng `theloai`
+-- AUTO_INCREMENT for table `theloai`
 --
 ALTER TABLE `theloai`
   MODIFY `idtheloai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT cho bảng `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- Các ràng buộc cho các bảng đã đổ
+-- Constraints for dumped tables
 --
 
 --
--- Các ràng buộc cho bảng `chitiettheloai`
+-- Constraints for table `chitiettheloai`
 --
 ALTER TABLE `chitiettheloai`
   ADD CONSTRAINT `chitiettheloai_ibfk_1` FOREIGN KEY (`idgame`) REFERENCES `game` (`idgame`),
   ADD CONSTRAINT `chitiettheloai_ibfk_2` FOREIGN KEY (`idtheloai`) REFERENCES `theloai` (`idtheloai`);
 
 --
--- Các ràng buộc cho bảng `hinh`
+-- Constraints for table `hinh`
 --
 ALTER TABLE `hinh`
   ADD CONSTRAINT `hinh_ibfk_1` FOREIGN KEY (`idgame`) REFERENCES `game` (`idgame`);
-
---
--- Các ràng buộc cho bảng `hoadon`
---
-ALTER TABLE `hoadon`
-  ADD CONSTRAINT `hoadon_ibfk_1` FOREIGN KEY (`iduser`) REFERENCES `user` (`iduser`),
-  ADD CONSTRAINT `hoadon_ibfk_2` FOREIGN KEY (`idgame`) REFERENCES `game` (`idgame`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
