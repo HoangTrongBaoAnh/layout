@@ -8,20 +8,11 @@ if (isset($_REQUEST['btnDangXuat'])) {
     unset($_SESSION['ten']);
     header("location:./index.php");
 }
-
-/*
-if (isset($_POST['btnsearch'])) {
-    $tengame = $_POST['textsearch'];
-    $qr = DataProvider::ExecuteQuery("select tengame from game where tengame like '%$tengame%'");
-    
-    //header("location:./index.php");
-}
-*/
-
 ?>
 <?php
     include_once("./lib/DataProvider.php");
     include_once("./lib/quantri.php");
+    include_once("./lib/bangame.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -125,7 +116,9 @@ if (isset($_POST['btnsearch'])) {
         }
         .dropdown-menu .dropdown-item{
             min-width: 250px !important;
-
+        }
+        .dropdown:hover>.dropdown-menu {
+            display: block;
         }
 
         .btn-nav {
@@ -137,7 +130,9 @@ if (isset($_POST['btnsearch'])) {
             background-color: purple;
             border: 1px solid white;
         }
-       
+       nav li .theloai{
+           color: #007bff !important;
+       }
     </style>
 
     <script>
@@ -165,17 +160,29 @@ if (isset($_POST['btnsearch'])) {
                
                 
                 <ul class="navbar-nav ml-auto">
-                <form method="POST">
-                    <div class="search-box" style="text-align:center">
-                        <input class="search-txt" type="text" name="textsearch" placeholder="Type to search">
-                        <button class="search-btn" type="submit" name="btnsearch"><i class="fas fa-search"></i></button>
-                    </div>
+                <form action="" method="post">
+                <div class="search-box" style="text-align:center">
+                    <input class="search-txt" type="text" name="" placeholder="Type to search">
+                    <a href="#" class="search-btn"><i class="fas fa-search"></i></a>
+                </div>
                 </form>
                     <li class="nav-item">
                         <a class="nav-link" href="./index.php">Trang chủ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="danh_muc.php">Danh mục</a>
+                        <div class="dropdown">
+                            <a class="nav-link" href="danh_muc.php" aria-haspopup="true" aria-expanded="false"> Danh mục </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                <?php
+                                    $theloai=laytheloai();
+                                    while($row_theloai=mysqli_fetch_array($theloai)){
+                                ?>
+                                <a class="theloai dropdown-item text-primary" href="danh_muc.php?idtheloai=<?php echo $row_theloai['idtheloai'] ?>"><?php echo $row_theloai['tentheloai'] ?></a>
+                                <?php
+                                    }
+                                ?>
+                            </div>
+                        </div>
                     </li>
                 </ul>
                 

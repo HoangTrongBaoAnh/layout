@@ -38,11 +38,11 @@ session_start();
     <script type="text/javascript" src="flaviusmatis-simplePagination.js-e32c66e/jquery.simplePagination.js"></script>
     <?php
         $idtheloai=@$_REQUEST['idtheloai'];
-        if(isset($_REQUEST['idTL'])){
+        /*if(isset($_REQUEST['idTL'])){
             foreach($_REQUEST['idTL'] as $value){
                 echo $value. "</br>";
             }
-        }
+        }*/
 
     ?>
 </head>
