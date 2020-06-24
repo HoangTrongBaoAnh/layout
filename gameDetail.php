@@ -59,7 +59,7 @@ $cost = $row['giatien'];
     document.cookie = "key = " + key;
     // hàm làm key
     <?php $tengame = $row['tengame']; ?>
-    idgame = '<?php echo $tengame ?>';
+    idgame = '<?php echo $idgame ?>';
     $(document).on('click', '#btnmua', function(e) {
             e.preventDefault();
             <?php 
