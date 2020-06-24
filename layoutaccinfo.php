@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 // nếu chưa đăng nhập thì ko dc vào trang này
