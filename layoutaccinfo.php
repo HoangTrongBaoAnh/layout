@@ -4,7 +4,7 @@ session_start();
 // nếu chưa đăng nhập thì ko dc vào trang này
 // nếu đăng nhập rồi thì ko đc vào trang đăng nhập nữa
 if (!isset($_SESSION['iduser'])) {
-    header("location:/layout/index.php");
+    header("location: index.php");
 }
 include_once("./lib/DataProvider.php");
 include_once("./lib/quantri.php");
