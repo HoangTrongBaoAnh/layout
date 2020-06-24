@@ -4,7 +4,7 @@ session_start();
 ?>
 <?php
     include_once("./lib/DataProvider.php");
-    include_once("./layout-danhmuc/danhmuc.php");
+    include_once("./lib/bangame.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +36,15 @@ session_start();
 
     <!-- paginationjs -->
     <script type="text/javascript" src="flaviusmatis-simplePagination.js-e32c66e/jquery.simplePagination.js"></script>
+    <?php
+        $idtheloai=@$_REQUEST['idtheloai'];
+        if(isset($_REQUEST['idTL'])){
+            foreach($_REQUEST['idTL'] as $value){
+                echo $value. "</br>";
+            }
+        }
 
+    ?>
 </head>
 
 <body>
@@ -85,7 +93,7 @@ session_start();
                                     
                                 ?>
                                 <div class="ml-4">
-                                    <label class="mr-4"><input type="checkbox" name="idTL" id="idTL"><?php echo $row_tentheloai['tentheloai'] ?> </label>
+                                    <label class="mr-4"><input type="checkbox" name="idTL[]" id="idTL[]" value="<?php echo $row_tentheloai['idtheloai'] ?>"><?php echo $row_tentheloai['tentheloai'] ?> </label>
                                 </div>
                                 <?php
                                     }
@@ -106,7 +114,7 @@ session_start();
                             <td> <input type="number" value="500000"></td>
                         </tr>
                         <tr>
-                            <td colspan="2" class="text-center"><input type="submit" value="Tìm kiếm"
+                            <td colspan="2" class="text-center"><input id="timkiem" type="submit" value="Tìm kiếm"
                                     class="btn btn-primary"></td>
 
                         </tr>
@@ -125,29 +133,34 @@ session_start();
             <div class="container col-md-8 ">
                 <div class="row">
                     <?php
-                        $laygame=laygame();
+                        if(isset($idtheloai)){
+                            $laygame=laygametheotheloai($idtheloai);
+                        }
+                        else{
+                            $laygame=laygame();
+                        }
                         while($row_laygame=mysqli_fetch_array($laygame)){
                             $gia=number_format($row_laygame['giatien']);
 
                     ?>
-                    <div class="col-md-6 col-lg-3 col-sm-6 col-xs-6 item-frames">
+                    <div class="col-md-6 col-lg-4 col-sm-6 col-xs-6 item-frames">
                         <div class="item-game-wrapper">
                             <a href="#">
                                 <div class="img">
                                     <a href="gameDetail.php">
-                                        <img src="./image/hình/<?php echo $row_laygame['tenhinh'] ?>" alt=""
+                                        <img height="150px" src="./image/hình/<?php echo $row_laygame['tenhinh'] ?>" alt=""
                                             class="check_img_errs">
                                     </a>
                                 </div>
                             </a>
-                            <div class="item-info">
+                            <div class="item-info pb-2">
                                 <a href="/game-detail/gameDetail.html">
                                     <div class="item-title"><?php echo $row_laygame['tengame'] ?></div>
                                 </a>
                                 <div class="item-price">
                                     <span class="cu-p"><?php echo $gia ?></span>
                                 </div>
-                                <a href="gameDetail.php?idgame=<?php echo $row_laygame['idgame'] ?>" class="btn btn-outline-primary btn-buy">Mua
+                                <a href="gameDetail.php" class="btn btn-outline-primary btn-buy">Mua
                                     hàng</a>
                             </div>
                         </div>
