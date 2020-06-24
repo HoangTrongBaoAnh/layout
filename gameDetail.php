@@ -8,6 +8,7 @@ $row = $results->fetch_assoc();
 $hinh = getThumbnailGame($idgame);
 $row2 = $hinh->fetch_assoc();
 $carousel = getCarouselGame($idgame);
+$theloai = getTatCaTheLoaiQuaID($idgame);
 
 $cost = $row['giatien'];
 $tengame = $row['tengame'];
@@ -205,10 +206,11 @@ $tengame = $row['tengame'];
                 ?>
                 <div class="border-top mt-4">
                     Thể loại:
-                    <?php
-                    $theloai = getTatCaTheLoaiQuaID($idgame);
-                    while($tentheloai = mysqli_fetch_array($theloai)){
+                    <?php 
+                    $theloai2 = getTatCaTheLoaiQuaID($idgame);
+                    while($tentheloai = $theloai2->fetch_assoc()){
                     ?>
+                    
                     <div class="badge badge-pill badge-primary"><?php echo $tentheloai['tentheloai'] ?></div>
                     <?php
                     }

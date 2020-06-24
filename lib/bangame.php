@@ -4,11 +4,11 @@
         return $data;
     }
     function laygame(){
-        $data=DataProvider::ExecuteQuery("SELECT tenhinh, tengame, giatien FROM game,hinh WHERE hinh.idgame=game.idgame AND hinh.idloaihinh=1");
+        $data=DataProvider::ExecuteQuery("SELECT game.idgame,tenhinh, tengame, giatien FROM game,hinh WHERE hinh.idgame=game.idgame AND hinh.idloaihinh=1");
         return $data;
     }
     function laygametheotheloai($idtheloai){
-        $data=DataProvider::ExecuteQuery("SELECT tenhinh, tengame, giatien FROM game, hinh , chitiettheloai WHERE game.idgame=chitiettheloai.idgame AND game.idgame=hinh.idgame AND chitiettheloai.idtheloai=$idtheloai AND hinh.idloaihinh=1");
+        $data=DataProvider::ExecuteQuery("SELECT game.idgame,tenhinh, tengame, giatien FROM game, hinh , chitiettheloai WHERE game.idgame=chitiettheloai.idgame AND game.idgame=hinh.idgame AND chitiettheloai.idtheloai=$idtheloai AND hinh.idloaihinh=1");
         return $data;
     }
 ?>
