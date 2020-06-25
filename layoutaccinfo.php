@@ -220,6 +220,8 @@ if(isset($_POST['doiemail'])){
                 }
             });
         });
+
+        
     </script>
 </body>
 
