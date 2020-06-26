@@ -38,7 +38,10 @@ function getListGameMain(){
     $data=DataProvider::ExecuteQuery("SELECT * FROM game g,hinh h WHERE g.idgame=h.idgame AND h.idloaihinh=1 limit 0,4");
     return $data;
 }
-
+function getListGameQuaIdTheLoai($idtheloai){
+    $data=DataProvider::ExecuteQuery("SELECT * FROM game g,chitiettheloai cttl, theloai tl WHERE g.idgame=cttl.idgame AND cttl.idtheloai=tl.idtheloai and tl.idtheloai=$idtheloai");
+    return $data;
+}
 // ---------lay chi tiet game--------------------
 
 function getDetailGame($idgame){

@@ -58,6 +58,7 @@ html, body{
 }
 .nhap_vai{
     margin: 15px;
+    overflow: hidden;
 }
 .thumbnail{
     position: relative;
@@ -349,7 +350,7 @@ html, body{
     position: absolute;
     height: 100%;
     width: 0;
-    background: rgb(103, 58, 183, 0.71);
+    background: rgba(129, 106, 168, 0.71);
     top: 0;
     display: flex;
     justify-content: center;
@@ -370,6 +371,8 @@ html, body{
 .card{
     box-shadow: 4px 4px 5px grey;
     transition: .5s;
+    border: 0.1px solid black;
+    overflow: hidden;
 }
 
 .card:hover{

@@ -149,55 +149,51 @@ include_once('lib/quantri.php');
         <div class="row padding">
             <div class="col-12">
                 <h2 class="text-center">GAME FEATURE</h2>
+
                 <div class="nhap_vai">
                     <div class="col-12">
                         <div class="row">
-                            <h4 class="col-9 text-dark"><span class="text-dark ml-4" style="font-size: 30px; font-weight:bold">NHẬP VAI</span></h4>
-                            <a class="col-3" href="danh_muc.php?idTL={idTL}" style="font-size:25px;text-decoration:none;left:200px;">MORE</a>
+                            <h4 class="col-9 text-dark"><span class="text-dark" style="font-size: 28px; font-weight:bold; margin-left: 55px">NHẬP VAI</span></h4>
+                            <a class="col-3" href="danh_muc.php?idTL={idTL}" style="font-size:20px;text-decoration:none;left:200px;">MORE</a>
                         </div>
                     </div>
 
                     <div class="col-12">
-        <div class="arrow_prew">
-            <span><i class="fa fa-arrow-circle-left"></i></span>
-        </div>
-        <div class="multiple-items mx-auto">
-            <?php 
-            $datagamemoinhat=laygame();
-            while($datagamemoinhat_row=mysqli_fetch_array($datagamemoinhat)){
+                        <div class="arrow_prew">
+                            <span><i class="fa fa-arrow-circle-left"></i></span>
+                        </div>
+                        <div class="multiple-items mx-auto">
+                            <?php 
+                            $datagamemoinhat=laygame();
+                            while($datagamemoinhat_row=mysqli_fetch_array($datagamemoinhat)){
 
-            ?>
-            
-            <div class="card items">
-                <div class="image-container">
-                    <img class="card-img-top" src="./image/hình/<?php echo $datagamemoinhat_row['tenhinh'] ?>" alt="">
-                    <div class="overplay">
-                        <a class="btn btn-outline-light m-2" href="gameDetail.php?idgame=<?php echo $datagamemoinhat_row['idgame']?>">xem chi tiết</a>
+                            ?>
+                
+                            <div class="card items ">
+                                <div class="image-container">
+                                    <img class="card-img-top" src="./image/hình/<?php echo $datagamemoinhat_row['tenhinh'] ?>" alt="">
+                                    <div class="overplay">
+                                        <div class="card-text text-center mt-1"><h5 style="color:white"><?php echo $datagamemoinhat_row['giatien'] ?> VNĐ</h5></div>
+                                        <a class="btn btn-outline-light m-2" href="gameDetail.php?idgame=<?php echo $datagamemoinhat_row['idgame']?>">xem chi tiết</a>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="card-title">
+                                        <p class="col-12 text-center text-primary" style="font-weight:bold;font-size:20px;height:60px;"><?php echo $datagamemoinhat_row['tengame'] ?></p>
+                                        <div class="card-text text-center"><?php echo $datagamemoinhat_row['mota'] ?></div>
+                                    </div>
+                                </div>
+                            </div>
+                
+                            <?php
+                            }
+                            ?>
+                        </div>
+                        <div class="arrow_next">
+                            <span><i class="fa fa-arrow-circle-right"></i></span>
+                        </div>
                     </div>
                 </div>
-                <div class="card-body">
-                    <div class="card-title">
-                        <p class="col-12 text-center text-primary" style="font-weight:bold;font-size:20px;height:60px;"><?php echo $datagamemoinhat_row['tengame'] ?></p>
-                        <div class="card-text text-center"><h5><?php echo $datagamemoinhat_row['giatien'] ?> VNĐ</h5>
-                    </div>
-                    </div>
-                    
-
-                </div>
-            </div>
-            
-                <?php
-            }
-                ?>
-           
-
-        </div>
-        <div class="arrow_next">
-            <span><i class="fa fa-arrow-circle-right"></i></span>
-        </div>
-        
-    </div>
-
             
 
                 <div class="nhap_vai">
@@ -272,24 +268,17 @@ include_once('lib/quantri.php');
 
                     </div>
                 </div>
-
+                
                 <div class="jumbotron text-center">
                 </div>
-            </div>
-            
 
             </div>
+                            
         </div>
     </div>
-    <!-- <div class="jumbotron text-center" style="margin-bottom:0">
-            <div>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis iusto quo doloribus et nostrum natus, veritatis similique doloremque mollitia praesentium cum omnis quaerat blanditiis nam tempore, atque ipsa ut explicabo.
-            </div>
-        </div> -->
-    <?php
-    include "./blocks/footer/footer.php";
-    ?>
-        <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    
+    
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
     <script>
          $(function () {
@@ -302,26 +291,17 @@ include_once('lib/quantri.php');
                 dots: false,
                 arrows: true,
                 prevArrow: '.arrow_prew',
-                nextArrow: '.arrow_next'
+                nextArrow: '.arrow_next',
                 
             });
         })
 
     </script>
-    
-</body>
-<div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <video controls width="100%">
-                    <source src="" type="video/mp4">
-                </video>
-            </div>
-        </div>
+    <div>
+    <?php
+    include "./blocks/footer/footer.php";
+    ?>
     </div>
-</div>
-
+</body>
 </html>
 
