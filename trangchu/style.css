@@ -276,3 +276,103 @@ html, body{
 }
 
 /* ----------CAROUSEL ITEM----------------------- */
+.multiple-items {
+    display: flex;
+
+}
+
+.multiple-items .items {
+
+    height: 300px;
+    margin: 50px;
+}
+
+
+.arrow_prew{
+    position: absolute;
+    top:40%;
+    left: -1%;
+
+}
+.arrow_prew span{
+   
+    cursor: pointer;
+    font-size: 25px;
+    color: red;
+    display: block;
+    width: 50px;
+    text-align: center;
+}
+
+.arrow_next{
+    position: absolute;
+    top:40%;
+    right: 0%;
+
+}
+.arrow_next span{
+    z-index: 9999;
+    cursor: pointer;
+    font-size: 25px;
+    color: red;
+    display: block;
+    width: 50px;
+    text-align: center;
+}
+
+.card .card-body .card-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* number of lines to show */
+    -webkit-box-orient: vertical;
+}
+
+.image-container {
+    height: 150px;
+    position: relative;
+    cursor: pointer;
+}
+
+.image-container:hover .overplay {
+    width: 100%;
+}
+
+.card-img-top {
+    display: block;
+    position: absolute;
+    height: inherit;
+}
+
+.overplay {
+    position: absolute;
+    height: 100%;
+    width: 0;
+    background: rgb(103, 58, 183, 0.71);
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+/* .content{
+ color: white;
+          border: 2px solid white;
+          padding: 6px 4px;
+} */
+.slick-dots li button:before {
+    color: orange;
+}
+
+.card{
+    box-shadow: 4px 4px 5px grey;
+    transition: .5s;
+}
+
+.card:hover{
+    box-shadow: 5px 5px 10px rgb(39, 39, 39);
+
+}

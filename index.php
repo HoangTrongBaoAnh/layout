@@ -147,153 +147,58 @@ include_once('lib/quantri.php');
     <!--  -->
     <div class="container-fluid padding mt-4 section">
         <div class="row padding">
-            <div class="col-8">
-                <h2 class="text-center">Game features</h2>
+            <div class="col-12">
+                <h2 class="text-center">GAME FEATURE</h2>
                 <div class="nhap_vai">
                     <div class="col-12">
                         <div class="row">
-                            <h4 class="col-9 text-dark"><span class="text-dark">Nhập Vai</span></h4>
-                            <a class="col-3" href="danh_muc.php?idTL={idTL}" style="padding-left: 120px;">More >></a>
+                            <h4 class="col-9 text-dark"><span class="text-dark ml-4" style="font-size: 30px; font-weight:bold">NHẬP VAI</span></h4>
+                            <a class="col-3" href="danh_muc.php?idTL={idTL}" style="font-size:25px;text-decoration:none;left:200px;">MORE</a>
                         </div>
                     </div>
 
-                    <div class="row multiple-items">
-                        <div class="col-md-4">
-                            <div class="game_gan_day">
-                                <!--14/4 Chỉnh sửa phần này: khiến hình zoom vô khi hơ vào và chỉnh boder ngoài -->
-                                <div class="thumbnail">
-                                    <div class="inner">
-                                        <a href="gameDetail.php"><img style="border-radius: 10px;" src="./image/hình/overwatch-2-leaked-pve-mode-new-hero.jpg"></a>
-                                    </div>
-                                    <div class="phan_loai">Nhập vai</div>
-                                </div>
-                                <div class="content">
-                                    <a href="gameDetail.php">
-                                        <h5>OVERWATCH</h5>
-                                    </a>
-                                    <p>Overwatch là một trò chơi điện tử bắn súng góc nhìn thứ nhất đa người chơi kết hợp.</p>
-                                    <div class="hinh_trang_tri">
-                                        <img class="heart" width="10%" src="./image/hình/160px-Heart_corazón.svg.png">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="game_gan_day">
-                                <!--14/4 Chỉnh sửa phần này: khiến hình zoom vô khi hơ vào và chỉnh boder ngoài -->
-                                <div class="thumbnail">
-                                    <div class="inner">
-                                        <a href="gameDetail.php"><img style="border-radius: 10px;" src="./image/hình/evuaii2woae3kk7_loky.jpg"></a>
-                                    </div>
-                                    <div class="phan_loai">Nhập vai</div>
-                                </div>
-                                <div class="content">
-                                    <a href="gameDetail.php">
-                                        <h5>CRYSIC REMASTERED</h5>
-                                    </a>
-                                    <p>Overwatch là một trò chơi điện tử bắn súng góc nhìn thứ nhất đa người chơi kết hợp.</p>
-                                    <div class="hinh_trang_tri">
-                                        <img class="heart" width="10%" src="./image/hình/160px-Heart_corazón.svg.png">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="game_gan_day">
-                                <!--14/4 Chỉnh sửa phần này: khiến hình zoom vô khi hơ vào và chỉnh boder ngoài -->
-                                <div class="thumbnail">
-                                    <div class="inner">
-                                        <a href="gameDetail.php"><img style="border-radius: 10px;" src="./image/hình/danh-gia-game-legends_of_runeterra-1024x536.jpg"></a>
-                                    </div>
-                                    <div class="phan_loai">Hành động</div>
-                                </div>
-                                <div class="content">
-                                    <a href="gameDetail.php">
-                                        <h5>LEGEND OF RUNETERRA</h5>
-                                    </a>
-                                    <p>Legends of Runeterra là một trò chơi thẻ bài kỹ thuật số miễn phí.</p>
-                                    <div class="hinh_trang_tri">
-                                        <img class="heart" width="10%" src="./image/hình/160px-Heart_corazón.svg.png">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="nhap_vai">
                     <div class="col-12">
-                        <div class="row">
-                            <h4 class="col-9 text-dark"><span class="text-dark">Nhập Vai</span></h4>
-                            <a class="col-3" href="danh_muc.php?idTL={idTL}" style="padding-left: 120px;">More >></a>
-                        </div>
-                    </div>
+        <div class="arrow_prew">
+            <span><i class="fa fa-arrow-circle-left"></i></span>
+        </div>
+        <div class="multiple-items mx-auto">
+            <?php 
+            $datagamemoinhat=laygame();
+            while($datagamemoinhat_row=mysqli_fetch_array($datagamemoinhat)){
 
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="game_gan_day">
-                                <!--14/4 Chỉnh sửa phần này: khiến hình zoom vô khi hơ vào và chỉnh boder ngoài -->
-                                <div class="thumbnail">
-                                    <div class="inner">
-                                        <a href="gameDetail.php"><img style="border-radius: 10px;" src="./image/hình/overwatch-2-leaked-pve-mode-new-hero.jpg"></a>
-                                    </div>
-                                    <div class="phan_loai">Nhập vai</div>
-                                </div>
-                                <div class="content">
-                                    <a href="gameDetail.php">
-                                        <h5>OVERWATCH</h5>
-                                    </a>
-                                    <p>Overwatch là một trò chơi điện tử bắn súng góc nhìn thứ nhất đa người chơi kết hợp.</p>
-                                    <div class="hinh_trang_tri">
-                                        <img class="heart" width="10%" src="./image/hình/160px-Heart_corazón.svg.png">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="game_gan_day">
-                                <!--14/4 Chỉnh sửa phần này: khiến hình zoom vô khi hơ vào và chỉnh boder ngoài -->
-                                <div class="thumbnail">
-                                    <div class="inner">
-                                        <a href="gameDetail.php"><img style="border-radius: 10px;" src="./image/hình/evuaii2woae3kk7_loky.jpg"></a>
-                                    </div>
-                                    <div class="phan_loai">Nhập vai</div>
-                                </div>
-                                <div class="content">
-                                    <a href="gameDetail.php">
-                                        <h5>CRYSIC REMASTERED</h5>
-                                    </a>
-                                    <p>Overwatch là một trò chơi điện tử bắn súng góc nhìn thứ nhất đa người chơi kết hợp.</p>
-                                    <div class="hinh_trang_tri">
-                                        <img class="heart" width="10%" src="./image/hình/160px-Heart_corazón.svg.png">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="game_gan_day">
-                                <!--14/4 Chỉnh sửa phần này: khiến hình zoom vô khi hơ vào và chỉnh boder ngoài -->
-                                <div class="thumbnail">
-                                    <div class="inner">
-                                        <a href="gameDetail.php"><img style="border-radius: 10px;" src="./image/hình/danh-gia-game-legends_of_runeterra-1024x536.jpg"></a>
-                                    </div>
-                                    <div class="phan_loai">Hành động</div>
-                                </div>
-                                <div class="content">
-                                    <a href="gameDetail.php">
-                                        <h5>LEGEND OF RUNETERRA</h5>
-                                    </a>
-                                    <p>Legends of Runeterra là một trò chơi thẻ bài kỹ thuật số miễn phí.</p>
-                                    <div class="hinh_trang_tri">
-                                        <img class="heart" width="10%" src="./image/hình/160px-Heart_corazón.svg.png">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+            ?>
+            
+            <div class="card items">
+                <div class="image-container">
+                    <img class="card-img-top" src="./image/hình/<?php echo $datagamemoinhat_row['tenhinh'] ?>" alt="">
+                    <div class="overplay">
+                        <a class="btn btn-outline-light m-2" href="gameDetail.php?idgame=<?php echo $datagamemoinhat_row['idgame']?>">xem chi tiết</a>
                     </div>
                 </div>
+                <div class="card-body">
+                    <div class="card-title">
+                        <p class="col-12 text-center text-primary" style="font-weight:bold;font-size:20px;height:60px;"><?php echo $datagamemoinhat_row['tengame'] ?></p>
+                        <div class="card-text text-center"><h5><?php echo $datagamemoinhat_row['giatien'] ?> VNĐ</h5>
+                    </div>
+                    </div>
+                    
+
+                </div>
+            </div>
+            
+                <?php
+            }
+                ?>
+           
+
+        </div>
+        <div class="arrow_next">
+            <span><i class="fa fa-arrow-circle-right"></i></span>
+        </div>
+        
+    </div>
+
+            
 
                 <div class="nhap_vai">
                     <div class="col-12">
@@ -371,89 +276,7 @@ include_once('lib/quantri.php');
                 <div class="jumbotron text-center">
                 </div>
             </div>
-            <div class="col-4">
-                <!-- <h2 class="text-center">GAME MỚI</h2> -->
-                <div class="post1" style="border: 7px inset rgba(28,110,164,0.53);
-                border-radius: 0px 0px 0px 0px;background-color: azure;">
-                    <div class="row"></div>
-                    <div>
-                        <div class="item-game-wrapper">
-                            <div class="card-header" style="align-items: left;color: #fff;background-color: #8c7ae6;">
-                                <h5 class="text-center">GAME MỚI</h5>
-                            </div>
-                            <div class="card">
-
-                                <div class="row no-gutters">
-                                    <div class="col-auto">
-                                        <a href="gameDetail.php"><img style="width: 200px;height: 200px;" src="./image/hình/GTA.jpg" class="img-fluid" alt=""></a>
-                                    </div>
-                                    <div class="col">
-                                        <div class="card-block px-2">
-                                            <a href="gameDetail.php">
-                                                <h4 class="card-title" style="margin: 5px;">Grand Theft Auto V - GTA V</h4>
-                                            </a>
-
-                                            <p class="card-text">457,000đ</p>
-                                            <a href="gameDetail.php" class="btn btn-primary">Buy</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-footer w-100 text-muted">
-
-                                    Quite astonishingly, Grand Theft Auto 5, which you need to play GTA Online, has sold more than 115m units. It is currently the fifth most popular game on Steam with, at the time of publication, 132,000 concurrent players.
-                                </div>
-                            </div>
-                            <div class="card">
-
-                                <div class="row no-gutters">
-                                    <div class="col-auto">
-                                        <a href="gameDetail.php"><img style="width: 200px;height: 200px;" src="./image/hình/GTA.jpg" class="img-fluid" alt=""></a>
-                                    </div>
-                                    <div class="col">
-                                        <div class="card-block px-2">
-                                            <a href="gameDetail.php">
-                                                <h4 class="card-title" style="margin: 5px;">Grand Theft Auto V - GTA V</h4>
-                                            </a>
-
-                                            <p class="card-text">457,000đ</p>
-                                            <a href="game-detail/gameDetail.html" class="btn btn-primary">Buy</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-footer w-100 text-muted">
-
-                                    Quite astonishingly, Grand Theft Auto 5, which you need to play GTA Online, has sold more than 115m units. It is currently the fifth most popular game on Steam with, at the time of publication, 132,000 concurrent players.
-                                </div>
-                            </div>
-                            <div class="card">
-
-                                <div class="row no-gutters">
-                                    <div class="col-auto">
-                                        <a href="game-detail/gameDetail.html"><img style="width: 200px;height: 200px;" src="./image/hình/GTA.jpg" class="img-fluid" alt=""></a>
-                                    </div>
-                                    <div class="col">
-                                        <div class="card-block px-2">
-                                            <a href="game-detail/gameDetail.html">
-                                                <h4 class="card-title" style="margin: 5px;">Grand Theft Auto V - GTA V</h4>
-                                            </a>
-
-                                            <p class="card-text">457,000đ</p>
-                                            <a href="game-detail/gameDetail.html" class="btn btn-primary">Buy</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-footer w-100 text-muted">
-
-                                    Quite astonishingly, Grand Theft Auto 5, which you need to play GTA Online, has sold more than 115m units. It is currently the fifth most popular game on Steam with, at the time of publication, 132,000 concurrent players.
-                                </div>
-                            </div>
-                            <hr>
-                        </div>
-                    </div>
-
-
-                </div>
-
+            
 
             </div>
         </div>
@@ -469,18 +292,21 @@ include_once('lib/quantri.php');
         <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
     <script>
-        $(function(){
+         $(function () {
             $('.multiple-items').slick({
                 infinite: true,
-                slidesToShow: 2,
+                slidesToShow: 4,
                 slidesToScroll: 1,
                 autoplay: true,
                 autoplayspeed: 2000,
-                dots: true,
-                arrows:true,
-                // centerPadding:'60px'
+                dots: false,
+                arrows: true,
+                prevArrow: '.arrow_prew',
+                nextArrow: '.arrow_next'
+                
             });
-        });
+        })
+
     </script>
     
 </body>
@@ -498,3 +324,4 @@ include_once('lib/quantri.php');
 </div>
 
 </html>
+
