@@ -15,7 +15,7 @@ function getThongTinByID($id){
 
 // ----------------------Thể loại----------------------
 function getThongTinTheLoaiByID($id){
-$data=DataProvider::ExecuteQuery("SELECT tentheloai,tentheloai_khongdau FROM theloai WHERE idtheloai='$id'");
+$data=DataProvider::ExecuteQuery("SELECT idtheloai,tentheloai,tentheloai_khongdau FROM theloai WHERE idtheloai='$id'");
 return $data;
 }
 
@@ -35,11 +35,11 @@ function getListIDTheLoaiByIDGame($id){
 
 // ---------lay ds game--------------------
 function getListGameMain(){
-    $data=DataProvider::ExecuteQuery("SELECT * FROM game g,hinh h WHERE g.idgame=h.idgame AND h.idloaihinh=1 limit 0,4");
+    $data=DataProvider::ExecuteQuery("SELECT * FROM game g,hinh h WHERE g.idgame=h.idgame AND h.idloaihinh=1 ORDER BY g.idgame DESC LIMIT 0,4");
     return $data;
 }
-function getListGameQuaIdTheLoai($idtheloai){
-    $data=DataProvider::ExecuteQuery("SELECT * FROM game g,chitiettheloai cttl, theloai tl WHERE g.idgame=cttl.idgame AND cttl.idtheloai=tl.idtheloai and tl.idtheloai=$idtheloai");
+function getListGameQuaIdTheLoai($idtheloai,$number){
+    $data=DataProvider::ExecuteQuery("SELECT * FROM game g,chitiettheloai cttl, theloai tl WHERE g.idgame=cttl.idgame AND cttl.idtheloai=tl.idtheloai and tl.idtheloai=$idtheloai ORDER BY g.idgame DESC LIMIT 0,$number");
     return $data;
 }
 // ---------lay chi tiet game--------------------

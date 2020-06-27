@@ -1,8 +1,12 @@
 @import url(https://fonts.google.com/specimen/Gotu);
+@import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
 
 *{
     padding: 0;
     margin: 0;
+}
+.font-Pangeolin{
+    font-family: 'Pangolin', cursive;;
 }
 #loader {
     display: block;
@@ -279,43 +283,46 @@ html, body{
 /* ----------CAROUSEL ITEM----------------------- */
 .multiple-items {
     display: flex;
-
+    
 }
 
 .multiple-items .items {
 
-    height: 300px;
-    margin: 50px;
+    height: 400px;
+   margin:50px;
 }
 
 
 .arrow_prew{
+    z-index: 1;
     position: absolute;
-    top:40%;
-    left: -1%;
+    top:45%;
+    left: 0%;
+    
 
 }
 .arrow_prew span{
-   
+    
     cursor: pointer;
     font-size: 25px;
-    color: red;
+    color: #694eae;
     display: block;
     width: 50px;
     text-align: center;
 }
 
 .arrow_next{
+    z-index: 1;
     position: absolute;
-    top:40%;
+    top:45%;
     right: 0%;
 
 }
 .arrow_next span{
-    z-index: 9999;
+    
     cursor: pointer;
     font-size: 25px;
-    color: red;
+    color: #694eae;
     display: block;
     width: 50px;
     text-align: center;
@@ -325,20 +332,23 @@ html, body{
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 4;
     /* number of lines to show */
     -webkit-box-orient: vertical;
 }
 
 .image-container {
-    height: 150px;
+    height: 200px;
     position: relative;
     cursor: pointer;
 }
 
-.image-container:hover .overplay {
+.card:hover .overplay {
     width: 100%;
 }
+
+
+
 
 .card-img-top {
     display: block;
@@ -370,12 +380,13 @@ html, body{
 
 .card{
     box-shadow: 4px 4px 5px grey;
-    transition: .5s;
+    transition: bottom 0.7s ease;
     border: 0.1px solid black;
     overflow: hidden;
+    bottom: 0;
 }
 
 .card:hover{
     box-shadow: 5px 5px 10px rgb(39, 39, 39);
-
+    bottom:20px;
 }

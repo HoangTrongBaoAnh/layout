@@ -81,7 +81,7 @@ include_once('lib/quantri.php');
     <?php
     $qr = getListGameMain();
     ?>
-    <div id="slides" class="container carousel slide" data-ride="carousel">
+    <div id="slides" class="container-fluid carousel slide" style="padding: 0;" data-ride="carousel">
         <ul class="carousel-indicators">
             <li data-target="#slides" data-slide-to="0" class="active"></li>
             <li data-target="#slides" data-slide-to="1"></li>
@@ -112,7 +112,7 @@ include_once('lib/quantri.php');
                                 Trailer
                             </a>
                             <a href="gameDetail.php?idgame=<?php echo $row['idgame']  ?>" class="btn btn-primary btn-lg">
-                                Mua Ngay
+                                MUA NGAY
                             </a>
                         </div>
                     </div>
@@ -134,7 +134,7 @@ include_once('lib/quantri.php');
     <div class="container-fluid padding">
         <div class="row welcome text-center mt-4">
             <div class="col-12">
-                <h3>Web game bán hàng uy tín</h3>
+                <h2 class="font-Pangeolin">SHOP GAME BÁN HÀNG UY TÍN NHẤT VIỆT NAM</h2>
             </div>
             <hr>
             <div class="col-12">
@@ -149,12 +149,36 @@ include_once('lib/quantri.php');
         <div class="row padding">
             <div class="col-12">
                 <h2 class="text-center">GAME FEATURE</h2>
+                <?php
+                $theloai=getListTheLoai();
+                $mangtheloai=array();
+                while($rowtl=mysqli_fetch_array($theloai)){
+                    array_push($mangtheloai,$rowtl['idtheloai']);
+                }
+                $theloai1=array_rand($mangtheloai);
+                do{
+                    $theloai2=array_rand($mangtheloai);
 
+                }while($theloai2==$theloai1);
+                do{
+                    $theloai3=array_rand($mangtheloai);
+
+                }while($theloai3==$theloai1||$theloai3==$theloai2);
+                $thongtin1=getThongTinTheLoaiByID($theloai1);
+                $thongtin1_row=mysqli_fetch_array($thongtin1);
+                $thongtin2=getThongTinTheLoaiByID($theloai2);
+                $thongtin2_row=mysqli_fetch_array($thongtin2);
+                $thongtin3=getThongTinTheLoaiByID($theloai3);
+                $thongtin3_row=mysqli_fetch_array($thongtin3);
+                $mangthongtin=array($thongtin1_row,$thongtin2_row,$thongtin3_row);
+                foreach($mangthongtin as $value){
+                   
+                ?>
                 <div class="nhap_vai">
                     <div class="col-12">
                         <div class="row">
-                            <h4 class="col-9 text-dark"><span class="text-dark" style="font-size: 28px; font-weight:bold; margin-left: 55px">NHẬP VAI</span></h4>
-                            <a class="col-3" href="danh_muc.php?idTL={idTL}" style="font-size:20px;text-decoration:none;left:200px;">MORE</a>
+                            <h4 class="col-9 text-dark"><span class="text-dark" style="font-size: 28px; font-weight:bold; margin-left: 55px"><?php echo $value['tentheloai'] ?></span></h4>
+                            <a class="col-3" href="danh_muc.php?idTL=<?php echo $value['idtheloai'] ?>" style="font-size:20px;text-decoration:none;left:200px;">MORE</a>
                         </div>
                     </div>
 
@@ -163,23 +187,25 @@ include_once('lib/quantri.php');
                             <span><i class="fa fa-arrow-circle-left"></i></span>
                         </div>
                         <div class="multiple-items mx-auto">
-                            <?php 
-                            $datagamemoinhat=laygame();
+                            <?php
+                            
+                            $datagamemoinhat=getListGameQuaIdTheLoai($value['idtheloai'],5);
                             while($datagamemoinhat_row=mysqli_fetch_array($datagamemoinhat)){
-
+                                    $tenhinh2=getThumbnailGame($datagamemoinhat_row['idgame']);
+                                    $tenhinh2_row=mysqli_fetch_array($tenhinh2);
                             ?>
                 
                             <div class="card items ">
                                 <div class="image-container">
-                                    <img class="card-img-top" src="./image/hình/<?php echo $datagamemoinhat_row['tenhinh'] ?>" alt="">
+                                    <img class="card-img-top" src="./image/hình/<?php echo $tenhinh2_row['tenhinh'] ?>" alt="">
                                     <div class="overplay">
-                                        <div class="card-text text-center mt-1"><h5 style="color:white"><?php echo $datagamemoinhat_row['giatien'] ?> VNĐ</h5></div>
+                                        <div class="card-text text-center mt-1"><h5 style="color:white"><?php echo number_format($datagamemoinhat_row['giatien'])  ?> VNĐ</h5></div>
                                         <a class="btn btn-outline-light m-2" href="gameDetail.php?idgame=<?php echo $datagamemoinhat_row['idgame']?>">xem chi tiết</a>
                                     </div>
                                 </div>
                                 <div class="card-body">
                                     <div class="card-title">
-                                        <p class="col-12 text-center text-primary" style="font-weight:bold;font-size:20px;height:60px;"><?php echo $datagamemoinhat_row['tengame'] ?></p>
+                                        <p class="col-12 text-center text-primary" style="font-weight:bold;font-size:20px;height:40px;margin-bottom:0px"><?php echo $datagamemoinhat_row['tengame'] ?></p>
                                         <div class="card-text text-center"><?php echo $datagamemoinhat_row['mota'] ?></div>
                                     </div>
                                 </div>
@@ -194,6 +220,10 @@ include_once('lib/quantri.php');
                         </div>
                     </div>
                 </div>
+                <?php
+                }
+                ?>
+            
             
 
                 <div class="nhap_vai">
@@ -284,9 +314,9 @@ include_once('lib/quantri.php');
          $(function () {
             $('.multiple-items').slick({
                 infinite: true,
-                slidesToShow: 4,
+                slidesToShow: 3,
                 slidesToScroll: 1,
-                autoplay: true,
+                autoplay: false,
                 autoplayspeed: 2000,
                 dots: false,
                 arrows: true,
