@@ -36,7 +36,7 @@ if (isset($_REQUEST['btnDangXuat'])) {
 
         .navbar {
             background-color: #8c7ae6 !important;
-
+            
         }
         .navbar li {
             padding-top: 10px;
@@ -60,9 +60,9 @@ if (isset($_REQUEST['btnDangXuat'])) {
             width: 100%;
             font-size: 16px;
             font-family: Gotu, sans-serif;
-
+            
         }
-
+    
         .search-box {
             background: #2f3640;
             height: 60px;
@@ -120,7 +120,12 @@ if (isset($_REQUEST['btnDangXuat'])) {
         .dropdown:hover>.dropdown-menu {
             display: block;
         }
-
+        .bootstrap-select .dropdown-menu {
+            outline: none !important;
+        }
+        .dropdown a {
+            background-color:#fff transparent !important;
+        }
         .btn-nav {
             background-color: blueviolet;
             border: 1px solid white;
@@ -130,9 +135,67 @@ if (isset($_REQUEST['btnDangXuat'])) {
             background-color: purple;
             border: 1px solid white;
         }
-       nav li .theloai{
-           color: #007bff !important;
-       }
+        nav li .theloai{
+            color: #007bff !important;
+        }
+        #livesearch{
+        z-index:9999; 
+        background:#0071b4;
+        max-height:250px;
+        overflow:auto; 
+        width:92%;
+        margin-left:1.2%;
+        }
+        /***********************************/
+        .live-outer{
+        width:200%; 
+        height:60px;
+        border-bottom:1px solid #ccc; 
+        background:#fff;
+        }
+        .live-outer:hover{
+        background:#F3F3F3;
+        }
+        .live-im{
+        float:left;
+        width:10%; 
+        height:60px;
+        }
+        .live-im img{
+        width:50%; 
+        height:100%;
+        }
+        .live-product-det{
+        float:left; 
+        width:100%; 
+        height:60px;
+        }
+        .live-product-name{
+        width:120%; 
+        height:22px; 
+        margin-top:4px;
+        }
+        .live-product-name p{
+        margin:0px;
+        color:#333;
+        text-shadow: 1px 1px 1px #DDDDDD;
+        font-size:17px;
+        }
+        .live-product-price{
+        width:100%;
+        height:25px;
+        }
+        .live-product-price-text{
+        float:left; 
+        width:50%;
+        }
+        .live-product-price-text p{
+        margin:0px;
+        font-size:16px;
+        }
+        .link-p-colr{
+        color:#333;
+        }
     </style>
 
     <script>
@@ -142,7 +205,38 @@ if (isset($_REQUEST['btnDangXuat'])) {
             });
             
         });
+        function fx(str)
+        {
+        var s1=document.getElementById("search_text").value;
+        var xmlhttp;
+        if (str.length==0) {
+            document.getElementById("livesearch").innerHTML="";
+            document.getElementById("livesearch").style.border="0px";
         
+        document.getElementById("livesearch").style.display="block";
+        
+            return;
+        }
+        if (window.XMLHttpRequest)
+        {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+        }
+        else
+        {// code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange=function()
+        {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+            document.getElementById("livesearch").innerHTML=xmlhttp.responseText;
+        document.getElementById("livesearch").style.display="block";
+        
+            }
+        }
+        xmlhttp.open("GET","blocks/nav/timkiem.php?n="+s1,true);
+        xmlhttp.send(); 
+        }
     </script>
 
 </head>
@@ -160,11 +254,12 @@ if (isset($_REQUEST['btnDangXuat'])) {
                
                 
                 <ul class="navbar-nav ml-auto">
-                <form action="" method="post">
-                <div class="search-box" style="text-align:center">
-                    <input class="search-txt" type="text" name="" placeholder="Type to search">
+                <form>
+                 <div class="search-box" style="text-align:center">
+                    <input class="search-txt" onKeyUp="fx(this.value)" type="text" name="search_text"  id="search_text"placeholder="Type to search">
                     <a href="#" class="search-btn"><i class="fas fa-search"></i></a>
-                </div>
+                </div>   
+                <div class="dropdown-menu dropdown-menu-right search" id="livesearch"></div>
                 </form>
                     <li class="nav-item">
                         <a class="nav-link" href="./index.php">Trang chủ</a>

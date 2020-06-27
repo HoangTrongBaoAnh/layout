@@ -15,7 +15,7 @@ function getThongTinByID($id){
 
 // ----------------------Thể loại----------------------
 function getThongTinTheLoaiByID($id){
-$data=DataProvider::ExecuteQuery("SELECT idtheloai,tentheloai,tentheloai_khongdau FROM theloai WHERE idtheloai='$id'");
+$data=DataProvider::ExecuteQuery("SELECT * FROM theloai WHERE idtheloai='$id'");
 return $data;
 }
 

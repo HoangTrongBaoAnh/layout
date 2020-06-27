@@ -164,13 +164,23 @@ include_once('lib/quantri.php');
                     $theloai3=array_rand($mangtheloai);
 
                 }while($theloai3==$theloai1||$theloai3==$theloai2);
+                $mangthongtin=array();
                 $thongtin1=getThongTinTheLoaiByID($theloai1);
                 $thongtin1_row=mysqli_fetch_array($thongtin1);
+                if(!empty($thongtin1_row)){
+                    array_push($mangthongtin,$thongtin1_row);
+                }
                 $thongtin2=getThongTinTheLoaiByID($theloai2);
                 $thongtin2_row=mysqli_fetch_array($thongtin2);
+                if(!empty($thongtin2_row)){
+                    array_push($mangthongtin,$thongtin2_row);
+                }
                 $thongtin3=getThongTinTheLoaiByID($theloai3);
                 $thongtin3_row=mysqli_fetch_array($thongtin3);
-                $mangthongtin=array($thongtin1_row,$thongtin2_row,$thongtin3_row);
+                if(!empty($thongtin3_row)){
+                    array_push($mangthongtin,$thongtin3_row);
+                }
+                //$mangthongtin=array($thongtin1_row,$thongtin2_row,$thongtin3_row);
                 foreach($mangthongtin as $value){
                    
                 ?>
