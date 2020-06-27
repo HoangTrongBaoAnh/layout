@@ -293,39 +293,24 @@ html, body{
 }
 
 
-.arrow_prew{
+
+.slick-prev{
+    left: 10px;
     z-index: 1;
-    position: absolute;
-    top:45%;
-    left: 0%;
-    
-
 }
-.arrow_prew span{
-    
-    cursor: pointer;
-    font-size: 25px;
-    color: #694eae;
-    display: block;
-    width: 50px;
-    text-align: center;
+.slick-prev:before {
+color: #694eae;
+font-size: 30px;
 }
 
-.arrow_next{
+.slick-next{
+    right: 10px;
     z-index: 1;
-    position: absolute;
-    top:45%;
-    right: 0%;
-
 }
-.arrow_next span{
-    
-    cursor: pointer;
-    font-size: 25px;
-    color: #694eae;
-    display: block;
-    width: 50px;
-    text-align: center;
+.slick-next:before {
+
+color: #694eae;
+font-size: 30px;
 }
 
 .card .card-body .card-text {

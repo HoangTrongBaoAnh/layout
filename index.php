@@ -183,19 +183,19 @@ include_once('lib/quantri.php');
                     </div>
 
                     <div class="col-12">
-                        <div class="arrow_prew">
+                        <!-- <div class="arrow_prew">
                             <span><i class="fa fa-arrow-circle-left"></i></span>
-                        </div>
+                        </div> -->
                         <div class="multiple-items mx-auto">
                             <?php
                             
-                            $datagamemoinhat=getListGameQuaIdTheLoai($value['idtheloai'],5);
+                            $datagamemoinhat=getListGameQuaIdTheLoai($value['idtheloai'],4);
                             while($datagamemoinhat_row=mysqli_fetch_array($datagamemoinhat)){
                                     $tenhinh2=getThumbnailGame($datagamemoinhat_row['idgame']);
                                     $tenhinh2_row=mysqli_fetch_array($tenhinh2);
                             ?>
                 
-                            <div class="card items ">
+                            <div class="card items">
                                 <div class="image-container">
                                     <img class="card-img-top" src="./image/hình/<?php echo $tenhinh2_row['tenhinh'] ?>" alt="">
                                     <div class="overplay">
@@ -215,9 +215,9 @@ include_once('lib/quantri.php');
                             }
                             ?>
                         </div>
-                        <div class="arrow_next">
+                        <!-- <div class="arrow_next">
                             <span><i class="fa fa-arrow-circle-right"></i></span>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <?php
@@ -320,8 +320,7 @@ include_once('lib/quantri.php');
                 autoplayspeed: 2000,
                 dots: false,
                 arrows: true,
-                prevArrow: '.arrow_prew',
-                nextArrow: '.arrow_next',
+               
                 
             });
         })

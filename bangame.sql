@@ -2,10 +2,10 @@
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jun 26, 2020 at 12:37 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.5
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th6 27, 2020 lúc 06:48 AM
+-- Phiên bản máy phục vụ: 10.4.11-MariaDB
+-- Phiên bản PHP: 7.4.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bangame`
+-- Cơ sở dữ liệu: `bangame`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `chitiettheloai`
+-- Cấu trúc bảng cho bảng `chitiettheloai`
 --
 
 CREATE TABLE `chitiettheloai` (
@@ -33,7 +33,7 @@ CREATE TABLE `chitiettheloai` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `chitiettheloai`
+-- Đang đổ dữ liệu cho bảng `chitiettheloai`
 --
 
 INSERT INTO `chitiettheloai` (`idgame`, `idtheloai`) VALUES
@@ -89,12 +89,14 @@ INSERT INTO `chitiettheloai` (`idgame`, `idtheloai`) VALUES
 (58, 2),
 (58, 6),
 (59, 2),
-(59, 3);
+(59, 3),
+(60, 1),
+(60, 5);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `game`
+-- Cấu trúc bảng cho bảng `game`
 --
 
 CREATE TABLE `game` (
@@ -119,7 +121,7 @@ CREATE TABLE `game` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `game`
+-- Đang đổ dữ liệu cho bảng `game`
 --
 
 INSERT INTO `game` (`idgame`, `tengame`, `giatien`, `namphathanh`, `nhaphathanh`, `os_mini`, `processor_mini`, `memory_mini`, `graphics_mini`, `harddrive_mini`, `os_recommend`, `processor_recommend`, `memory_recommend`, `graphics_recommend`, `harddrive_recommend`, `content`, `mota`, `trailer`) VALUES
@@ -147,12 +149,13 @@ INSERT INTO `game` (`idgame`, `tengame`, `giatien`, `namphathanh`, `nhaphathanh`
 (56, 'Life is Strange', 3000000, 2015, ' Square Enix, Feral interactive (Mac), Feral Interactive (Linux)', 'Windows Vista', 'Dual Core 2.0GHz or equivalent', '2 GB RAM', 'ATI or NVidia card w/ 512 MB RAM (not recommended for Intel HD Graphics cards)', '5 GB available space', 'Windows 7', 'Dual Core 3.0GHz or equivalent', '2 GB RAM', 'ATI or NVidia card w/ 1024 MB RAM (NVIDIA GeForce GTX 260 or ATI HD 4890)', '14 GB available space', 'Life Is Strange là game phiêu lưu được phát triển bởi Dontnod Entertainment, và phát hành bởi Square Enix. Cốt truyện của trò chơi tập trung vào Maxine, một sinh viên nhiếp ảnh, người phát hiện ra rằng cô ấy có khả năng tua lại thời gian bất cứ lúc nào. Life is Strange Complete Season là bản đầy đủ gồm Episode 1 - Episode 5\r\n\r\n\r\n\r\nLife is Strange kể về những câu chuyện hấp dẫn của Max; một sinh viên nhiếp ảnh, người đột nhiên phát hiện ra cô là có thể quay ngược thời gian. Cô trở về quê để gặp người bạn thời thơ ấu của mình, người mà cô đã không nhìn thấy trong năm năm qua. Cuộc hội ngộ biến cuộc sống của cô đảo lộn khi các sự kiện ngày càng lạ xảy ra trong thị trấn nhỏ của Arcadia Bay. Max bắt đầu có linh cảm và cố gắng để hiểu được ý nghĩa của sức mạnh của mình. Cô sử dụng sức mạnh của mình để cứu cuộc sống của Chloe nhưng cô nhanh chóng hiểu rằng việc thay đổi quá khứ đôi khi có thể dẫn đến một tương lai tàn phá.\r\n\r\n\r\n\r\nSau nhiều năm sống xa quê hương, sinh viên nhiếp ảnh Maxine Caulfield trở về quê nhà Arcadia Bay, Oregon để thăm bạn bè của cô: Chloe và Rachel Amber. Khi cô đến nhà Chloe, Max bỗng nhận ra cô có thể cảm nhận được các sự kiện trong quá khứ khi quan sát các đồ vật trong gia đình.\r\n\r\n\r\n\r\nKhi cả hai đoàn tụ, Chloe là một người hoàn toàn khác nhau, cả về tinh thần và sự xuất hiện. Cô giống như một kẻ nổi loạn, nhuộm tóc, có hình xăm trên cánh tay phải của mình, hút thuốc. Khám phá căn phòng, Max phát hiện tờ rơi tìm người mất tích và người đó là bạn bè chung của họ, Rachel Amber.\r\n\r\n\r\n\r\nMax biết rằng cha của Chloe đã qua đời và kể từ đó Chloe đã sống với một nỗi buồn không thể khắc phục. Cô tìm thấy chỗ dựa tinh thần ở Rachel Amber. Chloe giải thích rằng Rachel làm bạn với cô, và họ dự định chuyển đến Los Angeles với nhau. Chloe nghĩ của Rachel là \"thiên thần của cô ấy\". Tuy nhiên, bỗng nhiên, Rachel biến mất cùng với bạn trai của cô ấy. Nhiều người tin rằng Rachel chỉ đơn thuần là bỏ đi, tuy nhiên, Chloe không tin điều đó. Max quyết định giúp Chloe cùng nhau điều tra sự biến mất của Rachel, và từ đó họ đã làm sáng tỏ những bí ẩn của thành phố.\r\n\r\n\r\n\r\nLife is Strange là game phiêu lưu đồ họa góc nhìn người thứ ba gồm 5 Episode. Game sử dụng các yếu tố gameplay phi tuyến tính, cây hội thoại, loại hình phổ biến trong các game phiêu lưu mạo hiểm point and click như The Wolf Among Us, The Walking Dead của Telltale Games, và các trò chơi nhập vai như seri Mass Effect của BioWare.\r\n\r\n\r\n\r\nTuy nhiên, Khác với như game khác, Life is Strange dựa trên sự lựa chọn và hậu quả của trò chơi trong khi cho phép các bạn tua lại thời gian. Do đó hành động và lựa chọn của các bạn trong game sẽ ảnh hưởng đến quá khứ, hiện tại và tương lai. Vì các bạn có thể tua lại thời gian để thay đổi quá trình của sự kiện nên game sẽ có nhiều kết thúc khác nhau tùy thuộc vào lựa chọn của các bạn', 'Life is Strange is an award-winning and critically acclaimed episodic adventure game that allows the player to rewind time and affect the past, present and future.', 'https://www.youtube.com/watch?v=AURVxvIZrmU'),
 (57, 'Cuphead', 37772, 2017, ' Studio MDHR Entertainment Inc.', '', '', '', '', '', '', '', '', '', '', '', '', 'https://www.youtube.com/watch?v=7jvRoNPBHjk'),
 (58, 'Shadow of the Tomb Raider', 68234, 2018, ' Square Enix, Feral Interactive (Mac), Feral interactive (Linux)', '', '', '', '', '', '', '', '', '', '', '', '', 'https://www.youtube.com/watch?v=XYtyeqVQnRI'),
-(59, 'SUPER MARIO MAKER', 43453, 2015, 'Nintendo', 'Windows 7 (x64) or above', '', '4 GB minimum, 6 GB or more recommended', '', '4 GB minimum, 6 GB or more recommended', '', '', '', '', '', '', '', 'https://www.youtube.com/watch?v=SV-Vy317a8g');
+(59, 'SUPER MARIO MAKER', 43453, 2015, 'Nintendo', 'Windows 7 (x64) or above', '', '4 GB minimum, 6 GB or more recommended', '', '4 GB minimum, 6 GB or more recommended', '', '', '', '', '', '', '', 'https://www.youtube.com/watch?v=SV-Vy317a8g'),
+(60, 'Dragon Ball Z: kakarot', 60000, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', 'https://www.youtube.com/watch?v=1Y-A1kUCvzY');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `hinh`
+-- Cấu trúc bảng cho bảng `hinh`
 --
 
 CREATE TABLE `hinh` (
@@ -163,7 +166,7 @@ CREATE TABLE `hinh` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `hinh`
+-- Đang đổ dữ liệu cho bảng `hinh`
 --
 
 INSERT INTO `hinh` (`idhinh`, `tenhinh`, `idgame`, `idloaihinh`) VALUES
@@ -291,12 +294,17 @@ INSERT INTO `hinh` (`idhinh`, `tenhinh`, `idgame`, `idloaihinh`) VALUES
 (175, 'mario2.jpg', 59, 2),
 (176, 'mario3.jpg', 59, 2),
 (177, 'mario4.jpg', 59, 2),
-(178, 'mario5.jpg', 59, 2);
+(178, 'mario5.jpg', 59, 2),
+(179, 'Zkakarot1.jpg', 60, 1),
+(180, 'Zkakarot2.jpg', 60, 2),
+(181, 'Zkakarot3.jpg', 60, 2),
+(182, 'Zkakarot4.jpg', 60, 2),
+(183, 'Zkakarot5.jpg', 60, 2);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `hoadon`
+-- Cấu trúc bảng cho bảng `hoadon`
 --
 
 CREATE TABLE `hoadon` (
@@ -308,7 +316,7 @@ CREATE TABLE `hoadon` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `hoadon`
+-- Đang đổ dữ liệu cho bảng `hoadon`
 --
 
 INSERT INTO `hoadon` (`idhoadon`, `code`, `tengame`, `iduser`, `ngay`) VALUES
@@ -317,7 +325,7 @@ INSERT INTO `hoadon` (`idhoadon`, `code`, `tengame`, `iduser`, `ngay`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `theloai`
+-- Cấu trúc bảng cho bảng `theloai`
 --
 
 CREATE TABLE `theloai` (
@@ -327,7 +335,7 @@ CREATE TABLE `theloai` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `theloai`
+-- Đang đổ dữ liệu cho bảng `theloai`
 --
 
 INSERT INTO `theloai` (`idtheloai`, `tentheloai`, `tentheloai_khongdau`) VALUES
@@ -342,7 +350,7 @@ INSERT INTO `theloai` (`idtheloai`, `tentheloai`, `tentheloai_khongdau`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Cấu trúc bảng cho bảng `user`
 --
 
 CREATE TABLE `user` (
@@ -358,7 +366,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `user`
+-- Đang đổ dữ liệu cho bảng `user`
 --
 
 INSERT INTO `user` (`iduser`, `tendangnhap`, `matkhau`, `email`, `ten`, `sdt`, `idgroup`, `hinh`, `tien`) VALUES
@@ -372,94 +380,94 @@ INSERT INTO `user` (`iduser`, `tendangnhap`, `matkhau`, `email`, `ten`, `sdt`, `
 (8, 'admin', '23', 'admin@da', 'admin', '1234567890', 1, 'frog.jpg', 0);
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `chitiettheloai`
+-- Chỉ mục cho bảng `chitiettheloai`
 --
 ALTER TABLE `chitiettheloai`
   ADD KEY `idgame` (`idgame`),
   ADD KEY `idtheloai` (`idtheloai`);
 
 --
--- Indexes for table `game`
+-- Chỉ mục cho bảng `game`
 --
 ALTER TABLE `game`
   ADD PRIMARY KEY (`idgame`);
 
 --
--- Indexes for table `hinh`
+-- Chỉ mục cho bảng `hinh`
 --
 ALTER TABLE `hinh`
   ADD PRIMARY KEY (`idhinh`),
   ADD KEY `idgame` (`idgame`);
 
 --
--- Indexes for table `hoadon`
+-- Chỉ mục cho bảng `hoadon`
 --
 ALTER TABLE `hoadon`
   ADD PRIMARY KEY (`idhoadon`);
 
 --
--- Indexes for table `theloai`
+-- Chỉ mục cho bảng `theloai`
 --
 ALTER TABLE `theloai`
   ADD PRIMARY KEY (`idtheloai`);
 
 --
--- Indexes for table `user`
+-- Chỉ mục cho bảng `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`iduser`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `game`
+-- AUTO_INCREMENT cho bảng `game`
 --
 ALTER TABLE `game`
-  MODIFY `idgame` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `idgame` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
--- AUTO_INCREMENT for table `hinh`
+-- AUTO_INCREMENT cho bảng `hinh`
 --
 ALTER TABLE `hinh`
-  MODIFY `idhinh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=179;
+  MODIFY `idhinh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=184;
 
 --
--- AUTO_INCREMENT for table `hoadon`
+-- AUTO_INCREMENT cho bảng `hoadon`
 --
 ALTER TABLE `hoadon`
   MODIFY `idhoadon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `theloai`
+-- AUTO_INCREMENT cho bảng `theloai`
 --
 ALTER TABLE `theloai`
   MODIFY `idtheloai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
   MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- Constraints for dumped tables
+-- Các ràng buộc cho các bảng đã đổ
 --
 
 --
--- Constraints for table `chitiettheloai`
+-- Các ràng buộc cho bảng `chitiettheloai`
 --
 ALTER TABLE `chitiettheloai`
   ADD CONSTRAINT `chitiettheloai_ibfk_1` FOREIGN KEY (`idgame`) REFERENCES `game` (`idgame`),
   ADD CONSTRAINT `chitiettheloai_ibfk_2` FOREIGN KEY (`idtheloai`) REFERENCES `theloai` (`idtheloai`);
 
 --
--- Constraints for table `hinh`
+-- Các ràng buộc cho bảng `hinh`
 --
 ALTER TABLE `hinh`
   ADD CONSTRAINT `hinh_ibfk_1` FOREIGN KEY (`idgame`) REFERENCES `game` (`idgame`);
