@@ -229,7 +229,8 @@ include_once('lib/quantri.php');
                         <h2 class="font-Pangeolin" >GAME BÁN CHẠY NHẤT </h2>
                     </div>
                 </div>
-                <div class="mt-3 container">
+                <div class="mt-3 container-fluid text-light" style="background: linear-gradient(313deg, rgba(20,24,89,1) 0%, rgba(39,75,120,1) 28%, rgba(31,53,107,1) 70%, rgba(39,75,120,1) 90%);
+;padding:40px;border:5px solid black">
                     <div class="row">
                         <div class="col-7" >
                             <?php
@@ -237,13 +238,17 @@ include_once('lib/quantri.php');
                                 $row_layhinhgame=mysqli_fetch_array($layhinhgame);
                             ?>
                             <a href="gameDetail.php?idgame=37">
-                                <img width="640px" height="380px" src="./image/hình/<?php echo $row_layhinhgame['tenhinh'] ?>">
+                                <div>
+                                <img width="100%" style="border:5px solid black" height="380px" src="./image/hình/<?php echo $row_layhinhgame['tenhinh'] ?>">
+                                <img src="./image/images/others/number1.png" alt="" style="height: 70px;position:absolute;left:2px;top:-20px">
+                                </div>
+                               
                             </a>
                             <?php
                                 $laygame=getDetailGame(37);
                                 $row_laygame=mysqli_fetch_array($laygame);
                             ?>
-                            <a style="color: #333; text-decoration: none;" href="gameDetail.php?idgame=37"><h3 class="mt-2"><?php echo $row_laygame['tengame'] ?> FROM <?php echo $row_laygame['nhaphathanh']?> </h3></a>
+                            <a style=" text-decoration: none;" href="gameDetail.php?idgame=37"><h3 class="mt-2"><?php echo $row_laygame['tengame'] ?> FROM <?php echo $row_laygame['nhaphathanh']?> </h3></a>
                             <h5 class="mt-2" style="color: #888; font-size: 17px;">
                                 <?php
                                     $laytentheloai=getTatCaTheLoaiQuaID(37);
@@ -258,18 +263,19 @@ include_once('lib/quantri.php');
                         <div class="col-5">
                             <?php
                                 $lay4gametable=lay4game();
+                                $count=2;
                                 while($row_lay4gametable=mysqli_fetch_array($lay4gametable)){
 
                             ?>
                             <table class="mb-3" >
                                 <tr>
-                                    <td rowspan="3">
+                                    <td rowspan="3"><span style="font-size:20px; border:2px solid;padding:20px;margin:20px"><?php echo $count;$count++; ?></span>
                                         <a class="mr-3" href="gameDetail.php?idgame=37">
-                                            <img width="170px" height="100px" src="./image/hình/<?php echo $row_lay4gametable['tenhinh'] ?>">
+                                            <img width="170px" height="100px" src="./image/hình/<?php echo $row_lay4gametable['tenhinh'] ?>" style="border:5px solid black">
                                         </a>
                                     </td>
                                     <td>
-                                        <a  style=" color: #333; text-decoration: none;" href="gameDetail.php?idgame=37"><b style="font-size: 20px;" class="mt-2"><?php echo$row_lay4gametable['tengame'] ?></b></a>
+                                        <a  style=" color: #007bff; text-decoration: none;" href="gameDetail.php?idgame=37"><b style="font-size: 20px;" class="mt-2"><?php echo$row_lay4gametable['tengame'] ?></b></a>
                                     </td>
                                 </tr>
                                 <tr>
