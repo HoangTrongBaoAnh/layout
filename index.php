@@ -223,7 +223,80 @@ include_once('lib/quantri.php');
                 <?php
                 }
                 ?>
-            
+                <div class="welcome text-center">
+                    <hr>
+                    <div class="col-12">
+                        <h2 class="font-Pangeolin" >GAME BÁN CHẠY NHẤT </h2>
+                    </div>
+                </div>
+                <div class="mt-3 container">
+                    <div class="row">
+                        <div class="col-7" >
+                            <?php
+                                $layhinhgame=getThumbnailGame(37);
+                                $row_layhinhgame=mysqli_fetch_array($layhinhgame);
+                            ?>
+                            <a href="gameDetail.php?idgame=37">
+                                <img width="640px" height="380px" src="./image/hình/<?php echo $row_layhinhgame['tenhinh'] ?>">
+                            </a>
+                            <?php
+                                $laygame=getDetailGame(37);
+                                $row_laygame=mysqli_fetch_array($laygame);
+                            ?>
+                            <a style="color: #333; text-decoration: none;" href="gameDetail.php?idgame=37"><h3 class="mt-2"><?php echo $row_laygame['tengame'] ?> FROM <?php echo $row_laygame['nhaphathanh']?> </h3></a>
+                            <h5 class="mt-2" style="color: #888; font-size: 17px;">
+                                <?php
+                                    $laytentheloai=getTatCaTheLoaiQuaID(37);
+                                    while($row_laytentheloai=mysqli_fetch_array($laytentheloai)){
+                                        echo $row_laytentheloai['tentheloai'].",";
+                                    }
+                                ?>
+                            </h5>
+                            <i class="fas fa-shopping-cart"></i> 1001
+                            <p><?php echo $row_laygame['mota'] ?></p>
+                        </div>
+                        <div class="col-5">
+                            <?php
+                                $lay4gametable=lay4game();
+                                while($row_lay4gametable=mysqli_fetch_array($lay4gametable)){
+
+                            ?>
+                            <table class="mb-3" >
+                                <tr>
+                                    <td rowspan="3">
+                                        <a class="mr-3" href="gameDetail.php?idgame=37">
+                                            <img width="170px" height="100px" src="./image/hình/<?php echo $row_lay4gametable['tenhinh'] ?>">
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a  style=" color: #333; text-decoration: none;" href="gameDetail.php?idgame=37"><b style="font-size: 20px;" class="mt-2"><?php echo$row_lay4gametable['tengame'] ?></b></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h5 style="color: #888; font-size: 15px;">
+                                            <?php
+                                                $laytentheloai=getTatCaTheLoaiQuaID($row_lay4gametable['idgame']);
+                                                while($row_laytentheloai=mysqli_fetch_array($laytentheloai)){
+                                                    echo $row_laytentheloai['tentheloai'].",";
+                                                }
+                                            ?>
+                                        </h5>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    <i class="fas fa-shopping-cart"></i> 1001
+                                    </td>
+                                </tr>
+                            </table>
+                            <hr>
+                            <?php
+                                }
+                            ?>
+                        </div>
+                    </div>
+                </div>
             
 
                 <div class="nhap_vai">
