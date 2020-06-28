@@ -7,17 +7,25 @@ session_start();
     include_once("./lib/bangame.php");
 ?>
 <?php
-// $idtheloai=@$_REQUEST['idtheloai'];
-if(isset($_REQUEST['btnTimKiemDanhMuc'])){
+if(isset($_GET['idTL'])){
+    $idTL=$_GET['idTL'];
+}
+
+if(isset($_POST['btnTimKiemDanhMuc'])){
     $txtTen=$_REQUEST['txtTen'];
     trim($txtTen);
-    // if(isset($_REQUEST['idTL'])){
-    //     foreach($_REQUEST['idTL'] as $value){
-    //         echo $value. "</br>";
-    //     }
-    // }
-    
-   
+  $qr="SELECT DISTINCT g.idgame,g.tengame,g.giatien,h.tenhinh FROM game g,chitiettheloai ct,hinh h WHERE h.idloaihinh=1 AND g.idgame=h.idgame AND g.idgame=ct.idgame AND g.tengame LIKE '%$txtTen%'";
+ if(isset($_POST['idtheloai'])){
+     $idtheloai=$_POST['idtheloai'];
+  $chuoitheloai=implode(',',$idtheloai);
+$qr=$qr." AND ct.idtheloai IN (".$chuoitheloai.")";
+}
+if(isset($_POST['price-min']) && isset($_POST['price-max'])){
+    $PriceMin=$_POST['price-min'];
+    $PriceMax=$_POST['price-max'];
+    $qr=$qr." AND $PriceMin <=g.giatien AND $PriceMax>=g.giatien";
+}   
+   $gameTimKiem=DataProvider::ExecuteQuery($qr);
 }
 ?>
 <!DOCTYPE html>
@@ -107,7 +115,7 @@ if(isset($_REQUEST['btnTimKiemDanhMuc'])){
                                     
                                 ?>
                                 <div class="ml-4">
-                                    <label class="mr-4"><input type="checkbox" name="idTL[]" id="idTL[]" value="<?php echo $row_tentheloai['idtheloai'] ?>"><?php echo $row_tentheloai['tentheloai'] ?> </label>
+                                    <label class="mr-4"><input type="checkbox" name="idtheloai[]" id="idTL[]" value="<?php echo $row_tentheloai['idtheloai'] ?>"><?php echo $row_tentheloai['tentheloai'] ?> </label>
                                 </div>
                                 <?php
                                     }
@@ -121,11 +129,11 @@ if(isset($_REQUEST['btnTimKiemDanhMuc'])){
                         </tr>
                         <tr>
                             <td><label>min: </label></td>
-                            <td> <input type="number" value="0"></td>
+                            <td> <input type="number" value="0" name="price-min"></td>
                         </tr>
                         <tr>
                             <td><label>max: </label></td>
-                            <td> <input type="number" value="500000"></td>
+                            <td> <input type="number" value="500000" name="price-max"></td>
                         </tr>
                         <tr>
                             <td colspan="2" class="text-center"><input id="timkiem" name="btnTimKiemDanhMuc" type="submit" value="Tìm kiếm"
@@ -147,15 +155,17 @@ if(isset($_REQUEST['btnTimKiemDanhMuc'])){
             <div class="container col-md-8 ">
                 <div class="row">
                     <?php
-                        if(isset($txtTen)){
-                            $laygame=getGameCanSearch($txtTen);
-                        }
-                        if(isset($idtheloai)){
-                            $laygame=laygametheotheloai($idtheloai);
+                        if(isset($_POST['btnTimKiemDanhMuc'])){
+                            $laygame=$gameTimKiem;
+                        }else{
+                        if(isset($_GET['idTL'])){
+                            $idTL=$_GET['idTL'];
+                            $laygame=laygametheotheloai($idTL);
                         }
                         else{
                             $laygame=laygame();
                         }
+                    }
                         while($row_laygame=mysqli_fetch_array($laygame)){
                             $gia=number_format($row_laygame['giatien']);
 

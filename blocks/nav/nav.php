@@ -274,7 +274,7 @@ if (isset($_REQUEST['btnDangXuat'])) {
                                     $theloai=laytheloai();
                                     while($row_theloai=mysqli_fetch_array($theloai)){
                                 ?>
-                                <a class="theloai dropdown-item text-primary" href="danh_muc.php?idtheloai=<?php echo $row_theloai['idtheloai'] ?>"><?php echo $row_theloai['tentheloai'] ?></a>
+                                <a class="theloai dropdown-item text-primary" href="danh_muc.php?idTL=<?php echo $row_theloai['idtheloai'] ?>"><?php echo $row_theloai['tentheloai'] ?></a>
                                 <?php
                                     }
                                 ?>
