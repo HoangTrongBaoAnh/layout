@@ -192,22 +192,11 @@ $cost = $row['giatien'];
                 </div>
                 <p class="text-center"><span><?php echo $row['tengame'] ?></span></p>
                 <p class="text-center"><?php echo $row['giatien'] ?> VNĐ</p>
-                <?php
-                $qr = DataProvider::ExecuteQuery("SELECT * FROM hoadon WHERE tengame='$tengame'");
-                if(mysqli_num_rows($qr) == 0){
-                ?>
+                
                 <form method="POST" name ="form" id ="form" onclick="event.preventDefault()">
                     <button type="button" name="btnmua" id="btnmua" class="w-100 popup btn-primary "  >MUA NGAY</button>
                 </form>
-                <?php
-                }else {
-                ?>
-                <div class="w-100" style="background-color: green;text-align: center ">
-                    <div style="color: #fff">GAME DA DUOC MUA</div>
-                </div>
-                <?php
-                }
-                ?>
+
                 <div class="border-top mt-4">
                     Thể loại:
                     <?php
