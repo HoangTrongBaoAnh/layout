@@ -94,12 +94,12 @@ $cost = $row['giatien'];
                                     dataType:'json',
                                     success : function(data) {              
                                         alert('Data: '+data);
-                                       
+                                        location.reload();
                                     },
                                     error : function(request,error)
                                     {
                                         alert("Request: "+JSON.stringify(request));
-                                        
+                                        location.reload();
                                     }
                                 });
                                 
