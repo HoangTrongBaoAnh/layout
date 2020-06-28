@@ -94,12 +94,15 @@ $cost = $row['giatien'];
                                     dataType:'json',
                                     success : function(data) {              
                                         alert('Data: '+data);
+                                       
                                     },
                                     error : function(request,error)
                                     {
                                         alert("Request: "+JSON.stringify(request));
+                                        
                                     }
                                 });
+                                
                             }
                         });
                     } else if (result.dismiss === 'cancel') {

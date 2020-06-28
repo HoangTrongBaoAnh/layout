@@ -15,5 +15,11 @@ $row = $results->fetch_assoc();
 $idgame =  $row['tengame'];
 $qr = "INSERT INTO `hoadon` (`idhoadon`, `code`, `tengame`, `iduser`, `ngay`) VALUES (NULL,'$key', '$idgame', '$iduser', '$date');";
 DataProvider::ExecuteQuery($qr);
+$soluong=$row['LuotTai'];
+settype($soluong,"int");
+$soluong+=1;
+$idcuagame=$_POST['idgame'];
+$qr="UPDATE game SET LuotTai='$soluong' WHERE idgame='$idcuagame'";
+DataProvider::ExecuteQuery($qr);
 //header("location: ./gameDetail.php?idgame="+$idgame);
 ?>

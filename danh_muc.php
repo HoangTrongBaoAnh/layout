@@ -6,6 +6,20 @@ session_start();
     include_once("./lib/DataProvider.php");
     include_once("./lib/bangame.php");
 ?>
+<?php
+// $idtheloai=@$_REQUEST['idtheloai'];
+if(isset($_REQUEST['btnTimKiemDanhMuc'])){
+    $txtTen=$_REQUEST['txtTen'];
+    trim($txtTen);
+    // if(isset($_REQUEST['idTL'])){
+    //     foreach($_REQUEST['idTL'] as $value){
+    //         echo $value. "</br>";
+    //     }
+    // }
+    
+   
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,12 +51,12 @@ session_start();
     <!-- paginationjs -->
     <script type="text/javascript" src="flaviusmatis-simplePagination.js-e32c66e/jquery.simplePagination.js"></script>
     <?php
-        $idtheloai=@$_REQUEST['idtheloai'];
-        /*if(isset($_REQUEST['idTL'])){
-            foreach($_REQUEST['idTL'] as $value){
-                echo $value. "</br>";
-            }
-        }*/
+        
+        // if(isset($_REQUEST['idTL'])){
+        //     foreach($_REQUEST['idTL'] as $value){
+        //         echo $value. "</br>";
+        //     }
+        // }
 
     ?>
 </head>
@@ -114,7 +128,7 @@ session_start();
                             <td> <input type="number" value="500000"></td>
                         </tr>
                         <tr>
-                            <td colspan="2" class="text-center"><input id="timkiem" type="submit" value="Tìm kiếm"
+                            <td colspan="2" class="text-center"><input id="timkiem" name="btnTimKiemDanhMuc" type="submit" value="Tìm kiếm"
                                     class="btn btn-primary"></td>
 
                         </tr>
@@ -133,6 +147,9 @@ session_start();
             <div class="container col-md-8 ">
                 <div class="row">
                     <?php
+                        if(isset($txtTen)){
+                            $laygame=getGameCanSearch($txtTen);
+                        }
                         if(isset($idtheloai)){
                             $laygame=laygametheotheloai($idtheloai);
                         }

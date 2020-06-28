@@ -3,6 +3,9 @@
         $data=DataProvider::ExecuteQuery("SELECT idtheloai, tentheloai FROM theloai");
         return $data;
     }
+
+
+    // -----------------------------LẤY THỂ LOẠI ------------------------
     function laygame(){
         $data=DataProvider::ExecuteQuery("SELECT * FROM game,hinh WHERE hinh.idgame=game.idgame AND hinh.idloaihinh=1");
         return $data;
@@ -13,6 +16,12 @@
     }
     function lay4game(){
         $data=DataProvider::ExecuteQuery("SELECT * FROM game,hinh WHERE hinh.idgame=game.idgame AND hinh.idloaihinh=1 ORDER BY game.idgame DESC LIMIT 0,4");
+        return $data;
+    }
+
+    // ---------------TIMKIEM-----------------------
+    function getGameCanSearch($ten){
+        $data=DataProvider::ExecuteQuery("SELECT * FROM game WHERE tengame LIKE '%'.$ten.'%'");
         return $data;
     }
 ?>

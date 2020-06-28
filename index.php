@@ -177,12 +177,13 @@ include_once('lib/quantri.php');
                 }
                 $thongtin3=getThongTinTheLoaiByID($theloai3);
                 $thongtin3_row=mysqli_fetch_array($thongtin3);
+               
                 if(!empty($thongtin3_row)){
                     array_push($mangthongtin,$thongtin3_row);
                 }
                 //$mangthongtin=array($thongtin1_row,$thongtin2_row,$thongtin3_row);
                 foreach($mangthongtin as $value){
-                   
+
                 ?>
                 <div class="nhap_vai">
                     <div class="col-12">

@@ -140,15 +140,17 @@ if (isset($_REQUEST['btnDangXuat'])) {
         }
         #livesearch{
         z-index:9999; 
-        background:#0071b4;
+        background:transparent;
+        border: none;
         max-height:250px;
         overflow:auto; 
-        width:92%;
+        width:50%;
         margin-left:1.2%;
+        right: 300px;
         }
         /***********************************/
         .live-outer{
-        width:200%; 
+        width:100%; 
         height:60px;
         border-bottom:1px solid #ccc; 
         background:#fff;
@@ -162,7 +164,7 @@ if (isset($_REQUEST['btnDangXuat'])) {
         height:60px;
         }
         .live-im img{
-        width:50%; 
+        width:100%; 
         height:100%;
         }
         .live-product-det{
@@ -171,7 +173,7 @@ if (isset($_REQUEST['btnDangXuat'])) {
         height:60px;
         }
         .live-product-name{
-        width:120%; 
+        width:inherit; 
         height:22px; 
         margin-top:4px;
         }
@@ -350,7 +352,14 @@ if (isset($_REQUEST['btnDangXuat'])) {
 
         </div>
     </nav>
-
+<script>
+    $(function(){
+        if($('.search-txt').val()==null){
+        $('#search').attr('hidden',true);
+    }
+    })
+    
+</script>
 </body>
 
 </html>
