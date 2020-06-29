@@ -343,7 +343,7 @@ include_once('lib/quantri.php');
                             </a>
                         </div>
                     </div>
-
+                </div>
                 <div class="jumbotron text-center">
                 </div>
 
