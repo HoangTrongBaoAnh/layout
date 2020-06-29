@@ -14,6 +14,12 @@ if (isset($_REQUEST['btnDangXuat'])) {
     include_once("./lib/quantri.php");
     include_once("./lib/bangame.php");
 ?>
+<?php
+if(isset($_GET['btnsearch'])){
+    $txtten = $_GET['txtTen'];
+    header("location: danh_muc.php?txtTen=$txtten");
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -255,10 +261,10 @@ if (isset($_REQUEST['btnDangXuat'])) {
                
                 
                 <ul class="navbar-nav ml-auto">
-                <form>
+                <form method="GET" >
                  <div class="search-box" style="text-align:center">
-                    <input class="search-txt" onKeyUp="fx(this.value)" type="text" name="search_text"  id="search_text"placeholder="Type to search">
-                    <a href="#" class="search-btn"><i class="fas fa-search"></i></a>
+                    <input class="search-txt" onKeyUp="fx(this.value)" type="text" name="txtTen"  id="search_text"placeholder="Type to search">
+                    <button type="submit" name="btnsearch" class="search-btn"><i class="fas fa-search"></i></button>
                 </div>   
                 <div class="dropdown-menu dropdown-menu-right search" id="livesearch"></div>
                 </form>

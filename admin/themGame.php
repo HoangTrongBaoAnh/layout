@@ -296,7 +296,7 @@ if (isset($_POST['btnThem'])) {
 
                     <tr>
                         <td>Nội dung</td>
-                        <td><textarea name="NoiDung" id="NoiDung" cols="30" rows="10"></textarea></td>
+                        <td><textarea name="NoiDung" id="NoiDung" cols="30" rows="10" ></textarea></td>
                     </tr>
                     <tr>
                         <td>Mô tả</td>

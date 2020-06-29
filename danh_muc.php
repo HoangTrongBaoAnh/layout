@@ -7,6 +7,13 @@ session_start();
     include_once("./lib/bangame.php");
 ?>
 <?php
+if(isset($_GET['txtTen'])){
+    $txtTen=$_REQUEST['txtTen'];
+    trim($txtTen);
+  $qr="SELECT DISTINCT g.idgame,g.tengame,g.giatien,h.tenhinh FROM game g,chitiettheloai ct,hinh h WHERE h.idloaihinh=1 AND g.idgame=h.idgame AND g.idgame=ct.idgame AND g.tengame LIKE '%$txtTen%'";
+  $gameTimKiem=DataProvider::ExecuteQuery($qr);
+
+}
 if(isset($_GET['idTL'])){
     $idTL=$_GET['idTL'];
 }
@@ -155,7 +162,7 @@ if(isset($_POST['price-min']) && isset($_POST['price-max'])){
             <div class="container col-md-8 ">
                 <div class="row">
                     <?php
-                        if(isset($_POST['btnTimKiemDanhMuc'])){
+                        if(isset($_POST['btnTimKiemDanhMuc']) || isset($_GET['txtTen'])){
                             $laygame=$gameTimKiem;
                         }else{
                         if(isset($_GET['idTL'])){
@@ -166,6 +173,9 @@ if(isset($_POST['price-min']) && isset($_POST['price-max'])){
                             $laygame=laygame();
                         }
                     }
+                        if(mysqli_num_rows($laygame)==0){
+                            echo "Không tìm thấy kết quả !!!";
+                        }
                         while($row_laygame=mysqli_fetch_array($laygame)){
                             $gia=number_format($row_laygame['giatien']);
 

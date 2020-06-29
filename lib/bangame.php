@@ -15,13 +15,17 @@
         return $data;
     }
     function lay4game(){
-        $data=DataProvider::ExecuteQuery("SELECT * FROM game,hinh WHERE hinh.idgame=game.idgame AND hinh.idloaihinh=1 ORDER BY game.idgame DESC LIMIT 0,4");
+        $data=DataProvider::ExecuteQuery("SELECT * FROM game,hinh WHERE hinh.idgame=game.idgame AND hinh.idloaihinh=1 ORDER BY game.LuotTai DESC LIMIT 1,4");
         return $data;
     }
 
     // ---------------TIMKIEM-----------------------
     function getGameCanSearch($ten){
         $data=DataProvider::ExecuteQuery("SELECT * FROM game WHERE tengame LIKE '%'.$ten.'%'");
+        return $data;
+    }
+    function getgamecoluottaicaonhat(){
+        $data=DataProvider::ExecuteQuery("SELECT * FROM game ORDER BY LuotTai DESC LiMIT 0,1");
         return $data;
     }
 ?>

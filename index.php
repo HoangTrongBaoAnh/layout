@@ -37,7 +37,7 @@ include_once('lib/quantri.php');
                 direction: 'left',
                 duplicated: true
             });
-           
+
         });
     </script>
     <script type="text/javascript">
@@ -148,260 +148,205 @@ include_once('lib/quantri.php');
     <div class="container-fluid padding mt-4 section">
         <div class="row padding">
             <div class="col-12">
-                <h2 class="text-center">GAME FEATURE</h2>
+                <h2 class="text-center font-Pangeolin">GAME FEATURE</h2>
                 <?php
-                $theloai=getListTheLoai();
-                $mangtheloai=array();
-                while($rowtl=mysqli_fetch_array($theloai)){
-                    array_push($mangtheloai,$rowtl['idtheloai']);
+                $theloai = getListTheLoai();
+                $mangtheloai = array();
+                while ($rowtl = mysqli_fetch_array($theloai)) {
+                    array_push($mangtheloai, $rowtl['idtheloai']);
                 }
-                $theloai1=array_rand($mangtheloai);
-                do{
-                    $theloai2=array_rand($mangtheloai);
+                $theloai1 = array_rand($mangtheloai);
+                do {
+                    $theloai2 = array_rand($mangtheloai);
+                } while ($theloai2 == $theloai1);
+                do {
+                    $theloai3 = array_rand($mangtheloai);
+                } while ($theloai3 == $theloai1 || $theloai3 == $theloai2);
+                $mangthongtin = array();
+                $thongtin1 = getThongTinTheLoaiByID($theloai1);
+                $thongtin1_row = mysqli_fetch_array($thongtin1);
+                if (!empty($thongtin1_row)) {
+                    array_push($mangthongtin, $thongtin1_row);
+                }
+                $thongtin2 = getThongTinTheLoaiByID($theloai2);
+                $thongtin2_row = mysqli_fetch_array($thongtin2);
+                if (!empty($thongtin2_row)) {
+                    array_push($mangthongtin, $thongtin2_row);
+                }
+                $thongtin3 = getThongTinTheLoaiByID($theloai3);
+                $thongtin3_row = mysqli_fetch_array($thongtin3);
 
-                }while($theloai2==$theloai1);
-                do{
-                    $theloai3=array_rand($mangtheloai);
-
-                }while($theloai3==$theloai1||$theloai3==$theloai2);
-                $mangthongtin=array();
-                $thongtin1=getThongTinTheLoaiByID($theloai1);
-                $thongtin1_row=mysqli_fetch_array($thongtin1);
-                if(!empty($thongtin1_row)){
-                    array_push($mangthongtin,$thongtin1_row);
-                }
-                $thongtin2=getThongTinTheLoaiByID($theloai2);
-                $thongtin2_row=mysqli_fetch_array($thongtin2);
-                if(!empty($thongtin2_row)){
-                    array_push($mangthongtin,$thongtin2_row);
-                }
-                $thongtin3=getThongTinTheLoaiByID($theloai3);
-                $thongtin3_row=mysqli_fetch_array($thongtin3);
-               
-                if(!empty($thongtin3_row)){
-                    array_push($mangthongtin,$thongtin3_row);
+                if (!empty($thongtin3_row)) {
+                    array_push($mangthongtin, $thongtin3_row);
                 }
                 //$mangthongtin=array($thongtin1_row,$thongtin2_row,$thongtin3_row);
-                foreach($mangthongtin as $value){
+                foreach ($mangthongtin as $value) {
 
                 ?>
-                <div class="nhap_vai">
-                    <div class="col-12">
-                        <div class="row">
-                            <h4 class="col-9 text-dark"><span class="text-dark" style="font-size: 28px; font-weight:bold; margin-left: 55px"><?php echo $value['tentheloai'] ?></span></h4>
-                            <a class="col-3" href="danh_muc.php?idTL=<?php echo $value['idtheloai'] ?>" style="font-size:20px;text-decoration:none;left:200px;">MORE</a>
+                    <div class="nhap_vai">
+                        <div class="col-12">
+                            <div class="row">
+                                <h4 class="col-9 text-dark"><span class="text-dark" style="font-size: 28px; font-weight:bold; margin-left: 55px"><?php echo $value['tentheloai'] ?></span></h4>
+                                <a class="col-3" href="danh_muc.php?idTL=<?php echo $value['idtheloai'] ?>" style="font-size:20px;text-decoration:none;left:200px;">MORE</a>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="col-12">
-                        <!-- <div class="arrow_prew">
+                        <div class="col-12">
+                            <!-- <div class="arrow_prew">
                             <span><i class="fa fa-arrow-circle-left"></i></span>
                         </div> -->
-                        <div class="multiple-items mx-auto">
-                            <?php
-                            
-                            $datagamemoinhat=getListGameQuaIdTheLoai($value['idtheloai'],4);
-                            while($datagamemoinhat_row=mysqli_fetch_array($datagamemoinhat)){
-                                    $tenhinh2=getThumbnailGame($datagamemoinhat_row['idgame']);
-                                    $tenhinh2_row=mysqli_fetch_array($tenhinh2);
-                            ?>
-                
-                            <div class="card items">
-                                <div class="image-container">
-                                    <img class="card-img-top" src="./image/hình/<?php echo $tenhinh2_row['tenhinh'] ?>" alt="">
-                                    <div class="overplay">
-                                        <div class="card-text text-center mt-1"><h5 style="color:white"><?php echo number_format($datagamemoinhat_row['giatien'])  ?> VNĐ</h5></div>
-                                        <a class="btn btn-outline-light m-2" href="gameDetail.php?idgame=<?php echo $datagamemoinhat_row['idgame']?>">xem chi tiết</a>
+                            <div class="multiple-items mx-auto">
+                                <?php
+
+                                $datagamemoinhat = getListGameQuaIdTheLoai($value['idtheloai'], 4);
+                                while ($datagamemoinhat_row = mysqli_fetch_array($datagamemoinhat)) {
+                                    $tenhinh2 = getThumbnailGame($datagamemoinhat_row['idgame']);
+                                    $tenhinh2_row = mysqli_fetch_array($tenhinh2);
+                                ?>
+
+                                    <div class="card items">
+                                        <div class="image-container">
+                                            <img class="card-img-top" src="./image/hình/<?php echo $tenhinh2_row['tenhinh'] ?>" alt="">
+                                            <div class="overplay">
+                                                <div class="card-text text-center mt-1">
+                                                    <h5 style="color:white"><?php echo number_format($datagamemoinhat_row['giatien'])  ?> VNĐ</h5>
+                                                </div>
+                                                <a class="btn btn-outline-light m-2" href="gameDetail.php?idgame=<?php echo $datagamemoinhat_row['idgame'] ?>">xem chi tiết</a>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="card-title">
+                                                <p class="col-12 text-center text-primary" style="font-weight:bold;font-size:20px;height:40px;margin-bottom:0px"><?php echo $datagamemoinhat_row['tengame'] ?></p>
+                                                <div class="card-text text-center"><?php echo $datagamemoinhat_row['mota'] ?></div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-title">
-                                        <p class="col-12 text-center text-primary" style="font-weight:bold;font-size:20px;height:40px;margin-bottom:0px"><?php echo $datagamemoinhat_row['tengame'] ?></p>
-                                        <div class="card-text text-center"><?php echo $datagamemoinhat_row['mota'] ?></div>
-                                    </div>
-                                </div>
+
+                                <?php
+                                }
+                                ?>
                             </div>
-                
-                            <?php
-                            }
-                            ?>
-                        </div>
-                        <!-- <div class="arrow_next">
+                            <!-- <div class="arrow_next">
                             <span><i class="fa fa-arrow-circle-right"></i></span>
                         </div> -->
+                        </div>
                     </div>
-                </div>
                 <?php
                 }
                 ?>
                 <div class="welcome text-center">
                     <hr>
                     <div class="col-12">
-                        <h2 class="font-Pangeolin" >GAME BÁN CHẠY NHẤT </h2>
+                        <h2 class="font-Pangeolin">GAME BÁN CHẠY NHẤT </h2>
                     </div>
                 </div>
                 <div class="mt-3 container-fluid text-light" style="background: linear-gradient(313deg, rgba(20,24,89,1) 0%, rgba(39,75,120,1) 28%, rgba(31,53,107,1) 70%, rgba(39,75,120,1) 90%);
-;padding:40px;border:5px solid black">
+;padding:40px;border:5px solid black;margin-bottom:100px">
                     <div class="row">
-                        <div class="col-7" >
+                        <div class="col-7">
                             <?php
-                                $layhinhgame=getThumbnailGame(37);
-                                $row_layhinhgame=mysqli_fetch_array($layhinhgame);
+                            $laygamebest = getgamecoluottaicaonhat();
+                            $row_laygame = mysqli_fetch_array($laygamebest);
+                            $layhinhgame = getThumbnailGame($row_laygame['idgame']);
+                            $row_layhinhgame = mysqli_fetch_array($layhinhgame);
                             ?>
                             <a href="gameDetail.php?idgame=37">
                                 <div>
-                                <img width="100%" style="border:5px solid black" height="380px" src="./image/hình/<?php echo $row_layhinhgame['tenhinh'] ?>">
-                                <img src="./image/images/others/number1.png" alt="" style="height: 70px;position:absolute;left:2px;top:-20px">
+                                    <img width="100%" style="border:5px solid black" height="380px" src="./image/hình/<?php echo $row_layhinhgame['tenhinh'] ?>">
+                                    <img src="./image/images/others/number1.png" alt="" style="height: 70px;position:absolute;left:2px;top:-20px">
                                 </div>
-                               
+
                             </a>
-                            <?php
-                                $laygame=getDetailGame(37);
-                                $row_laygame=mysqli_fetch_array($laygame);
-                            ?>
-                            <a style=" text-decoration: none;" href="gameDetail.php?idgame=37"><h3 class="mt-2"><?php echo $row_laygame['tengame'] ?> FROM <?php echo $row_laygame['nhaphathanh']?> </h3></a>
+                            <a style=" text-decoration: none;" href="gameDetail.php?idgame=37">
+                                <h3 class="mt-2"><?php echo $row_laygame['tengame'] ?> FROM <?php echo $row_laygame['nhaphathanh'] ?> </h3>
+                            </a>
                             <h5 class="mt-2" style="color: #888; font-size: 17px;">
                                 <?php
-                                    $laytentheloai=getTatCaTheLoaiQuaID(37);
-                                    while($row_laytentheloai=mysqli_fetch_array($laytentheloai)){
-                                        echo $row_laytentheloai['tentheloai'].",";
-                                    }
+                                $laytentheloai = getTatCaTheLoaiQuaID($row_laygame['idgame']);
+                                while ($row_laytentheloai = mysqli_fetch_array($laytentheloai)) {
+                                    echo $row_laytentheloai['tentheloai'] . ",";
+                                }
                                 ?>
                             </h5>
-                            <i class="fas fa-shopping-cart"></i> 1001
-                            <p><?php echo $row_laygame['mota'] ?></p>
+                            <i class="fas fa-shopping-cart"></i> <?php echo $row_laygame['LuotTai'] ?>
+                            <p><?php $str = $row_laygame['mota'];
+                                if (strlen($str) > 400) {
+                                    $str = substr($str, 0, 400) . '...';
+                                }
+                                echo $str;  ?></p>
                         </div>
                         <div class="col-5">
                             <?php
-                                $lay4gametable=lay4game();
-                                $count=2;
-                                while($row_lay4gametable=mysqli_fetch_array($lay4gametable)){
+                            $lay4gametable = lay4game();
+                            $count = 2;
+                            while ($row_lay4gametable = mysqli_fetch_array($lay4gametable)) {
 
                             ?>
-                            <table class="mb-3" >
-                                <tr>
-                                    <td rowspan="3"><span style="font-size:20px; border:2px solid;padding:20px;margin:20px"><?php echo $count;$count++; ?></span>
-                                        <a class="mr-3" href="gameDetail.php?idgame=37">
-                                            <img width="170px" height="100px" src="./image/hình/<?php echo $row_lay4gametable['tenhinh'] ?>" style="border:5px solid black">
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <a  style=" color: #007bff; text-decoration: none;" href="gameDetail.php?idgame=37"><b style="font-size: 20px;" class="mt-2"><?php echo$row_lay4gametable['tengame'] ?></b></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h5 style="color: #888; font-size: 15px;">
-                                            <?php
-                                                $laytentheloai=getTatCaTheLoaiQuaID($row_lay4gametable['idgame']);
-                                                while($row_laytentheloai=mysqli_fetch_array($laytentheloai)){
-                                                    echo $row_laytentheloai['tentheloai'].",";
+                                <table class="mb-3">
+                                    <tr>
+                                        <td rowspan="3"><span style="font-size:20px; border:2px solid;padding:20px;margin:20px"><?php echo $count;
+                                                                                                                                $count++; ?></span>
+                                            <a class="mr-3" href="gameDetail.php?idgame=37">
+                                                <img width="170px" height="100px" src="./image/hình/<?php echo $row_lay4gametable['tenhinh'] ?>" style="border:5px solid black">
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a style=" color: #007bff; text-decoration: none;" href="gameDetail.php?idgame=37"><b style="font-size: 20px;" class="mt-2"><?php echo $row_lay4gametable['tengame'] ?></b></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <h5 style="color: #888; font-size: 15px;">
+                                                <?php
+                                                $laytentheloai = getTatCaTheLoaiQuaID($row_lay4gametable['idgame']);
+                                                while ($row_laytentheloai = mysqli_fetch_array($laytentheloai)) {
+                                                    $tentheloai_row = $row_laytentheloai['tentheloai'];
+                                                    echo "<span class='badge badge-primary mr-2'>$tentheloai_row</span>";
                                                 }
-                                            ?>
-                                        </h5>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                    <i class="fas fa-shopping-cart"></i> 1001
-                                    </td>
-                                </tr>
-                            </table>
-                            <hr>
+
+                                                ?>
+                                            </h5>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <i class="fas fa-shopping-cart"></i> <?php echo $row_lay4gametable['LuotTai'] ?>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <hr>
                             <?php
-                                }
+                            }
                             ?>
                         </div>
                     </div>
                 </div>
-            
 
-                <div class="nhap_vai">
+
+                <div class="welcome text-center">
+                    <hr>
                     <div class="col-12">
-                        <div class="row">
-                            <h4 class="col-9 text-dark"><span class="text-dark">Nhập Vai</span></h4>
-                            <a class="col-3" href="danh_muc.php?idTL={idTL}" style="padding-left: 120px;">More >></a>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="game_gan_day">
-                                <!--14/4 Chỉnh sửa phần này: khiến hình zoom vô khi hơ vào và chỉnh boder ngoài -->
-                                <div class="thumbnail">
-                                    <div class="inner">
-                                        <a href="gameDetail.php"><img style="border-radius: 10px;" src="./image/hình/overwatch-2-leaked-pve-mode-new-hero.jpg"></a>
-                                    </div>
-                                    <div class="phan_loai">Nhập vai</div>
-                                </div>
-                                <div class="content">
-                                    <a href="gameDetail.php">
-                                        <h5>OVERWATCH</h5>
-                                    </a>
-                                    <p>Overwatch là một trò chơi điện tử bắn súng góc nhìn thứ nhất đa người chơi kết hợp.</p>
-                                    <div class="hinh_trang_tri">
-                                        <img class="heart" width="10%" src="./image/hình/160px-Heart_corazón.svg.png">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="game_gan_day">
-                                <!--14/4 Chỉnh sửa phần này: khiến hình zoom vô khi hơ vào và chỉnh boder ngoài -->
-                                <div class="thumbnail">
-                                    <div class="inner">
-                                        <a href="gameDetail.php"><img style="border-radius: 10px;" src="./image/hình/evuaii2woae3kk7_loky.jpg"></a>
-                                    </div>
-                                    <div class="phan_loai">Nhập vai</div>
-                                </div>
-                                <div class="content">
-                                    <a href="gameDetail.php">
-                                        <h5>CRYSIC REMASTERED</h5>
-                                    </a>
-                                    <p>Overwatch là một trò chơi điện tử bắn súng góc nhìn thứ nhất đa người chơi kết hợp.</p>
-                                    <div class="hinh_trang_tri">
-                                        <img class="heart" width="10%" src="./image/hình/160px-Heart_corazón.svg.png">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="game_gan_day">
-                                <!--14/4 Chỉnh sửa phần này: khiến hình zoom vô khi hơ vào và chỉnh boder ngoài -->
-                                <div class="thumbnail">
-                                    <div class="inner">
-                                        <a href="gameDetail.php"><img style="border-radius: 10px;" src="./image/hình/danh-gia-game-legends_of_runeterra-1024x536.jpg"></a>
-                                    </div>
-                                    <div class="phan_loai">Hành động</div>
-                                </div>
-                                <div class="content">
-                                    <a href="gameDetail.php">
-                                        <h5>LEGEND OF RUNETERRA</h5>
-                                    </a>
-                                    <p>Legends of Runeterra là một trò chơi thẻ bài kỹ thuật số miễn phí.</p>
-                                    <div class="hinh_trang_tri">
-                                        <img class="heart" width="10%" src="./image/hình/160px-Heart_corazón.svg.png">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                        <h2 class="font-Pangeolin">GAME MỚI </h2>
                     </div>
                 </div>
-                
+                <div class="col-12">
+                    <div>
+                        
+                    </div>
+                </div>
                 <div class="jumbotron text-center">
                 </div>
 
             </div>
-                            
+
         </div>
     </div>
-    
-    
+
+
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
     <script>
-         $(function () {
+        $(function() {
             $('.multiple-items').slick({
                 infinite: true,
                 slidesToShow: 3,
@@ -410,17 +355,16 @@ include_once('lib/quantri.php');
                 autoplayspeed: 2000,
                 dots: false,
                 arrows: true,
-               
-                
+
+
             });
         })
-
     </script>
     <div>
-    <?php
-    include "./blocks/footer/footer.php";
-    ?>
+        <?php
+        include "./blocks/footer/footer.php";
+        ?>
     </div>
 </body>
-</html>
 
+</html>
