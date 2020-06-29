@@ -250,14 +250,14 @@ include_once('lib/quantri.php');
                             $layhinhgame = getThumbnailGame($row_laygame['idgame']);
                             $row_layhinhgame = mysqli_fetch_array($layhinhgame);
                             ?>
-                            <a href="gameDetail.php?idgame=37">
+                            <a href="gameDetail.php?idgame=<?php echo $row_laygame['idgame'] ?>">
                                 <div>
                                     <img width="100%" style="border:5px solid black" height="380px" src="./image/hình/<?php echo $row_layhinhgame['tenhinh'] ?>">
                                     <img src="./image/images/others/number1.png" alt="" style="height: 70px;position:absolute;left:2px;top:-20px">
                                 </div>
 
                             </a>
-                            <a style=" text-decoration: none;" href="gameDetail.php?idgame=37">
+                            <a style=" text-decoration: none;" href="gameDetail.php?idgame=<?php echo $row_laygame['idgame'] ?>">
                                 <h3 class="mt-2"><?php echo $row_laygame['tengame'] ?> FROM <?php echo $row_laygame['nhaphathanh'] ?> </h3>
                             </a>
                             <h5 class="mt-2" style="color: #888; font-size: 17px;">
@@ -284,14 +284,14 @@ include_once('lib/quantri.php');
                             ?>
                                 <table class="mb-3">
                                     <tr>
-                                        <td rowspan="3"><span style="font-size:20px; border:2px solid;padding:20px;margin:20px"><?php echo $count;
-                                                                                                                                $count++; ?></span>
-                                            <a class="mr-3" href="gameDetail.php?idgame=37">
+                                        <td rowspan="3">
+                                            <span style="font-size:20px; border:2px solid;padding:20px;margin:20px"><?php echo $count; $count++; ?></span>
+                                            <a class="mr-3" href="gameDetail.php?idgame=<?php echo $row_lay4gametable['idgame'] ?>">
                                                 <img width="170px" height="100px" src="./image/hình/<?php echo $row_lay4gametable['tenhinh'] ?>" style="border:5px solid black">
                                             </a>
                                         </td>
                                         <td>
-                                            <a style=" color: #007bff; text-decoration: none;" href="gameDetail.php?idgame=37"><b style="font-size: 20px;" class="mt-2"><?php echo $row_lay4gametable['tengame'] ?></b></a>
+                                            <a style=" color: #007bff; text-decoration: none;" href="gameDetail.php?idgame=<?php echo $row_lay4gametable['idgame'] ?>"><b style="font-size: 20px;" class="mt-2"><?php echo $row_lay4gametable['tengame'] ?></b></a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -325,15 +325,25 @@ include_once('lib/quantri.php');
 
                 <div class="welcome text-center">
                     <hr>
-                    <div class="col-12">
-                        <h2 class="font-Pangeolin">GAME MỚI </h2>
-                    </div>
+                    
+                        <h2 style="font-size: 28px; font-weight:bold; margin-left: 55px" class="font-Pangeolin">NEW GAME </h2>
+                    
                 </div>
-                <div class="col-12">
-                    <div>
-                        
+                <div class="mt-5 container-fluid">
+                    <div class="giamgia mt-5" style="background: linear-gradient(90deg, rgba(51,6,79,1) 0%, rgba(96,39,156,1) 54%, rgba(30,8,78,1) 100%); height: 380px; width: 100%;">
+                        <img class="top-left" width="50%" src="./image/bonderland3index.png">
+                        <div class="content-trai">
+                            <div class="title">
+                                <h3>BORDERLANDS 3</h3>
+                            </div>
+                            <p style="margin-bottom: 2px;font-size: 18px; color: #b2bec3;" >Nhanh tay đặt ngay để nhận những phần quà hấp dẫn</p>
+                            <p style="font-size: 18px; color: #b2bec3;">PRE-ORDER kết thúc vào cuối thàng 8/2020</p>
+                            <a href="gameDetail.php?idgame=36" class="btn btn-primary btn-lg">
+                                PRE-ORDER NOW!!
+                            </a>
+                        </div>
                     </div>
-                </div>
+
                 <div class="jumbotron text-center">
                 </div>
 

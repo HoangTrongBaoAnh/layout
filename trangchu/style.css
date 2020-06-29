@@ -375,3 +375,20 @@ font-size: 30px;
     box-shadow: 5px 5px 10px rgb(39, 39, 39);
     bottom:20px;
 }
+.giamgia{
+    position: relative;
+}
+.top-left{
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+}
+.content-trai{
+    padding-top: 100px;
+    padding-bottom: 100px;
+    padding-left: 80px;
+}
+.title{
+    color: white;   
+    font-size: 40px;
+}
