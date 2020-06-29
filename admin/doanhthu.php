@@ -81,66 +81,22 @@ include_once("./../lib/quantri.php");
                     </tr>
                 </thead>
                 <tbody>
+                    <?php 
+                    $doanhthu=getAllListBill($_SESSION['iduser']);
+                    while($row_doanhthu=mysqli_fetch_array($doanhthu)){
+                    ?>
                     <tr>
-                        <td>{idHoaDon}</td>
-                        <td>{idGame}</td>
-                        <td>{idUser}</td>
-                        <th>{keycode}</th>
-                        <td>{Gia}</td>
-                        <td>{Ngay}</td>
+                        <td><?php echo $row_doanhthu['idhoadon'] ?></td>
+                        <td><?php echo $row_doanhthu['tengame'] ?></td>
+                        <td><?php echo $row_doanhthu['iduser'] ?></td>
+                        <th><?php echo $row_doanhthu['code'] ?></th>
+                        <td><?php echo $row_doanhthu['giatien'] ?></td>
+                        <td><?php echo $row_doanhthu['ngay'] ?></td>
                     </tr>
-                    <tr>
-                        <td>{idHoaDon}</td>
-                        <td>{idGame}</td>
-                        <td>{idUser}</td>
-                        <th>{keycode}</th>
-                        <td>{Gia}</td>
-                        <td>{Ngay}</td>
-                    </tr>
-                    <tr>
-                        <td>{idHoaDon}</td>
-                        <td>{idGame}</td>
-                        <td>{idUser}</td>
-                        <th>{keycode}</th>
-                        <td>{Gia}</td>
-                        <td>{Ngay}</td>
-                    </tr>
-                    <tr>
-                        <td>{idHoaDon}</td>
-                        <td>{idGame}</td>
-                        <td>{idUser}</td>
-                        <th>{keycode}</th>
-                        <td>{Gia}</td>
-                        <td>{Ngay}</td>
-                    </tr>
-                    <tr>
-                        <td>{idHoaDon}</td>
-                        <td>{idGame}</td>
-                        <td>{idUser}</td>
-                        <th>{keycode}</th>
-                        <td>{Gia}</td>
-                        <td>{Ngay}</td>
-                    </tr>
-                    <tr>
-                        <td>{idHoaDon}</td>
-                        <td>{idGame}</td>
-                        <td>{idUser}</td>
-                        <th>{keycode}</th>
-                        <td>{Gia}</td>
-                        <td>{Ngay}</td>
-                    </tr>
-                    
+                    <?php
+                    }
+                    ?>
                 </tbody>
-                <tfoot>
-                    <tr>
-                        <th>Mã Hóa Đơn</th>
-                        <th>Mã Game</th>
-                        <th>Mã Người Dùng</th>
-                        <th>Key Code</th>
-                        <th>Giá</th>
-                        <th>Ngày Thanh Toán</th>
-                    </tr>
-                </tfoot>
             </table>
             <div style="margin-top:100px">
                 <p style="font-size: 40px;" class="text-center">BIỂU ĐỒ DOANH THU THEO THÁNG</p>

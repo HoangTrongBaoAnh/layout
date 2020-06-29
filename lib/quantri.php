@@ -59,10 +59,13 @@ function getCarouselGame($idgame){
 
 // ---------lay hoa don--------------------
 function getListBill($iduser){
-    $data=DataProvider::ExecuteQuery("SELECT * FROM game g,hoadon hd,user u WHERE u.iduser = $iduser and g.tengame = hd.tengame");
+    $data=DataProvider::ExecuteQuery("SELECT * FROM game g,hoadon hd,user u WHERE u.iduser = $iduser and g.tengame = hd.tengame and u.iduser=hd.iduser");
     return $data;
 }
-
+function getAllListBill($iduser){
+    $data=DataProvider::ExecuteQuery("SELECT * FROM game g,hoadon hd,user u WHERE g.tengame = hd.tengame and u.iduser=hd.iduser");
+    return $data;
+}
 // ---------Hàm chuyển chữ thành không dấu--------------------
 function stripUnicode($str){
     if(!$str) return false;
