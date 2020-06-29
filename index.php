@@ -81,7 +81,7 @@ include_once('lib/quantri.php');
     <?php
     $qr = getListGameMain();
     ?>
-    <div id="slides" class="container-fluid carousel slide" style="padding: 0;" data-ride="carousel">
+    <div id="slides" class="container-fluid carousel slide" style="padding: 0;margin-bottom:100px" data-ride="carousel">
         <ul class="carousel-indicators">
             <li data-target="#slides" data-slide-to="0" class="active"></li>
             <li data-target="#slides" data-slide-to="1"></li>
@@ -102,7 +102,7 @@ include_once('lib/quantri.php');
                 <div class="carousel-item  <?php if ($count === 1) {
                                                 echo "active";
                                             } ?>">
-                    <img src="./image/hình/<?php echo $row['tenhinh'] ?>">
+                    <img style="height: 580px" src="./image/hình/<?php echo $row['tenhinh'] ?>">
                     <div class="slide-text">
                         <h3><?php echo $row['tengame'] ?></h3>
                         <p><?php echo $row['mota'] ?></p>
@@ -323,14 +323,14 @@ include_once('lib/quantri.php');
                 </div>
 
 
-                <div class="welcome text-center">
+                <div class="welcome text-center" style="margin-bottom:170px">
                     <hr>
                     
-                        <h2 style="font-size: 28px; font-weight:bold; margin-left: 55px" class="font-Pangeolin">NEW GAME </h2>
+                        <h2 style="font-size: 28px; font-weight:bold; margin-left: 55px;" class="font-Pangeolin">NEW GAME </h2>
                     
                 </div>
                 <div class="mt-5 container-fluid">
-                    <div class="giamgia mt-5" style="background: linear-gradient(90deg, rgba(51,6,79,1) 0%, rgba(96,39,156,1) 54%, rgba(30,8,78,1) 100%); height: 380px; width: 100%;">
+                    <div class="giamgia mt-5" style="background: linear-gradient(90deg, rgba(51,6,79,1) 0%, rgba(96,39,156,1) 54%, rgba(30,8,78,1) 100%); height: 420px; width: 100%;">
                         <img class="top-left" width="50%" src="./image/bonderland3index.png">
                         <div class="content-trai">
                             <div class="title">
