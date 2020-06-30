@@ -46,7 +46,32 @@ if(isset($_POST['doiemail'])){
         header("location:layoutaccinfo.php");
     }
 }
+if(isset($_POST['doisdt'])){
+    $sdtcu=$_POST['sdtcu'];
+    trim($sdtcu);
+    $sdtmoi=$_POST['sdtmoi'];
+    trim($sdtmoi);
+    $sdtmoi2=$_POST['sdtmoi2'];
+    trim($sdtmoi2);
+    $iduser = $data_row['iduser'];
+    if($sdtmoi!=null && $sdtcu!=null && $sdtmoi2=$sdtmoi && $sdtcu==$data_row['sdt']){
+        $qr = "UPDATE user
+        SET sdt = '$sdtmoi'
+        WHERE iduser='$iduser'";
+        DataProvider::ExecuteQuery($qr); 
+        header("location:layoutaccinfo.php");
+    }
+}
+if(isset($_POST['savehinh'])&& $_FILES['hinhthaydoi']['name']!=null ){
+    $iduser = $data_row['iduser'];
+    $hinhmoi=$_FILES['hinhthaydoi']['name'];
+    if (move_uploaded_file($_FILES['hinhthaydoi']['tmp_name'], './image/' . $hinhmoi)) {
+        $qrUpdateHinh = "UPDATE user SET hinh='$hinhmoi' WHERE iduser='$iduser'";
+        DataProvider::ExecuteQuery($qrUpdateHinh);
+        header("location:layoutaccinfo.php");
 
+    }
+}
 ?>
 <html>
 <head>
@@ -110,7 +135,7 @@ if(isset($_POST['doiemail'])){
             <div class="col-4 left1">
                 <div style="background-color: #444343; color:white; text-align: center;">
                     <br>
-                    <img src="./image/<?php echo $data_row['hinh']?>" style="width: 160px; height: 160px;" class="rounded-circle">
+                    <img src="./image/<?php echo $data_row['hinh']?>" style="width: 160px; height: 160px;" class="rounded-circle" id="hinhdaidien">
                     <br>
                     <br>
                     <div>
@@ -150,9 +175,18 @@ if(isset($_POST['doiemail'])){
                             <input type="submit" name="doiemail" value="Đổi Email">
 
                         </form>
-                        <form action="" method="post">
+                        <form action="" method="POST">
+                            <input type="text" name="sdtcu" placeholder="SĐT Hiện Tại">
+                            <input type="text" name="sdtmoi" placeholder="SĐT Mới">
+                            <input type="text" name="sdtmoi2" placeholder="Nhập Lại SĐT Mới" >
+                            <input type="submit" name="doisdt" value="Đổi SĐT">
+
+                        </form>
+                        <form action="" method="POST" enctype="multipart/form-data">
                             <label > THAY ĐỔI ẢNH ĐẠI DIỆN</label><br>
-                            <input type="file" name="" id="">
+                            <input type="file" name="hinhthaydoi" id="hinhthaydoi" accept="image/*"><br>
+                            <input type="submit" value="Xác nhận" style="display:none" id="savehinh" name="savehinh">
+                            <button type="button" class="btn btn-outline-danger" style="border-radius:50%;display:none" id="delete">X</button>
                         </form>
                     </div>
                     <div id="tab3"> 
@@ -220,7 +254,39 @@ if(isset($_POST['doiemail'])){
                 }
             });
         });
+        
+    </script>
+    <script>
+        // preview file(xem file trước khi upload)
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
 
+                reader.onload = function(e) {
+                    $('#hinhdaidien').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]); // convert to base64 string
+            }
+        }
+
+        $("#hinhthaydoi").change(function() {
+            $('#delete').show();
+            $('#savehinh').show();
+            readURL(this);
+        });
+        
+
+        
+
+            $("#delete").on('click', function() {
+                $("#hinhthaydoi").val('');
+                $('#hinhdaidien').attr('src', './image/<?php echo $data_row['hinh']?>');
+                $('#delete').hide();
+                $('#savehinh').hide();
+            })
+
+        
         
     </script>
 </body>
