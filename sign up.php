@@ -56,12 +56,13 @@ if(isset($_POST['btnsignup'])){
                     pass1: {required:true},
                     dc1: {email:true, required:true},
                     pass2: {equalTo: "[name='pass1']"},
-                    sdt1: {number:true}
+                    sdt1: {number:true},
+                    dieukhoan: {required: true}
                 },
                 messages:{
                     acc1: {required: "Bạn chưa nhập"},
                     pass1: {required: "Ban chưa nhập"},
-
+                    dieukhoan: {required: "**"}
                 }
             });
 
@@ -95,7 +96,7 @@ if(isset($_POST['btnsignup'])){
             <input placeholder="Xác Nhận Mật Khẩu" type="password" name="pass2">
             <input placeholder="Địa Chỉ email" type="text" name="dc1">
             <input placeholder="Số Điện Thoại" type="tell" name="sdt1">
-            <input type="checkbox" checked name="dieukhoan">
+            <input type="checkbox" name="dieukhoan">
             <div>
                 Bạn đồng ý với <a href="dieukhoan.php">điều khoản</a> của chúng tôi
             </div>
