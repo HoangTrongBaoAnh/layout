@@ -62,10 +62,26 @@ function getListBill($iduser){
     $data=DataProvider::ExecuteQuery("SELECT * FROM game g,hoadon hd,user u WHERE u.iduser = $iduser and g.tengame = hd.tengame and u.iduser=hd.iduser");
     return $data;
 }
-function getAllListBill($iduser){
+function getAllListBill(){
     $data=DataProvider::ExecuteQuery("SELECT * FROM game g,hoadon hd,user u WHERE g.tengame = hd.tengame and u.iduser=hd.iduser");
     return $data;
 }
+
+// ---------Doanh thu--------------------
+function DoanhThuTheoThang($thang){
+    $data=DataProvider::ExecuteQuery("SELECT YEAR(ngay) as SalesYear,
+                                    MONTH(ngay) as SalesMonth,
+                                    SUM(game.giatien) AS TotalSales
+                                FROM hoadon,game
+                                where hoadon.tengame=game.tengame
+                                and MONTH(ngay)=$thang
+                                GROUP BY YEAR(ngay), MONTH(ngay)
+                                ORDER BY YEAR(ngay), MONTH(ngay)"
+                                );
+    return $data;
+}
+
+
 // ---------Hàm chuyển chữ thành không dấu--------------------
 function stripUnicode($str){
     if(!$str) return false;

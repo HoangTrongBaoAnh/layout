@@ -82,7 +82,7 @@ include_once("./../lib/quantri.php");
                 </thead>
                 <tbody>
                     <?php 
-                    $doanhthu=getAllListBill($_SESSION['iduser']);
+                    $doanhthu=getAllListBill();
                     while($row_doanhthu=mysqli_fetch_array($doanhthu)){
                     ?>
                     <tr>
@@ -104,13 +104,31 @@ include_once("./../lib/quantri.php");
             </div>
         </div>
     </div>
-
+    <?php
+    $count=1;
+    $mang=array();
+    while($count<=12){
+        $doanhthuthang=DoanhThuTheoThang($count);
+        $row_doanhthuthang=$doanhthuthang->fetch_assoc();
+        if (!empty($row_doanhthuthang)) {
+            array_push($mang, $row_doanhthuthang['TotalSales']);
+        }
+        else{
+            array_push($mang, 0);
+        }
+            $count++;
+        }
+        $array_with_data = $mang;
+    $data = json_encode($array_with_data);
+    ?>
     <script>
         $(document).ready(function () {
             $('#example').DataTable();
         });
            // chartjs
-           var ctx = document.getElementById('myChart').getContext('2d');
+            
+            var data = <?php echo $data ?>;
+            var ctx = document.getElementById('myChart').getContext('2d');
                     var chart = new Chart(ctx, {
                         // The type of chart we want to create
                         type: 'line',
@@ -122,7 +140,7 @@ include_once("./../lib/quantri.php");
                                 label: 'Doanh thu',
                                 backgroundColor: 'rgb(255, 99, 132)',
                                 borderColor: 'rgb(255, 99, 132)',
-                                data: [0, 10, 5, 2, 20, 30, 45]
+                                data: data
 
                             }]
                         },
@@ -130,6 +148,7 @@ include_once("./../lib/quantri.php");
                         // Configuration options go here
                         options: {}
                     });
+            
     </script>
 
 </body>
