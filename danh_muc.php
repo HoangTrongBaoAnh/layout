@@ -234,6 +234,9 @@ if(isset($_POST['price-min']) && isset($_POST['price-max'])){
                 var showFrom = perPage * (pageNumber - 1);
                 var showTo = showFrom + perPage;
                 items.hide().slice(showFrom, showTo).show();
+                $('body,html').animate({
+                    scrollTop: 0
+                }, 600);
             }
         });
     </script>
