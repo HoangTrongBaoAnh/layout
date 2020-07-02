@@ -138,17 +138,7 @@ if (isset($_POST['btnThem'])) {
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 
 </head>
-<style>
-    tr,
-    td,
-    table {
-        border: 1px solid;
-    }
 
-    table {
-        border-collapse: collapse;
-    }
-</style>
 
 <body>
 
@@ -172,13 +162,13 @@ if (isset($_POST['btnThem'])) {
             <form action="" method="POST" enctype="multipart/form-data">
 
 
-                <table style="width:100%">
+                <table style="width:100%;margin:0 auto" class="table table-bordered text-center">
                     <tr>
                         <th colspan="2" class="text-center">THÊM GAME</th>
                     </tr>
                     <tr>
                         <td>Tên Game</td>
-                        <td><input type="text" name="TenGame"></td>
+                        <td><input type="text" name="TenGame" style="width:60%" placeholder="tên game"></td>
                     </tr>
                     <tr>
                         <td>Thể loại</td>
@@ -189,7 +179,7 @@ if (isset($_POST['btnThem'])) {
 
 
                             ?>
-                                <label class="mr-4"><input type="checkbox" name="theloai[]" id="TheLoai" value="<?php echo $dataTheLoai_row['idtheloai'] ?>"><?php echo $dataTheLoai_row['tentheloai'] ?></label>
+                                <label class="mr-4"><input class="form-check-input" type="checkbox" name="theloai[]" id="TheLoai" value="<?php echo $dataTheLoai_row['idtheloai'] ?>"><?php echo $dataTheLoai_row['tentheloai'] ?></label>
                             <?php } ?>
                         </td>
                     </tr>
@@ -234,61 +224,61 @@ if (isset($_POST['btnThem'])) {
                     </tr>
                     <tr>
                         <td>Giá</td>
-                        <td><input type="number" name="Gia" id="Gia"></td>
+                        <td><input type="number" name="Gia" id="Gia" value="2000000"></td>
                     </tr>
                     <tr>
                         <td>Năm</td>
-                        <td><input type="text" name="Nam"></td>
+                        <td><input type="text" name="Nam" placeholder="năm phát hành"></td>
                     </tr>
                     <tr>
                         <td>Trailer</td>
-                        <td><input type="url" name="urlVideo" id="video"></td>
+                        <td><input type="url" name="urlVideo" id="video" style="width:80%" placeholder="địa chỉ youtube"></td>
                     </tr>
                     <tr>
                         <td>Nhà phát hành</td>
-                        <td><input type="text" name="NhaPhatHanh"></td>
+                        <td><input type="text" name="NhaPhatHanh" style="width:80%" placeholder="tên nhà phát hành"></td>
                     </tr>
                     <!-- mini -->
                     <tr>
                         <td>os mini</td>
-                        <td><textarea name="os_mini" id="" cols="30" rows="10"></textarea></td>
+                        <td><textarea name="os_mini" id="" class="form-control"></textarea></td>
                     </tr>
                     <tr>
                         <td>processcor mini</td>
-                        <td><textarea name="processor_mini" id="" cols="30" rows="10"></textarea></td>
+                        <td><textarea name="processor_mini" class="form-control"></textarea></td>
                     </tr>
                     <tr>
                         <td>memory mini</td>
-                        <td><textarea name="memory_mini" id="" cols="30" rows="10"></textarea></td>
+                        <td><textarea name="memory_mini" id="" class="form-control"></textarea></td>
                     </tr>
                     <tr>
                         <td>graphics mini</td>
-                        <td><textarea name="graphics_mini" id="" cols="30" rows="10"></textarea></td>
+                        <td><textarea name="graphics_mini" id="" class="form-control"></textarea></td>
                     </tr>
                     <tr>
                         <td>harddrive mini</td>
-                        <td><textarea name="harddrive_mini" id="" cols="30" rows="10"></textarea></td>
+                        <td><textarea name="harddrive_mini" id="" class="form-control"></textarea></td>
                     </tr>
                     <!-- recommend -->
                     <tr>
                         <td>os recommend</td>
-                        <td><textarea name="os_recommend" id="" cols="30" rows="10"></textarea></td>
+                        <td><textarea name="os_recommend"  class="form-control"></textarea></td>
                     </tr>
                     <tr>
                         <td>processcor recommend</td>
-                        <td><textarea name="processor_recommend" id="" cols="30" rows="10"></textarea></td>
+                        <td><textarea name="processor_recommend"  class="form-control"></textarea></td>
                     </tr>
                     <tr>
                         <td>memory recommend</td>
-                        <td><textarea name="memory_recommend" id="" cols="30" rows="10"></textarea></td>
+                        <td><textarea name="memory_recommend"  class="form-control"></textarea></td>
                     </tr>
                     <tr>
                         <td>graphics recommend</td>
-                        <td><textarea name="graphics_recommend" id="" cols="30" rows="10"></textarea></td>
+                        <td><textarea name="graphics_recommend" class="form-control"></textarea></td>
                     </tr>
                     <tr>
                         <td>harddrive recommend</td>
-                        <td><textarea name="harddrive_recommend" id="" cols="30" rows="10"></textarea></td>
+                        <td><textarea name="harddrive_recommend" class="form-control"></textarea></td>
                     </tr>
 
 
@@ -296,15 +286,15 @@ if (isset($_POST['btnThem'])) {
 
                     <tr>
                         <td>Nội dung</td>
-                        <td><textarea name="NoiDung" id="NoiDung" cols="30" rows="10" ></textarea></td>
+                        <td><textarea name="NoiDung" id="NoiDung" class="form-control" ></textarea></td>
                     </tr>
                     <tr>
                         <td>Mô tả</td>
-                        <td><textarea name="MoTa" id="MoTa" cols="30" rows="10"></textarea></td>
+                        <td><textarea name="MoTa" id="MoTa" class="form-control"></textarea></td>
                     </tr>
 
                     <tr>
-                        <td colspan="2" class="text-center"><input type="submit" name="btnThem" value="Thêm"></input></td>
+                        <td colspan="2" class="text-center"><input type="submit" name="btnThem" value="Thêm" class="btn btn-primary"></input></td>
                     </tr>
                 </table>
             </form>

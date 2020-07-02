@@ -114,18 +114,18 @@ if (isset($_POST['btnSua'])) {
         </div>
         <div style="margin-top:100px">
             <form action="" method="POST" enctype="multipart/form-data" id="formUpAvt" runat="server">
-                <table style="width:100%">
+                <table style="width:80%;margin: 0 auto" class="table table-bordered text-center">
                     <tr>
                         <th colspan="2">SỬA TÀI KHOẢN</th>
                     </tr>
 
                     <tr>
                         <td>Tên tài khoản</td>
-                        <td><input type="text" name="Username" value="<?php echo $data_row['tendangnhap'] ?>"></td>
+                        <td><input type="text" style="width:100%" name="Username" value="<?php echo $data_row['tendangnhap'] ?>"></td>
                     </tr>
                     <tr>
                         <td>Mật khẩu</td>
-                        <td><input type="password" name="Password" id="Password" value="<?php echo $data_row['matkhau'] ?>"></td>
+                        <td><input type="password" style="width:100%" name="Password" id="Password" value="<?php echo $data_row['matkhau'] ?>"></td>
                     </tr>
                     <!-- <tr>
                         <td>Nhập lại mật khẩu</td>
@@ -133,15 +133,15 @@ if (isset($_POST['btnSua'])) {
                     </tr> -->
                     <tr>
                         <td>Họ và tên</td>
-                        <td><input type="text" value="<?php echo $data_row['ten'] ?>" id="name" name="ten"></td>
+                        <td><input type="text" style="width:100%" value="<?php echo $data_row['ten'] ?>" id="name" name="ten"></td>
                     </tr>
                     <tr>
                         <td>Email</td>
-                        <td><input type="email" name="Email" id="Email" value="<?php echo $data_row['email'] ?>"></td>
+                        <td><input style="width:100%" type="email" name="Email" id="Email" value="<?php echo $data_row['email'] ?>"></td>
                     </tr>
                     <tr>
                         <td>SĐT</td>
-                        <td><input type="tel" name="sdt" id="sdt" value="<?php echo $data_row['sdt'] ?>"></td>
+                        <td><input style="width:100%" type="tel" name="sdt" id="sdt" value="<?php echo $data_row['sdt'] ?>"></td>
                     </tr>
                     <tr>
                         <td>Hình</td>
@@ -168,8 +168,8 @@ if (isset($_POST['btnSua'])) {
                         </td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td><input type="submit" name="btnSua" value="Xác nhận"></td>
+                        
+                        <td  colspan="2"><input type="submit" name="btnSua" value="Xác nhận" class="btn btn-primary"></td>
                     </tr>
                 </table>
 

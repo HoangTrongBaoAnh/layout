@@ -70,18 +70,18 @@ header("location:listTheLoai.php");
             <a href="listUser.html">Quản lý tài khoản</a>
             <a href="doanhthu.html">Quản lý doanh thu</a> -->
         </div>
-        <div class="margin-top:100px">
-            <form action="" method="POST">
-                <table style=width:100%>
+        <div style="margin-top:100px">
+            <form action="" method="POST" class="text-center">
+                <table class="table table-bordered" style="width:60%;margin:0 auto">
                     <tr>
-                        <th>SỬA THỂ LOẠI</th>
+                        <th colspan="2">SỬA THỂ LOẠI</th>
                     </tr>
                     <tr>
                         <td>Tên Thể loại</td>
-                        <td><input type="text" name='TenTL' value="<?php echo $dataTL_row['tentheloai']?>"></td>
+                        <td><input type="text" name='TenTL' style="width:100%" value="<?php echo $dataTL_row['tentheloai']?>"></td>
                     </tr>
                     <tr>
-                        <td><input type="submit" name="btnSuaTL" id="btnSua" value="Sửa"></td>
+                        <td  colspan="2"><input type="submit" name="btnSuaTL" id="btnSua" value="Sửa" class="btn btn-primary"></td>
                     </tr>
                 </table>
             </form>

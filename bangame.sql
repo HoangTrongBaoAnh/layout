@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 29, 2020 lúc 02:37 PM
+-- Thời gian đã tạo: Th7 02, 2020 lúc 07:02 AM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
--- Phiên bản PHP: 7.4.5
+-- Phiên bản PHP: 7.4.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -372,22 +372,24 @@ CREATE TABLE `user` (
   `sdt` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
   `idgroup` int(11) NOT NULL,
   `hinh` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
-  `tien` int(11) NOT NULL DEFAULT 0
+  `tien` int(11) NOT NULL DEFAULT 0,
+  `xacnhan` int(11) NOT NULL DEFAULT 0,
+  `maxacnhan` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `user`
 --
 
-INSERT INTO `user` (`iduser`, `tendangnhap`, `matkhau`, `email`, `ten`, `sdt`, `idgroup`, `hinh`, `tien`) VALUES
-(1, 'batman347', '0123456789Vi', 'quangvinh2018vi@gmail.com', 'Vinh Trương', '0966003417', 1, 'frog.jpg', 100000),
-(2, 'johncena', '1', 'bdsa@gmail.com', 'cena', '975411255', 0, 'frog.jpg', 0),
-(3, 'chi', '1', '1tuan2em@yahoo.com', 'Vương Kim Chí', '099999999', 1, 'frog.jpg', 0),
-(4, 'vinh', '1', '1tuan3em@yahoo.com', 'Trương Quang Vinh', '099999999', 1, 'frog.jpg', 0),
-(5, 'anh', '1', 'countbasquad@yahoo.com', 'Đoàn Trọng Hải Anh', '099999999', 1, 'frog.jpg', 0),
-(6, 'hai', '1', 'haicounttank@yahoo.com', 'Vũ Thanh Hải', '099999999', 1, 'frog.jpg', 0),
-(7, 'can', '1', 'fukboizchinhhieu@yahoo.com', 'Đỗ Nguyễn Tài Cẩn', '099999999', 1, 'frog.jpg', 0),
-(8, 'admin', '23', 'admin@da', 'admin', '1234567890', 1, 'frog.jpg', 0);
+INSERT INTO `user` (`iduser`, `tendangnhap`, `matkhau`, `email`, `ten`, `sdt`, `idgroup`, `hinh`, `tien`, `xacnhan`, `maxacnhan`) VALUES
+(1, 'batman347', '0123456789Vi', 'quangvinh2018vi@gmail.com', 'Vinh Trương', '0966003417', 1, 'frog.jpg', 100000, 1, NULL),
+(2, 'johncena', '1', 'bdsa@gmail.com', 'cena', '975411255', 0, 'frog.jpg', 0, 1, NULL),
+(3, 'chi', '1', '1tuan2em@yahoo.com', 'Vương Kim Chí', '099999999', 1, 'frog.jpg', 0, 0, NULL),
+(4, 'vinh', '1', '1tuan3em@yahoo.com', 'Trương Quang Vinh', '099999999', 1, 'frog.jpg', 0, 0, NULL),
+(5, 'anh', '1', 'countbasquad@yahoo.com', 'Đoàn Trọng Hải Anh', '099999999', 1, 'frog.jpg', 0, 0, NULL),
+(6, 'hai', '1', 'haicounttank@yahoo.com', 'Vũ Thanh Hải', '099999999', 1, 'frog.jpg', 0, 0, NULL),
+(7, 'can', '1', 'fukboizchinhhieu@yahoo.com', 'Đỗ Nguyễn Tài Cẩn', '099999999', 1, 'frog.jpg', 0, 0, NULL),
+(8, 'admin', '23', 'admin@da', 'admin', '1234567890', 1, 'frog.jpg', 0, 0, NULL);
 
 --
 -- Chỉ mục cho các bảng đã đổ

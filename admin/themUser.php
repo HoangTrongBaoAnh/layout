@@ -51,7 +51,13 @@ if (isset($_POST['btnThem'])) {
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 </head>
+<style>
+   
 
+   .width_input{
+        width: 100%;
+   }
+</style>
 <body>
     <div class="container">
         <div id="hangtieude">TRANG QUẢN TRỊ
@@ -65,38 +71,38 @@ if (isset($_POST['btnThem'])) {
             <?php include "menu.php" ?>
 
         </div>
-        <div style="margin-top:100px">
+        <div style="margin-top:100px" class="text-center">
             <form action="" method="POST">
-                <table style="width:100%">
+                <table style="width:60%;margin:0 auto" class="table table-bordered">
                     <tr>
                         <th colspan="2">THÊM TÀI KHOẢN</th>
                     </tr>
                     <tr>
                         <td>Username</td>
-                        <td><input type="text" name="Username"></td>
+                        <td><input type="text" name="Username" class="width_input" placeholder="nhập tên tài khoản"></td>
                     </tr>
                     <tr>
                         <td>Password</td>
-                        <td><input type="password" name="Password" id="Password"></td>
+                        <td><input type="password" name="Password" id="Password" class="width_input" placeholder="nhập mật khẩu"></td>
                     </tr>
                     <tr>
                         <td>Email</td>
-                        <td><input type="email" name="Email" id="Email"></td>
+                        <td><input type="email" name="Email" id="Email" class="width_input" placeholder="nhập địa chỉ email"></td>
                     </tr>
                     <tr>
                         <td>SĐT</td>
-                        <td><input type="tel" name="sdt" id="sdt"></td>
+                        <td><input type="tel" name="sdt" id="sdt" class="width_input" placeholder="nhập số điện thoại"></td>
                     </tr>
                     <tr>
                         <td>
                             Tên
                         </td>
                         <td>
-                            <input type="text" name="ten" id="ten">
+                            <input type="text" name="ten" id="ten" class="width_input" placeholder="nhập tên người dùng">
                         </td>
                     </tr>
                     <tr>
-                        <td>PhanQuyen</td>
+                        <td>Phân quyền</td>
                         <td>
                             <label><input type="radio" name="PhanQuyen" id="PhanQuyen_0" value="0" checked>user</label>
                             <br>
@@ -105,8 +111,7 @@ if (isset($_POST['btnThem'])) {
                     </tr>
 
                     <tr>
-                        <td></td>
-                        <td><input type="submit" name="btnThem" value="Thêm" id="btnThem"></td>
+                        <td colspan="2"><input type="submit" name="btnThem" class="btn btn-primary" value="Thêm" id="btnThem"></td>
                     </tr>
                 </table>
 

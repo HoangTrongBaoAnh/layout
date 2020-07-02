@@ -161,17 +161,7 @@ if (isset($_POST['btnSua'])) {
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 
 </head>
-<style>
-    tr,
-    td,
-    table {
-        border: 1px solid;
-    }
 
-    table {
-        border-collapse: collapse;
-    }
-</style>
 
 <body>
 
@@ -198,13 +188,13 @@ if (isset($_POST['btnSua'])) {
                 $datagame_row = mysqli_fetch_array($datagame);
                 ?>
 
-                <table style="width:100%">
+                <table style="width:100%" class="table table-bordered">
                     <tr>
-                        <th colspan="2" class="text-center">SỮA GAME</th>
+                        <th colspan="2" class="text-center">SỬA GAME</th>
                     </tr>
                     <tr>
                         <td>Tên Game</td>
-                        <td><input type="text" name="TenGame" value="<?php echo $datagame_row['tengame'] ?>"></td>
+                        <td><input type="text" name="TenGame" value="<?php echo $datagame_row['tengame'] ?>" class="form-control"></td>
                     </tr>
                     <tr>
                         <td>Thể loại</td>
@@ -267,61 +257,61 @@ if (isset($_POST['btnSua'])) {
                     </tr>
                     <tr>
                         <td>Giá</td>
-                        <td><input type="number" name="Gia" id="Gia" value="<?php echo $datagame_row['giatien'] ?>"></td>
+                        <td><input type="number" name="Gia" id="Gia" value="<?php echo $datagame_row['giatien'] ?>" class="form-control"></td>
                     </tr>
                     <tr>
                         <td>Năm</td>
-                        <td><input type="text" name="Nam" value="<?php echo $datagame_row['namphathanh'] ?>"></td>
+                        <td><input type="text" name="Nam" value="<?php echo $datagame_row['namphathanh'] ?>"class="form-control"></td>
                     </tr>
                     <tr>
                         <td>Trailer</td>
-                        <td><input type="url" name="urlVideo" id="video" value="<?php echo $datagame_row['trailer'] ?>"></td>
+                        <td><input type="url" name="urlVideo" id="video" value="<?php echo $datagame_row['trailer'] ?>"class="form-control"></td>
                     </tr>
                     <tr>
                         <td>Nhà phát hành</td>
-                        <td><input type="text" name="NhaPhatHanh" value="<?php echo $datagame_row['nhaphathanh'] ?>"></td>
+                        <td><input type="text" name="NhaPhatHanh" value="<?php echo $datagame_row['nhaphathanh'] ?>"class="form-control"></td>
                     </tr>
                     <!-- mini -->
                     <tr>
                         <td>os mini</td>
-                        <td><textarea name="os_mini" id="" cols="30" rows="10"><?php echo $datagame_row['os_mini'] ?></textarea></td>
+                        <td ><textarea class="form-control" name="os_mini" id="" ><?php echo $datagame_row['os_mini'] ?></textarea></td>
                     </tr>
                     <tr>
                         <td>processcor mini</td>
-                        <td><textarea name="processor_mini" id="" cols="30" rows="10"><?php echo $datagame_row['processor_mini'] ?></textarea></td>
+                        <td><textarea class="form-control" name="processor_mini" id="" ><?php echo $datagame_row['processor_mini'] ?></textarea></td>
                     </tr>
                     <tr>
                         <td>memory mini</td>
-                        <td><textarea name="memory_mini" id="" cols="30" rows="10"><?php echo $datagame_row['memory_mini'] ?></textarea></td>
+                        <td><textarea class="form-control" name="memory_mini" id="" ><?php echo $datagame_row['memory_mini'] ?></textarea></td>
                     </tr>
                     <tr>
                         <td>graphics mini</td>
-                        <td><textarea name="graphics_mini" id="" cols="30" rows="10"><?php echo $datagame_row['graphics_mini'] ?></textarea></td>
+                        <td><textarea class="form-control" name="graphics_mini" id="" ><?php echo $datagame_row['graphics_mini'] ?></textarea></td>
                     </tr>
                     <tr>
                         <td>harddrive mini</td>
-                        <td><textarea name="harddrive_mini" id="" cols="30" rows="10"><?php echo $datagame_row['harddrive_mini'] ?></textarea></td>
+                        <td><textarea class="form-control" name="harddrive_mini" id="" ><?php echo $datagame_row['harddrive_mini'] ?></textarea></td>
                     </tr>
                     <!-- recommend -->
                     <tr>
                         <td>os recommend</td>
-                        <td><textarea name="os_recommend" id="" cols="30" rows="10"><?php echo $datagame_row['os_recommend'] ?></textarea></td>
+                        <td><textarea class="form-control" name="os_recommend" id="" ><?php echo $datagame_row['os_recommend'] ?></textarea></td>
                     </tr>
                     <tr>
                         <td>processcor recommend</td>
-                        <td><textarea name="processor_recommend" id="" cols="30" rows="10"><?php echo $datagame_row['processor_recommend'] ?></textarea></td>
+                        <td><textarea class="form-control" name="processor_recommend" id="" ><?php echo $datagame_row['processor_recommend'] ?></textarea></td>
                     </tr>
                     <tr>
                         <td>memory recommend</td>
-                        <td><textarea name="memory_recommend" id="" cols="30" rows="10"><?php echo $datagame_row['memory_recommend'] ?></textarea></td>
+                        <td><textarea class="form-control" name="memory_recommend" id=""><?php echo $datagame_row['memory_recommend'] ?></textarea></td>
                     </tr>
                     <tr>
                         <td>graphics recommend</td>
-                        <td><textarea name="graphics_recommend" id="" cols="30" rows="10"><?php echo $datagame_row['graphics_recommend'] ?></textarea></td>
+                        <td><textarea class="form-control" name="graphics_recommend" id="" ><?php echo $datagame_row['graphics_recommend'] ?></textarea></td>
                     </tr>
                     <tr>
                         <td>harddrive recommend</td>
-                        <td><textarea name="harddrive_recommend" id="" cols="30" rows="10"><?php echo $datagame_row['harddrive_recommend'] ?></textarea></td>
+                        <td><textarea class="form-control" name="harddrive_recommend" id="" ><?php echo $datagame_row['harddrive_recommend'] ?></textarea></td>
                     </tr>
 
 
@@ -329,15 +319,15 @@ if (isset($_POST['btnSua'])) {
 
                     <tr>
                         <td>Nội dung</td>
-                        <td><textarea name="NoiDung" id="NoiDung" cols="30" rows="10"><?php echo $datagame_row['content'] ?></textarea></td>
+                        <td><textarea class="form-control" name="NoiDung" id="NoiDung" ><?php echo $datagame_row['content'] ?></textarea></td>
                     </tr>
                     <tr>
                         <td>Mô tả</td>
-                        <td><textarea name="MoTa" id="MoTa" cols="30" rows="10"><?php echo $datagame_row['mota'] ?></textarea></td>
+                        <td><textarea class="form-control" name="MoTa" id="MoTa"><?php echo $datagame_row['mota'] ?></textarea></td>
                     </tr>
 
                     <tr>
-                        <td colspan="2" class="text-center"><input type="submit" name="btnSua" value="Sửa"></input></td>
+                        <td colspan="2" class="text-center "><input type="submit" class="btn btn-primary" name="btnSua" value="Sửa"></input></td>
                     </tr>
                 </table>
             </form>
