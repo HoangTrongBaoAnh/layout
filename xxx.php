@@ -11,7 +11,7 @@ include_once "./lib/DataProvider.php";
 if(isset($_POST["btnLogin"])){
     $un=$_POST["acc"];
     $pass=$_POST["pass"];
-    $user=DataProvider::ExecuteQuery("SELECT * FROM user WHERE tendangnhap='$un' AND matkhau='$pass' ");
+    $user=DataProvider::ExecuteQuery("SELECT * FROM user WHERE tendangnhap='$un' AND matkhau='$pass' AND xacnhan=1 ");
     if(mysqli_num_rows($user)==1){
         $row=mysqli_fetch_array($user);
         $_SESSION['iduser']=$row['iduser'];
@@ -20,6 +20,7 @@ if(isset($_POST["btnLogin"])){
         $_SESSION['idgroup']=$row['idgroup'];
         $_SESSION['hinh']=$row['hinh'];
         $_SESSION['ten']=$row['ten'];
+        $_SESSION['xacnhan']=$row['xacnhan'];
         header("location:index.php");
     }
     
