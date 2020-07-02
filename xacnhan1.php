@@ -5,7 +5,7 @@
     $num=mysqli_num_rows($qr);
     if($num>0){
         $qr=DataProvider::ExecuteQuery("UPDATE user SET xacnhan=1 WHERE maxacnhan=$maxacnhan");
-        echo "cam ơn bạn đã xác nhận";
+        echo "<b> cam ơn bạn đã xác nhận </b>";
     }else{
         echo "xác nhận ko thành công";
     }

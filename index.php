@@ -338,7 +338,7 @@ include_once('lib/quantri.php');
                             </div>
                             <p style="margin-bottom: 2px;font-size: 18px; color: #b2bec3;" >Nhanh tay đặt ngay để nhận những phần quà hấp dẫn</p>
                             <p style="font-size: 18px; color: #b2bec3;">PRE-ORDER kết thúc vào cuối thàng 8/2020</p>
-                            <a href="gameDetail.php?idgame=36" class="btn btn-primary btn-lg">
+                            <a href="gameDetail.php?idgame=36" class="btn btn-outline-primary btn-lg">
                                 PRE-ORDER NOW!!
                             </a>
                         </div>

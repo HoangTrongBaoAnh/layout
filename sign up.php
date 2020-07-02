@@ -37,11 +37,13 @@ if(isset($_POST['btnsignup'])){
         $qr = "INSERT INTO user(tendangnhap,matkhau,email,ten,sdt,idgroup,hinh,xacnhan,maxacnhan) VALUES('$TenDN','$Pass','$Email','$ten','$sdt','$idgroup','$hinh','$xacnhan','$maxacnhan');
         ";
         DataProvider::ExecuteQuery($qr);
-        /*echo '<script type="text/javascript">';
-        echo 'setTimeout(function () { swal("một mail đã được gửi đến gmail của bạn vui lòng kiểm tra hòm thư để xác nhận","error");';
-        echo '}, 1000);</script>';*/
         $noidung="
-            <a href='http://localhost/layout/xacnhan1.php?code={$maxacnhan}'>bấm vào đây để xác nhận </a>
+            Xin chào $Email
+            <br>
+            cảm ơn bạn đã đăng ký tại khoản tại tại gamexamlo.com để xác nhận tài khoản vui lòng bấm vào nút bên dưới
+            <br>
+            <br>
+            <a style='padding:1em; font-weight:bold; background-color:blue; color:#fff;' href='http://localhost/layout/xacnhan1.php?code={$maxacnhan}'>VERIFY EMAIL</a>
         ";
         $title="email xac nhan";
         $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
@@ -73,6 +75,9 @@ if(isset($_POST['btnsignup'])){
         } catch (Exception $e) {
             echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
         }
+        echo '<script type="text/javascript">';
+        echo 'setTimeout(function () { swal("Đăng ký thành công","một mail đã được gửi đến gmail của bạn vui lòng kiểm tra hòm thư để xác nhận");';
+        echo '}, 1000);</script>';
     }else{
         echo '<script type="text/javascript">';
         echo 'setTimeout(function () { swal("Username đã được sử dụng !","Vui lòng sử dụng tên khác để đặt !","error");';
