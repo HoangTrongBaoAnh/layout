@@ -98,22 +98,25 @@ if(isset($_POST['price-min']) && isset($_POST['price-max'])){
         <div class="row">
             <!-- menu flit-->
             <style>
-                #bang tr {
-                    border-bottom: 1px solid rgb(182, 179, 179);
+                table td:nth-child(odd) {
+                    text-align: center;
                 }
+                .checkbox-primary input[type="checkbox"]:checked + label::before {
+                    background-color: #428bca;
+                    border-color: #428bca; }
             </style>
 
-            <div class="col-md-3 ml-2 border">
+            <div class="col-md-3 ml-4 border">
                 <form action="" method="POST">
-                    <table id="bang">
+                    <table id="bang" class="table mt-2" style="margin:0 auto;width: 100%">
                         <tr >
-                            <td colspan="2" class="text-center"><input type="text" placeholder="Tìm kiếm" name="txtTen"
+                            <td colspan="2" class="text-center "><input class="form-control" type="text" placeholder="Tìm kiếm" name="txtTen"
                                     class="m-4"></td>
 
                         </tr>
 
-                        <tr class="mt-4">
-                            <td><label class="ml-4">Thể loại: </label></td>
+                        <tr class="form-group">
+                            <td class="d-flex align-items-center"><label class="ml-4 form-check-label ">Thể loại: </label></td>
                             <td>
                                 <?php
                                     $tentheloai=laytheloai();
@@ -121,8 +124,9 @@ if(isset($_POST['price-min']) && isset($_POST['price-max'])){
 
                                     
                                 ?>
-                                <div class="ml-4">
-                                    <label class="mr-4"><input type="checkbox" name="idtheloai[]" id="idTL[]" value="<?php echo $row_tentheloai['idtheloai'] ?>"><?php echo $row_tentheloai['tentheloai'] ?> </label>
+                                <div class="custom-control custom-checkbox">
+                                    <input class="custom-control-input" id="<?php echo $row_tentheloai['idtheloai'] ?>" type="checkbox" name="idtheloai[]" value="<?php echo $row_tentheloai['idtheloai'] ?>">
+                                    <label class="custom-control-label" for="<?php echo $row_tentheloai['idtheloai'] ?>"><?php echo $row_tentheloai['tentheloai'] ?> </label>
                                 </div>
                                 <?php
                                     }
@@ -131,16 +135,16 @@ if(isset($_POST['price-min']) && isset($_POST['price-max'])){
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <label>Giá tiền:</label>
+                                <label class="form-check-label">Giá tiền:</label>
                             </td>
                         </tr>
                         <tr>
-                            <td><label>min: </label></td>
-                            <td> <input type="number" value="0" name="price-min"></td>
+                            <td><label class="form-check-label">Min:</label></td>
+                            <td> <input class="form-control" type="number" value="0" name="price-min"></td>
                         </tr>
                         <tr>
-                            <td><label>max: </label></td>
-                            <td> <input type="number" value="500000" name="price-max"></td>
+                            <td><label class="form-check-label">Max:</label></td>
+                            <td> <input class="form-control" type="number" value="500000" name="price-max"></td>
                         </tr>
                         <tr>
                             <td colspan="2" class="text-center"><input id="timkiem" name="btnTimKiemDanhMuc" type="submit" value="Tìm kiếm"

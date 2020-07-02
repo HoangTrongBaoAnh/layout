@@ -117,8 +117,8 @@ include_once("./../lib/quantri.php");
             array_push($mang, 0);
         }
             $count++;
-        }
-        $array_with_data = $mang;
+    }
+    $array_with_data = $mang;
     $data = json_encode($array_with_data);
     ?>
     <script>
