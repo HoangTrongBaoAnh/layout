@@ -188,14 +188,14 @@ if(isset($_POST['price-min']) && isset($_POST['price-max'])){
                         <div class="item-game-wrapper">
                             <a href="#">
                                 <div class="img">
-                                    <a href="gameDetail.php">
+                                    <a href="gameDetail.php?idgame=<?php echo $row_laygame['idgame']  ?>">
                                         <img height="150px" src="./image/hình/<?php echo $row_laygame['tenhinh'] ?>" alt=""
                                             class="check_img_errs">
                                     </a>
                                 </div>
                             </a>
                             <div class="item-info pb-2">
-                                <a href="/game-detail/gameDetail.html">
+                                <a href="gameDetail.php?idgame=<?php echo $row_laygame['idgame']  ?>">
                                     <div class="item-title"><?php echo $row_laygame['tengame'] ?></div>
                                 </a>
                                 <div class="item-price">
