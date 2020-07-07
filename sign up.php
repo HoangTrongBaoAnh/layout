@@ -43,7 +43,7 @@ if(isset($_POST['btnsignup'])){
             cảm ơn bạn đã đăng ký tại khoản tại tại gamexamlo.com để xác nhận tài khoản vui lòng bấm vào nút bên dưới
             <br>
             <br>
-            <a style='padding:1em; font-weight:bold; background-color:blue; color:#fff;' href='http://localhost/layout/xacnhan1.php?code={$maxacnhan}'>VERIFY EMAIL</a>
+            <a style='padding:1em; font-weight:bold; background-color:blue; color:#fff;' href='http://gamexamlo.unaux.com/layout/xacnhan1.php?code={$maxacnhan}'>VERIFY EMAIL</a>
         ";
         $title="email xac nhan";
         $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
