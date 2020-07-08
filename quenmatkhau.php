@@ -46,7 +46,7 @@ if (isset($_SESSION['iduser'])) {
                     <br>
                     Chúc mừng anh/chị đã lấy lại tài khoản thành công vui lòng hãy thay đổi mật khẩu ngay khi đăng nhập vào
                     <br>
-                    Username: {$qr2}
+                    Username:
                     <br>
                     Password: {$mk}
                 ";
