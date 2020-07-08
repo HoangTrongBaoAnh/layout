@@ -87,7 +87,7 @@ if(isset($_POST["btnLogin"])){
             <input type="button" value="Sign up">
         </a>
         <br>
-        <a href="#" target="_blank">Forgot Password?</a>
+        <a href="quenmatkhau.php" target="_blank">Forgot Password?</a>
     </form>
     
 </body>
