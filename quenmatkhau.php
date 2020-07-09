@@ -35,11 +35,12 @@ if (isset($_SESSION['iduser'])) {
         require 'vendor/autoload.php';
         if(isset($_REQUEST['btnsignup'])){
             $email=$_REQUEST['email'];
-            $qr=DataProvider::ExecuteQuery("SELECT * FROM user WHERE email='$email'");
+            $tendangnhap=$_REQUEST['tendangnhap'];
+            $qr=DataProvider::ExecuteQuery("SELECT * FROM user WHERE email='$email' AND tendangnhap='$tendangnhap'");
             if(mysqli_num_rows($qr) == 1){
                 $char="0123456789abcdefghijklmnopqrstuvwxyz";
                 $mk=substr(str_shuffle($char), 0, 5);
-                $qr1="UPDATE `user` SET `matkhau` = '$mk' WHERE `user`.`email` = '$email'";
+                $qr1="UPDATE `user` SET `matkhau` = '$mk' WHERE `user`.`tendangnhap` = '$tendangnhap'";
                 DataProvider::ExecuteQuery($qr1);
                 $noidung="
                     Xin chào $Email
@@ -80,9 +81,7 @@ if (isset($_SESSION['iduser'])) {
                 } catch (Exception $e) {
                     echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
                 }
-                echo '<script type="text/javascript">';
-                echo 'setTimeout(function () { swal("Xác nhận thành công","vui lòng kiểm tra hòm thư để lấy lại tài khoản");';
-                echo '}, 1000);</script>';
+                header("location:xxx.php?p='thanhcong'");
             }else{
                 echo '<script type="text/javascript">';
                 echo 'setTimeout(function () { swal("Xác nhận không thành công","vui lòng kiểm tra lại email ");';
@@ -99,8 +98,9 @@ if (isset($_SESSION['iduser'])) {
     <div>
         <!-- <img src="985672.jpg" width="100%" height="100%"> -->
         <form method="POST" action="#" class="box" style="margin-top:100px" id="sign_up">
-            <h4>Nhập email mà bạn đã đăng ký</h4>
-            <input type="text" name="email">
+            <h4>Lấy Lại Tài Khoản</h4>
+            <input type="text" name="tendangnhap" placeholder="Username">
+            <input type="text" name="email" placeholder="Email">
             <input name="btnsignup" type="submit" value="Gửi">
         </form>
     
