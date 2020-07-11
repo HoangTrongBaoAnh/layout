@@ -14,6 +14,7 @@ include_once "./lib/DataProvider.php";
         echo '<script type="text/javascript">';
         echo 'setTimeout(function () { swal("Xác nhận thành công","vui lòng kiểm tra hòm thư của bạn");';
         echo '}, 1000);</script>';
+
     }
 ?>
 <?php
@@ -31,6 +32,11 @@ if(isset($_POST["btnLogin"])){
         $_SESSION['ten']=$row['ten'];
         $_SESSION['xacnhan']=$row['xacnhan'];
         header("location:index.php");
+    }
+    else{
+        echo '<script type="text/javascript">';
+        echo 'setTimeout(function () { swal("Đăng Nhập Thất Bại","vui lòng kiểm tra tài khoản mật khẩu");';
+        echo '}, 1000);</script>';
     }
     
 }
